@@ -1,0 +1,14 @@
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      static/css/bobpol.css: {}
+
+bottom-scripts:
+  version: VERSION
+  js:
+    static/js/popper.min.js: {scope: bottom}
+    static/js/bootstrap.min.js: {scope: bottom}
+    static/js/hide_password_help.min.js: {scope: bottom}
+  dependencies:
+    - core/jquery
