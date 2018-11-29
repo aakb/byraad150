@@ -1,0 +1,44 @@
+﻿.hero {
+  display: flex;
+  flex-direction: column;
+  @include media-breakpoint-up(sm) {
+    flex-direction: row;
+  }
+  &-image, &-text {
+    width: 100%;
+    flex: 1 1 100%;
+    @include media-breakpoint-up(sm) {
+      width: 50%;
+      flex: 1 1 50%;
+    }
+  }
+  &-image {
+    img {
+      object-fit: cover;
+      width: auto;
+      max-width: 100%;
+    }
+  }
+  &-text {
+    background-color: $primary;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: $spacer*3;
+    color: $white;
+    &-title, &-lead {
+      margin: 0;
+    }
+    &-title {
+      font-weight: 900;
+      margin-bottom: $spacer;
+      @include media-breakpoint-up(sm) {
+        font-size: $font-size-title-h1*1.2;
+      }
+      @include underline($white, $spacer*6);
+    }
+    &-lead {
+      font-size: $font-size-lead;
+    }
+  }
+}

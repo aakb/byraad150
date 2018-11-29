@@ -1,0 +1,13 @@
+name: byraad150
+type: theme
+description: 'byraad150 custom theme'
+
+libraries:
+  - byraad150_theme/global-styling
+
+regions:
+  pagetop: 'Page top'
+  content: 'Content'
+  footer: 'Page footer'
+
+core: '8.x'
