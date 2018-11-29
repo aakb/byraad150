@@ -1,0 +1,20 @@
+uuid: c9f3b4ce-6ea5-44ef-9b63-24f9c14c7a51
+langcode: da
+status: true
+dependencies:
+  module:
+    - itk_admin_links
+  theme:
+    - byraad150_theme
+id: byraad150_theme_itkadminlinks
+theme: byraad150_theme
+region: footer
+weight: -1
+provider: null
+plugin: itk_admin_links
+settings:
+  id: itk_admin_links
+  label: 'ITK Admin links'
+  provider: itk_admin_links
+  label_display: '0'
+visibility: {  }

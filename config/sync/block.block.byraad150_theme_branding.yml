@@ -1,0 +1,25 @@
+uuid: 51a1a50b-bb0a-4769-9128-34e22a3add46
+langcode: da
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - byraad150_theme
+_core:
+  default_config_hash: fRKXNB91UxDvEMkzCR8ZBsawfC6Fqbme2gtobei3gu4
+id: byraad150_theme_branding
+theme: byraad150_theme
+region: footer
+weight: -3
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

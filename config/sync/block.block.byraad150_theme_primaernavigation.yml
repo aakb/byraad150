@@ -1,0 +1,24 @@
+uuid: 3afc9f56-60a9-43f5-810e-af6a81f92bc0
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - byraad150_theme
+id: byraad150_theme_primaernavigation
+theme: byraad150_theme
+region: pagetop
+weight: -4
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Primær navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility: {  }

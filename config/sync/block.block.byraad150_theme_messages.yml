@@ -1,0 +1,22 @@
+uuid: de3ec791-d211-417c-a562-8b89a9e17ebc
+langcode: da
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - byraad150_theme
+_core:
+  default_config_hash: 5MNdk3fpMKx_xxBTcz2T11DL4XEU1H5SgHl8BsYdFsA
+id: byraad150_theme_messages
+theme: byraad150_theme
+region: pagetop
+weight: -3
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }
