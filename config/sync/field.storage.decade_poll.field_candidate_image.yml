@@ -1,0 +1,30 @@
+uuid: 1a2e7437-314c-4027-99bb-5985bfd8feed
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+    - file
+    - image
+id: decade_poll.field_candidate_image
+field_name: field_candidate_image
+entity_type: decade_poll
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

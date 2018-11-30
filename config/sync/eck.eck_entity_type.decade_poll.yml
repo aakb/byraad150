@@ -1,0 +1,10 @@
+uuid: 4f168cd3-c09a-422d-b31a-a5cf28fcb3c6
+langcode: da
+status: true
+dependencies: {  }
+id: decade_poll
+label: 'Årti afstemning'
+created: false
+changed: false
+uid: false
+title: true

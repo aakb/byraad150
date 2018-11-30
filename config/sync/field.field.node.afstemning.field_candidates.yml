@@ -1,0 +1,30 @@
+uuid: 22feb36f-4d90-415b-9029-094cf97f132f
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.decade_poll.decade_poll_candidate
+    - field.storage.node.field_candidates
+    - node.type.afstemning
+  module:
+    - bricks
+id: node.afstemning.field_candidates
+field_name: field_candidates
+entity_type: node
+bundle: afstemning
+label: Kandidater
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:decade_poll'
+  handler_settings:
+    target_bundles:
+      decade_poll_candidate: decade_poll_candidate
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: ''
+field_type: bricks

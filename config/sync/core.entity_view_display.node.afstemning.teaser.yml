@@ -1,0 +1,31 @@
+uuid: b34fbfc0-e2ea-47e6-be9a-357ffd3a0765
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.afstemning.body
+    - node.type.afstemning
+  module:
+    - text
+    - user
+id: node.afstemning.teaser
+targetEntityType: node
+bundle: afstemning
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

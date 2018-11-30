@@ -1,0 +1,11 @@
+uuid: b9bb60fc-7bdb-441f-9231-6f6eaf933b7d
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.afstemning
+id: node.afstemning
+target_entity_type_id: node
+target_bundle: afstemning
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,19 @@
+uuid: 592ef10e-160b-438d-a7f6-2e8de5ea6ed1
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+id: decade_poll.field_candidate_image_text
+field_name: field_candidate_image_text
+entity_type: decade_poll
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

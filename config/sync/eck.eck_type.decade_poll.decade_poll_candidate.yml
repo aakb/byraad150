@@ -1,0 +1,9 @@
+uuid: ed98ddf5-7425-4d7f-bd7d-ea7aad8ebfe2
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.decade_poll
+name: Kandidat
+type: decade_poll_candidate
+description: 'Kandidat der kan stemmes på i en afstemning'

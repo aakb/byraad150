@@ -1,0 +1,57 @@
+uuid: 922f339c-0e53-4dba-b65c-4cf4dc2893ac
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.afstemning.body
+    - field.field.node.afstemning.field_candidates
+    - node.type.afstemning
+  module:
+    - inline_entity_form
+    - text
+id: node.afstemning.default
+targetEntityType: node
+bundle: afstemning
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 1
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_candidates:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

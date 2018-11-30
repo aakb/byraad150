@@ -1,0 +1,21 @@
+uuid: ce3e83e1-7ed5-4e9f-a543-d9d250ff1aae
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.decade_poll.decade_poll_candidate
+    - field.storage.decade_poll.field_candidate_description
+  module:
+    - text
+id: decade_poll.decade_poll_candidate.field_candidate_description
+field_name: field_candidate_description
+entity_type: decade_poll
+bundle: decade_poll_candidate
+label: Beskrivelse
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

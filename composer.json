@@ -39,6 +39,7 @@
         "drupal/itk_cookie_message": "^1.0",
         "drupal/itk_siteimprove": "^1.0",
         "drupal/pathauto": "^1.2",
+        "drupal/poll": "^1.2",
         "drupal/toolbar_visibility": "^1.2",
         "drush/drush": "^9.5",
         "vlucas/phpdotenv": "^2.4",

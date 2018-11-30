@@ -1,0 +1,19 @@
+uuid: 4ec0e111-7f9b-429f-a55b-97eded15f770
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.decade_poll.decade_poll_candidate
+    - field.storage.decade_poll.field_candidate_image_text
+id: decade_poll.decade_poll_candidate.field_candidate_image_text
+field_name: field_candidate_image_text
+entity_type: decade_poll
+bundle: decade_poll_candidate
+label: 'Billede tekst'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

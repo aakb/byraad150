@@ -1,0 +1,21 @@
+uuid: 8e813046-72d6-4e2a-a663-fdfb4efe2110
+langcode: da
+status: true
+dependencies:
+  module:
+    - bricks
+    - eck
+    - node
+id: node.field_candidates
+field_name: field_candidates
+entity_type: node
+type: bricks
+settings:
+  target_type: decade_poll
+module: bricks
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: 9e3c7255-0e83-43eb-8737-b72d391584c5
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+    - text
+id: decade_poll.field_candidate_description
+field_name: field_candidate_description
+entity_type: decade_poll
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

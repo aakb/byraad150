@@ -1,0 +1,18 @@
+uuid: 2f88fed6-f08f-4fd6-bb6b-1774cfc3f88a
+langcode: da
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:menu_link_content:25ec9e4a-8be3-4ff2-b132-73a30211b021'
+name: Afstemning
+type: afstemning
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

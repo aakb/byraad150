@@ -1,0 +1,38 @@
+uuid: 7481561c-f20b-4d1c-83fa-38f8aca542d0
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.decade_poll.decade_poll_candidate
+    - field.storage.decade_poll.field_candidate_image
+  module:
+    - image
+id: decade_poll.decade_poll_candidate.field_candidate_image
+field_name: field_candidate_image
+entity_type: decade_poll
+bundle: decade_poll_candidate
+label: Billede
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: images/candidates
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image
