@@ -1,5 +1,0 @@
-name: Bobpol user
-type: module
-description: 'Adds user configuration specific to Bobpol'
-package: Bobpol
-core: '8.x'

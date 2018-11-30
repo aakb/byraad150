@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75be6043835c7386ea5814ae4819b293",
+    "content-hash": "ebbc2618e735fc85d6c46a89f28ba9d8",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2766,65 +2766,6 @@
             "support": {
                 "source": "http://git.drupal.org/project/eck.git",
                 "issues": "https://www.drupal.org/project/issues/eck"
-            }
-        },
-        {
-            "name": "drupal/email_registration",
-            "version": "1.0.0-rc5",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/email_registration",
-                "reference": "8.x-1.0-rc5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/email_registration-8.x-1.0-rc5.zip",
-                "reference": "8.x-1.0-rc5",
-                "shasum": "8e068ad37077bb3937150155ce13617d98b9b6b1"
-            },
-            "require": {
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-rc5",
-                    "datestamp": "1491318182",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Chris Herberte",
-                    "homepage": "https://www.drupal.org/user/1171"
-                },
-                {
-                    "name": "andypost",
-                    "homepage": "https://www.drupal.org/user/118908"
-                },
-                {
-                    "name": "greggles",
-                    "homepage": "https://www.drupal.org/user/36762"
-                },
-                {
-                    "name": "moshe weitzman",
-                    "homepage": "https://www.drupal.org/user/23"
-                }
-            ],
-            "description": "Allows users to register with an e-mail address as their username.",
-            "homepage": "https://www.drupal.org/project/email_registration",
-            "support": {
-                "source": "http://cgit.drupalcode.org/email_registration"
             }
         },
         {
@@ -6628,7 +6569,6 @@
         "drupal/better_exposed_filters": 15,
         "drupal/cer": 15,
         "drupal/eck": 15,
-        "drupal/email_registration": 5,
         "drupal/entityqueue": 15,
         "drupal/flag": 15,
         "drupal/inline_entity_form": 5
