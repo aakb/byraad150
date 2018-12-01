@@ -1,4 +1,4 @@
-uuid: c78f0d3c-7f1b-4a43-9822-5d2b93088c47
+uuid: 24c02b3a-0864-40b6-b792-8e300f8f3ace
 langcode: da
 status: true
 dependencies:
@@ -7,11 +7,10 @@ dependencies:
 id: decade_poll.field_candidate_year
 field_name: field_candidate_year
 entity_type: decade_poll
-type: string
+type: integer
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

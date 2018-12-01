@@ -1,4 +1,4 @@
-uuid: 8fa23a3e-d1fe-41e0-9105-0b2bfe9f7912
+uuid: 859cc290-420d-4502-afd0-baf761a56e7c
 langcode: da
 status: true
 dependencies:
@@ -9,11 +9,15 @@ id: decade_poll.decade_poll_candidate.field_candidate_year
 field_name: field_candidate_year
 entity_type: decade_poll
 bundle: decade_poll_candidate
-label: Årstal
+label: Året
 description: ''
 required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  min: 1860
+  max: 2010
+  prefix: ''
+  suffix: ''
+field_type: integer

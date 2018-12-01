@@ -8,6 +8,7 @@ dependencies:
     - field.field.decade_poll.decade_poll_candidate.field_candidate_image
     - field.field.decade_poll.decade_poll_candidate.field_candidate_image_text
     - field.field.decade_poll.decade_poll_candidate.field_candidate_year
+    - field.field.decade_poll.decade_poll_candidate.field_winner
     - image.style.thumbnail
   module:
     - image
@@ -18,7 +19,7 @@ bundle: decade_poll_candidate
 mode: default
 content:
   field_candidate_description:
-    weight: 2
+    weight: 1
     settings:
       rows: 5
       placeholder: ''
@@ -42,13 +43,19 @@ content:
     type: string_textarea
     region: content
   field_candidate_year:
-    weight: 1
+    weight: 2
     settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: number
     region: content
+  field_winner:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0

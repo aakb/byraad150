@@ -15,3 +15,15 @@ function byraad150_theme_preprocess_region__footer(&$variables) {
     $variables['footer_fourth'] = $config->get('footer_text_4th');
   }
 }
+
+
+/**
+ * Implements hook_preprocess_node().
+ *
+ * Change eck entity.
+ */
+function byraad150_theme_preprocess_eck_entity(&$variables) {
+  if ($variables['bundle'] == 'decade_poll_candidate') {
+    $variables['decade'] = substr($variables['elements']['field_candidate_year'][0]['#markup'], 0, -1) . '0';
+  }
+}
