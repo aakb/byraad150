@@ -41,5 +41,4 @@ class AarhusHero extends BlockBase {
       ),
     );
   }
-
 }

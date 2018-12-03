@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.afstemning.body
     - field.field.node.afstemning.field_candidates
+    - field.field.node.afstemning.field_poll_ref
     - node.type.afstemning
   module:
     - bricks
@@ -31,6 +32,15 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+  field_poll_ref:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
   links:
     weight: 0
     region: content

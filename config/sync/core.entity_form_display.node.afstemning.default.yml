@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.afstemning.body
     - field.field.node.afstemning.field_candidates
+    - field.field.node.afstemning.field_poll_ref
     - node.type.afstemning
   module:
     - inline_entity_form
@@ -38,6 +39,15 @@ content:
       allow_duplicate: false
     third_party_settings: {  }
     type: inline_entity_form_complex
+    region: content
+  field_poll_ref:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   title:
     type: string_textfield

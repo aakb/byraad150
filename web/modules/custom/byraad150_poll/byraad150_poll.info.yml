@@ -1,0 +1,5 @@
+name: Byraad 150 poll
+type: module
+description: 'Adds poll configuration for Byraad 150.'
+package: Byraad 150
+core: '8.x'

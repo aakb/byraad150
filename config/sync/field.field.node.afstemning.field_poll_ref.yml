@@ -1,0 +1,25 @@
+uuid: b78ee839-edf5-4da0-ae5d-1cfc37ff2edf
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_poll_ref
+    - node.type.afstemning
+id: node.afstemning.field_poll_ref
+field_name: field_poll_ref
+entity_type: node
+bundle: afstemning
+label: Poll
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:poll'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

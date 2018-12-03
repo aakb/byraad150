@@ -1,0 +1,54 @@
+<?php
+
+use Drupal\poll\Entity\Poll;
+
+
+function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
+  if(!empty($node->original)) {
+    // Change poll.
+    $node_candidates = $node->field_candidates->getValue();
+    $original_candidates = $node->original->field_candidates->getValue();
+    // Trim the candidates arrays so we can compare.
+    foreach ($node_candidates as $delta => $value) {
+      unset($node_candidates[$delta]['weight']);
+      unset($node_candidates[$delta]['form']);
+      unset($node_candidates[$delta]['needs_save']);
+    }
+    foreach ($original_candidates as $delta => $value) {
+      unset($original_candidates[$delta]['depth']);
+      unset($original_candidates[$delta]['options']);
+    }
+
+    // Check for changes in candidates field.
+    if ($node_candidates != $original_candidates) {
+      $removed_candidates = array_map('unserialize', array_diff(
+          array_map('serialize', $original_candidates),
+          array_map('serialize', $node_candidates))
+      );
+      $added_candidates = array_map('unserialize', array_diff(
+        array_map('serialize', $node_candidates),
+        array_map('serialize', $original_candidates))
+      );
+    }
+  }
+  else {
+    // Create poll
+    $poll = Poll::create(array(
+      'id' => 'poll',
+      'uid' => '1',
+      'question' => 'What is your favorite color?',
+      /*
+      'choice' => entity_create('poll_choice', array(
+        'id' => 'poll_choice',
+        'label' => 'choice',
+        'langcode' => 'en',
+        'choice' => array('Red' , 'Blue'),  // this line do not help me to create multiple option for choice.
+      )),
+      */
+      'anonymous_vote_allow' => '1',
+      'result_vote_allow' => '1',
+      'status' => '1',
+    ));
+    $poll->save();
+  }
+}
