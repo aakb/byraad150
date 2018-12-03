@@ -6,10 +6,10 @@
     background-size: cover;
     z-index: -1;
   }
-  &-orange {
-    background-color: $orange;
+  &-primary {
+    background-color: $primary;
   }
-  &-gray {
+  &-gray-100 {
     background-color: $gray-100;
   }
 }

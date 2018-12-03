@@ -21,12 +21,28 @@
     content: "";
     display: block;
     position: absolute;
+    left: 0;
+    bottom: -$spacer;
     width: $size;
-    height: $spacer/4;
+    height: $spacer/3;
     background-color: $color;
-    transform: translate3d(0, 0, 0);
+    transform-origin: left;
     animation-duration: 1s;
     animation-fill-mode: both;
-    animation-name: bounceInRight;
+    animation-name: growRight;
+  }
+}
+
+@mixin sectionPadding {
+  padding-top: $spacer*3;
+  padding-bottom: $spacer*3;
+}
+
+@mixin transition($property: all, $direction: in) {
+  @if $direction == "in" {
+    transition: $property .2s ease-in;
+  }
+  @else {
+    transition: $property .4s ease-out;
   }
 }

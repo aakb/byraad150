@@ -25,15 +25,23 @@
     flex-direction: column;
     justify-content: center;
     padding-left: $spacer*3;
-    color: $white;
+    padding-right: $spacer*3;
+    &:hover {
+      text-decoration: none;
+      &-title, &-lead {
+        color: $blue-light;
+      }
+    }
     &-title, &-lead {
+      color: $white;
       margin: 0;
     }
     &-title {
+      position: relative;
       font-weight: 900;
-      margin-bottom: $spacer;
+      margin-bottom: $spacer*1.5;
       @include media-breakpoint-up(sm) {
-        font-size: $font-size-title-h1*1.2;
+        font-size: $font-size-title-h1*1.1;
       }
       @include underline($white, $spacer*6);
     }

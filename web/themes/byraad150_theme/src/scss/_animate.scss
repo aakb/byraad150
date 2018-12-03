@@ -1,4 +1,4 @@
-@keyframes bounceInRight {
+@keyframes growRight {
   from,
   60%,
   75%,
@@ -9,23 +9,28 @@
 
   from {
     opacity: 0;
-    transform: translate3d(-3000px, 0, 0);
+    /*transform: translate3d(-3000px, 0, 0);*/
+    transform: scaleX(1)
   }
 
   60% {
     opacity: 1;
-    transform: translate3d(25px, 0, 0);
+    //transform: translate3d(25px, 0, 0);
+    transform: scaleX(1.3)
   }
 
   75% {
-    transform: translate3d(-10px, 0, 0);
+    //transform: translate3d(-10px, 0, 0);
+    transform: scaleX(.9)
   }
 
   90% {
-    transform: translate3d(5px, 0, 0);
+    //transform: translate3d(5px, 0, 0);
+    transform: scaleX(1.05)
   }
 
   to {
-    transform: translate3d(0, 0, 0);
+    //transform: translate3d(0, 0, 0);
+    transform: scaleX(1)
   }
 }

@@ -1,0 +1,55 @@
+// Styling for the poll componenets.
+
+.poll {
+  &-teaser {
+    @include sectionPadding;
+    &-title {
+      margin-bottom: $spacer*2;
+    }
+    &-item {
+      $p: &; // Declare parent as a variable
+      display: flex;
+      flex-direction: column;
+      box-sizing: content-box;
+      @include transition(outline, in);
+      outline: solid $spacer/4 transparent;
+      outline-offset: $spacer/4;
+      margin-bottom: $spacer;
+      &-image {}
+      &-year {
+        background-color: $primary;
+        color: $white;
+        @include media-breakpoint-up(sm) {
+          width: 50%;
+          align-self: flex-end;
+          margin-top: -$spacer*.75;
+          margin-right: $spacer/2;
+          text-align: center;
+        }
+      }
+      &-choice {
+        background-color: $primary;
+        color: $white;
+        text-align: center;
+        visibility: hidden;
+        opacity: 0;
+        @include transition(opacity, in);
+      }
+      &:hover, &.is-active {
+        background-coler: $white;
+        outline: solid $spacer/4 $primary;
+        @include transition(outline, out);
+      }
+      &:hover #{$p}-choice, &.is-active #{$p}-choice {
+        visibility: visible;
+        opacity: 1;
+        @include transition(opacity, out);
+      }
+    }
+    &-btns {
+      text-align: center;
+      margin-top: $spacer;
+      margin-bottom: $spacer;
+    }
+  }
+}
