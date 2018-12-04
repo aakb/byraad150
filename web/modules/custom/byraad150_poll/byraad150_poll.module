@@ -1,54 +1,129 @@
 <?php
 
 use Drupal\poll\Entity\Poll;
+use Drupal\poll\Entity\PollChoice;
 
-
+/**
+ * Automatically create or change a poll when saving a node
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $node
+ */
 function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
-  if(!empty($node->original)) {
-    // Change poll.
-    $node_candidates = $node->field_candidates->getValue();
-    $original_candidates = $node->original->field_candidates->getValue();
-    // Trim the candidates arrays so we can compare.
-    foreach ($node_candidates as $delta => $value) {
-      unset($node_candidates[$delta]['weight']);
-      unset($node_candidates[$delta]['form']);
-      unset($node_candidates[$delta]['needs_save']);
-    }
-    foreach ($original_candidates as $delta => $value) {
-      unset($original_candidates[$delta]['depth']);
-      unset($original_candidates[$delta]['options']);
-    }
+  if ($node->bundle() == 'afstemning') {
+    // Change existing poll.
+    if(!empty($node->original)) {
+      // Change poll.
+      $node_candidates = $node->field_candidates->getValue();
+      $original_candidates = $node->original->field_candidates->getValue();
+      // Trim the candidates arrays so we can compare.
+      foreach ($node_candidates as $delta => $value) {
+        unset($node_candidates[$delta]['weight']);
+        unset($node_candidates[$delta]['form']);
+        unset($node_candidates[$delta]['needs_save']);
+      }
+      foreach ($original_candidates as $delta => $value) {
+        unset($original_candidates[$delta]['depth']);
+        unset($original_candidates[$delta]['options']);
+      }
 
-    // Check for changes in candidates field.
-    if ($node_candidates != $original_candidates) {
-      $removed_candidates = array_map('unserialize', array_diff(
-          array_map('serialize', $original_candidates),
-          array_map('serialize', $node_candidates))
-      );
-      $added_candidates = array_map('unserialize', array_diff(
-        array_map('serialize', $node_candidates),
-        array_map('serialize', $original_candidates))
-      );
+      // Check for changes in candidates field.
+      if ($node_candidates != $original_candidates) {
+        $removed_candidates = array_map('unserialize', array_diff(
+            array_map('serialize', $original_candidates),
+            array_map('serialize', $node_candidates))
+        );
+        $added_candidates = array_map('unserialize', array_diff(
+            array_map('serialize', $node_candidates),
+            array_map('serialize', $original_candidates))
+        );
+      }
+
+      // Add candidates to poll.
+      if (!empty($added_candidates)) {
+        foreach ($added_candidates as $candidate) {
+          $cand = \Drupal::entityTypeManager()->getStorage('decade_poll')->load($candidate['target_id']);
+          $poll_choice = PollChoice::create(array(
+            'langcode' => 'da',
+            'choice' => $cand->label()
+          ));
+          $poll_choice->save();
+
+          $poll = Poll::load($node->field_poll_ref->target_id);
+          $poll->choice[] = ['target_id' => $poll_choice->id()];
+          $poll->save();
+        }
+      }
+
+      $remaining_candidate_labels = [];
+      $candidates = $node->field_candidates->getValue();
+      foreach ($candidates as $key => $value) {
+        $cand = \Drupal::entityTypeManager()->getStorage('decade_poll')->load($value['target_id']);
+        $remaining_candidate_labels[] = $cand->label();
+      }
+
+      // Table merge poll__choice and poll_choice_field_data to get poll labels.
+      $query = \Drupal::database()->select('poll__choice', 'p')->fields('p');
+      $query->condition('p.entity_id', $node->field_poll_ref->target_id, '=');
+      $query->condition('p.bundle', 'poll', '=');
+      $query->leftJoin('poll_choice_field_data', 'f', 'f.id = p.choice_target_id');
+      $query->fields('f');
+      $results = $query->execute()->fetchAll();
+
+      // If candidates have been removed loop through titles.
+      if(!empty($removed_candidates)) {
+        foreach ($results as $key => $choice) {
+          if (!in_array($choice->choice, $remaining_candidate_labels) && $choice->choice != null) {
+
+            // Delete poll choice that has no corresponding decade.
+            $choice_ent =\Drupal::entityTypeManager()->getStorage('poll_choice')->load($choice->choice_target_id);
+            \Drupal::entityTypeManager()->getStorage('poll_choice')->delete([$choice_ent]);
+
+            // Remove the poll choice reference from the poll.
+            $poll_ent = \Drupal::entityTypeManager()->getStorage('poll')->load($choice->entity_id);
+            $choice_values = $poll_ent->get('choice')->getValue();
+            $choice_values_key = array_search($choice->choice_target_id, array_column($choice_values, 'target_id'));
+            $poll_ent->get('choice')->removeItem($choice_values_key);
+            $poll_ent->save();
+          }
+        }
+      }
+    }
+    // Create new poll.
+    else {
+      $candidates = $node->field_candidates->getValue();
+      // Create poll choices for each candidate.
+      $choices = [];
+      foreach ($candidates as $candidate) {
+        $cand = \Drupal::entityTypeManager()->getStorage('decade_poll')->load($candidate['target_id']);
+        $poll_choice = PollChoice::create(array(
+          'langcode' => 'da',
+          'choice' => $cand->label()
+        ));
+        $poll_choice->save();
+        $choices[] = $poll_choice->id();
+      }
+
+      // Create poll.
+      $poll = Poll::create(array(
+        'uid' => '1',
+        'langcode' => 'da',
+        'question' => 'Poll:' . $node->label(),
+        'anonymous_vote_allow' => '1',
+        'result_vote_allow' => '0',
+        'status' => '1',
+        'choice' => []
+      ));
+
+      // Append poll choices to poll.
+      foreach($choices as $target_id){
+        $poll->choice->appendItem($target_id);
+      }
+
+      $poll->save();
+
+      // Reference poll from node.
+      $node->field_poll_ref->target_id = $poll->id();
     }
   }
-  else {
-    // Create poll
-    $poll = Poll::create(array(
-      'id' => 'poll',
-      'uid' => '1',
-      'question' => 'What is your favorite color?',
-      /*
-      'choice' => entity_create('poll_choice', array(
-        'id' => 'poll_choice',
-        'label' => 'choice',
-        'langcode' => 'en',
-        'choice' => array('Red' , 'Blue'),  // this line do not help me to create multiple option for choice.
-      )),
-      */
-      'anonymous_vote_allow' => '1',
-      'result_vote_allow' => '1',
-      'status' => '1',
-    ));
-    $poll->save();
-  }
+
 }
