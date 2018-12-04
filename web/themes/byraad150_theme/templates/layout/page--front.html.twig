@@ -54,7 +54,7 @@
 {# Frontpage hero #}
 <div class="hero row">
   <div class="hero-image">
-    <img src="//placehold.it/768x480" alt="Placehold">
+    <img src="/{{ directory }}/images/Politi.jpg" alt="Politi">
     {# {{ config.hero_image }} #}
   </div>
   <a href="/" class="hero-text">
@@ -67,22 +67,22 @@
 
 <div class="container-fluid poll-teaser bg-gray-100">
   <div class="row">
-    <div class="col-sm-11 offset-sm-1 ">
+    <div class="col-sm-10 offset-sm-1 ">
       <h2 class="poll-teaser-title">Stem på din favorit i 1860'erne</h2>
     </div>
 
     {% for i in range(0, 4) %}
     {# Poll candidate #1 #}
-    <div class="col-6 col-sm-4 col-md-2 {% if loop.index == 1 %}offset-md-1{% endif %}">
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 {% if loop.index == 1 %}offset-lg-1{% endif %}">
       <div class="poll-teaser-item">
         <div class="poll-teaser-item-image">
-            <img src="//placehold.it/400x400" alt="Placeholder" class="img-fluid">
+            <img src="/{{ directory }}/images/Politi.jpg" alt="Politi" class="img-fluid">
           </div>
           <div class="poll-teaser-item-year">
             <span>1869</span>
           </div>
           <div class="poll-teaser-item-title">
-            <p>Byrådet fyrer hele politistyrken - og opbygger i stedet et moderne politikorps</p>
+            <h3>Byrådet fyrer hele politistyrken - og opbygger i stedet et moderne politikorps</h3>
           </div>
           <div class="poll-teaser-item-choice">
             <span>Vælg</span>
@@ -108,26 +108,75 @@
     </div>
 
     {% for i in range(0, 2) %}
-    <div class="col-sm-4{% if loop.index == 1 %}{% endif %}">
-      <div class="news-teaser-item">
+    <div class="col-sm-4">
+      <a href="/" class="news-teaser-item">
         <div class="news-teaser-item-image">
-            <img src="//placehold.it/768x480" alt="Placeholder" class="img-fluid">
+            <img src="/{{ directory }}/images/Politi.jpg" alt="Placeholder">
           </div>
           <div class="news-teaser-item-title">
-            <p>Titel</p>
+            <h3>Titel</h3>
           </div>
           <div class="news-teaser-item-description">
             <p>Beskrivlse</p>
           </div>
-      </div>
+      </a>
     </div>
     {% endfor %}
 
+    <div class="col-sm-12 news-teaser-btns">
+      <button type="button" name="" id="" class="btn btn-primary btn-lg">Se flere nyheder</button>
+    </div>
   </div>
 </div>
 
 
+{# Årti vindere #}
 
+<div class="container-fluid poll-winners">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2 class="poll-winners-title">Årti vindere</h2>
+    </div>
+    <div class="col-sm-12">
+      <div class="row poll-winners-years">
+        {% for i in range(1860, 2010, 10) %}
+          <div class="col {% if loop.index == 1 %}is-active{% endif %}">
+            <span>{{ i }}</span>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="row poll-winners-content">
+        <div class="col-sm-12 poll-winners-content-title mb-3">
+          <h3>Byrådet fyrer hele politistyrken - og opbygger i stedet et moderne politikorps</h3>
+        </div>
+
+        <div class="col-sm-8 col-md-8 col-lg-4">
+          <div class="poll-winners-content-image">
+            <img src="/{{ directory }}/images/Politi.jpg" alt="Placeholder">
+            <span>Thomas Sørensen Hermansen, 1909. Léon Delagrangres flyvemaskine på ”Skejby Mark” – Forrest ses politibetjent Søren Justesen. Den Gamle By.</span>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-1 poll-winners-content-year bg-primary text-light pt-3 pb-3 text-center">
+
+            <span class="label">Året</span>
+            <span class="data">1869</span>
+
+        </div>
+        <div class="col-sm-4 col-md-12 col-lg-7">
+          <div class="poll-winners-content-description">
+            <p>Aarhus Byråd nedsatte i 1867 en komité med det formål at reformere byens politi. Det skete efter anmodning fra den nye politimester og byfoged Louis Hammerich. På det tidspunkt bestod politistyrken af 5 politibetjente og 12 vægtere med en vagtmester som leder.
+  Byrådets komité hentede inspiration fra Odense og København og resultatet af arbejdet blev, at hele politistyrken blev fyret og i stedet blev der ansat en politiassistent, 7 politibetjente, 12 patruljebetjente - kaldet natbetjente - og en tårnvægter.
+  Patruljebetjentene erstattede det nu nedlagte vægterkorps, og som vægterne mødte patruljebetjentene kl. 21 og patruljerede natten igennem i byens gader. Tårnvægteren holdt øje med ildebrande fra Domkirkens tårn og udråbte klokkeslettet. Dette embede blev nedlagt i 1879.
+  I takt med udviklingen og dermed udvidelsen af politistyrken i løbet af 1900-tallet, måtte politiet indgå adskillige lejemål, så de forskellige afdelinger var spredt på 6-7 adresser.
+  Efter at have haft til huse forskellige steder i byen, blandt andet i det tidligere Rådhus beliggende ved Store Torv – hvor det nuværende Kvindemuseum og Besættelsesmuseet har til huse - fik politiet i Aarhus først samlet alle sine afdelinger i en ny fælles politigård ved Dynkarken og Sønder Alle i 1983.</p>
+            <p><a href="/">Læs i byrådets arkiv</a></p>
+            <p><a href="/">Læs mere på AarhusWiki.dk</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 {{ page.content }}
 {# Page footer #}

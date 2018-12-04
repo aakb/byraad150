@@ -1,5 +1,55 @@
 .news {
   &-teaser {
     @include sectionPadding;
+    &-title {
+
+    }
+    &-item {
+      $n: &; // Declare parent as a variable
+      display: flex;
+      flex-direction: column;
+      margin-bottom: $spacer;
+      background-color: $gray-100;
+      border-bottom: $spacer/8 solid $gray-300;
+      color: $black;
+
+      &-image {
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: auto;
+           max-width: none;
+          transform: scale(1);
+          @include transition(transform, in);
+        }
+      }
+      &-title {
+        h3 {
+          font-size: $font-size-title-h3*.8;
+        }
+        padding-top: $spacer/2;
+        padding-right: $spacer/2;
+        padding-left: $spacer/2;
+      }
+      &-description {
+        padding-top: $spacer/2;
+        padding-right: $spacer/2;
+        padding-left: $spacer/2;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+      &:hover #{$n}-image {
+        img {
+          transform: scale(1.07);
+          @include transition(transform, out);
+        }
+      }
+    }
+    &-btns {
+      text-align: center;
+      margin-top: $spacer;
+      margin-bottom: $spacer;
+    }
   }
 }

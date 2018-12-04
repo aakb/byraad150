@@ -15,7 +15,8 @@
   &-image {
     img {
       object-fit: cover;
-      width: auto;
+      width: 100%;
+      height: 100%;
       max-width: 100%;
     }
   }
@@ -24,13 +25,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: $spacer*3;
-    padding-right: $spacer*3;
+    padding: $spacer $spacer*2;
+    @include media-breakpoint-up(sm) {
+      padding: $spacer $spacer*3;
+    }
     &:hover {
       text-decoration: none;
-      &-title, &-lead {
-        color: $blue-light;
-      }
     }
     &-title, &-lead {
       color: $white;
@@ -40,13 +40,17 @@
       position: relative;
       font-weight: 900;
       margin-bottom: $spacer*1.5;
+      font-size: $font-size-title-h1*.8;
       @include media-breakpoint-up(sm) {
         font-size: $font-size-title-h1*1.1;
       }
       @include underline($white, $spacer*6);
     }
     &-lead {
-      font-size: $font-size-lead;
+      font-size: $font-size-lead*.8;
+      @include media-breakpoint-up(sm) {
+        font-size: $font-size-lead;
+      }
     }
   }
 }
