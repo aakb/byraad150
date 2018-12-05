@@ -1,0 +1,23 @@
+uuid: 3fc83419-b388-4671-9a3b-acaba78f346f
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.decade_poll.decade_poll_candidate
+    - field.storage.decade_poll.field_winner
+id: decade_poll.decade_poll_candidate.field_winner
+field_name: field_winner
+entity_type: decade_poll
+bundle: decade_poll_candidate
+label: Vinder
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

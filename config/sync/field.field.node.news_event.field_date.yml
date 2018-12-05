@@ -1,0 +1,24 @@
+uuid: 9ef80327-3845-43c7-95be-c05e4491405d
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.news_event
+  module:
+    - datetime
+id: node.news_event.field_date
+field_name: field_date
+entity_type: node
+bundle: news_event
+label: Dato
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

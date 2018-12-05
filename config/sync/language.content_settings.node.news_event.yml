@@ -1,0 +1,11 @@
+uuid: ed9e87c0-f99b-415e-af07-a86b20b40912
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.news_event
+id: node.news_event
+target_entity_type_id: node
+target_bundle: news_event
+default_langcode: site_default
+language_alterable: false

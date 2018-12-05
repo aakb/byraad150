@@ -1,0 +1,30 @@
+uuid: 0df4bf24-c4c5-4511-a8dd-11ed5a8aa7cb
+langcode: da
+status: true
+dependencies:
+  config:
+    - views.view.decade_winners
+  module:
+    - system
+    - views
+  theme:
+    - byraad150_theme
+id: views_block__decade_winners_block_1
+theme: byraad150_theme
+region: content
+weight: 2
+provider: null
+plugin: 'views_block:decade_winners-block_1'
+settings:
+  id: 'views_block:decade_winners-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

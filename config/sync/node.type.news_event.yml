@@ -1,0 +1,17 @@
+uuid: 9980d327-c43e-441f-9b6c-831b118efff1
+langcode: da
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Nyhed/Begivenhed
+type: news_event
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false
