@@ -1,10 +1,12 @@
 uuid: b34fbfc0-e2ea-47e6-be9a-357ffd3a0765
 langcode: da
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.afstemning.body
+    - field.field.node.afstemning.field_candidates
+    - field.field.node.afstemning.field_poll_ref
     - node.type.afstemning
   module:
     - text
@@ -29,4 +31,5 @@ content:
     region: content
 hidden:
   field_candidates: true
+  field_poll_ref: true
   langcode: true
