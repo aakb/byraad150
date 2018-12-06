@@ -1,0 +1,43 @@
+uuid: 60841ebb-b880-46c5-972c-0288572486ff
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.frontpage_display
+    - field.field.node.afstemning.body
+    - field.field.node.afstemning.field_candidates
+    - field.field.node.afstemning.field_poll_ref
+    - node.type.afstemning
+  module:
+    - bricks
+    - ds
+    - user
+id: node.afstemning.frontpage_display
+targetEntityType: node
+bundle: afstemning
+mode: frontpage_display
+content:
+  field_candidates:
+    type: bricks_nested
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      view_mode: frontpage_display
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+  field_poll_ref:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  body: true
+  langcode: true
+  links: true

@@ -1,0 +1,15 @@
+uuid: 64c94b12-7cc3-4f35-b506-a696b854c1ce
+langcode: da
+status: true
+dependencies: {  }
+name: frontpage_vote
+label: 'Frontpage vote'
+effects:
+  b7ee8afa-28b7-4bf5-aebe-6e356e4e114a:
+    uuid: b7ee8afa-28b7-4bf5-aebe-6e356e4e114a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 540
+      height: 375
+      anchor: center-center

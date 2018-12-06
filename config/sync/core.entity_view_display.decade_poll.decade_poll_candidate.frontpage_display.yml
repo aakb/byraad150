@@ -1,0 +1,51 @@
+uuid: 6786bb79-6296-490d-87cd-62fa7ceb6700
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.decade_poll.frontpage_display
+    - eck.eck_type.decade_poll.decade_poll_candidate
+    - field.field.decade_poll.decade_poll_candidate.field_candidate_description
+    - field.field.decade_poll.decade_poll_candidate.field_candidate_image
+    - field.field.decade_poll.decade_poll_candidate.field_candidate_image_text
+    - field.field.decade_poll.decade_poll_candidate.field_candidate_year
+    - field.field.decade_poll.decade_poll_candidate.field_winner
+    - image.style.frontpage_vote
+  module:
+    - image
+id: decade_poll.decade_poll_candidate.frontpage_display
+targetEntityType: decade_poll
+bundle: decade_poll_candidate
+mode: frontpage_display
+content:
+  field_candidate_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: frontpage_vote
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_candidate_year:
+    weight: 2
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  field_candidate_description: true
+  field_candidate_image_text: true
+  field_winner: true
+  langcode: true

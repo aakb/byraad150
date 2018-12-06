@@ -1,0 +1,10 @@
+uuid: a4cb8200-d541-4e24-9381-11284d5a1be1
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+id: decade_poll.frontpage_display
+label: 'Frontpage display'
+targetEntityType: decade_poll
+cache: true
