@@ -81,6 +81,15 @@
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/contrib/{$name}": ["type:drupal-drush"]
+        },
+        "enable-patching": true,
+        "patches": {
+            "drupal/poll": {
+                "Add information of vote cast in meter template": "https://www.drupal.org/files/issues/poll-2899927-2.patch"
+            }
         }
     }
 }
+
+
+

@@ -27,3 +27,25 @@ function byraad150_theme_preprocess_eck_entity(&$variables) {
     $variables['decade'] = substr($variables['elements']['field_candidate_year'][0]['#markup'], 0, -1) . '0';
   }
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function byraad150_theme_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  if (isset($variables['element']['#bundle']) && isset($variables['element']['#view_mode'])) {
+    if ($variables['element']['#bundle'] == 'afstemning' && $variables['element']['#view_mode'] == 'frontpage_display') {
+      $suggestions[] = 'field__' . $variables['element']['#bundle'] . '__' . $variables['element']['#view_mode'];
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_image().
+ */
+function byraad150_theme_preprocess_image(&$variables) {
+  // Check the image style.
+  if ($variables['style_name'] == 'frontpage_vote') {
+    // Set class.
+    $variables['attributes']['class'][] = 'img-fluid';
+  }
+}

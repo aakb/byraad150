@@ -44,7 +44,7 @@ function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
           $cand = \Drupal::entityTypeManager()->getStorage('decade_poll')->load($candidate['target_id']);
           $poll_choice = PollChoice::create(array(
             'langcode' => 'da',
-            'choice' => $cand->label()
+            'choice' => $cand->id()
           ));
           $poll_choice->save();
 
@@ -97,7 +97,7 @@ function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
         $cand = \Drupal::entityTypeManager()->getStorage('decade_poll')->load($candidate['target_id']);
         $poll_choice = PollChoice::create(array(
           'langcode' => 'da',
-          'choice' => $cand->label()
+          'choice' => $cand->id()
         ));
         $poll_choice->save();
         $choices[] = $poll_choice->id();

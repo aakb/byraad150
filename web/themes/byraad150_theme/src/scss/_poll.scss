@@ -1,6 +1,10 @@
 // Styling for the poll componenets.
 
 .poll {
+  .is-hidden {
+    display: none;
+  }
+
   &-teaser {
     @include sectionPadding;
     &-title {
@@ -95,4 +99,20 @@
       }
     }
   }
+}
+
+.poll-teaser-btns {
+  .button--primary {
+    @extend .btn;
+    @extend .btn-lg;
+    @extend .btn-primary;
+
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.poll-view-form {
+  display: inline-block;
+  vertical-align: bottom;
 }

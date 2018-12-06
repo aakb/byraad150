@@ -8,3 +8,6 @@ effects:
     data:
       width: 1440
       height: 360
+dependencies:
+  module:
+    - aarhus_hero
