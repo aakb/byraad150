@@ -1,0 +1,21 @@
+uuid: 463404b5-a711-42d6-97f2-6efdbc88697c
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video
+    - node.type.afstemning
+  module:
+    - itk_azure_video
+id: node.afstemning.field_video
+field_name: field_video
+entity_type: node
+bundle: afstemning
+label: Video
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: itk_azure_video_field

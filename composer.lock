@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebbc2618e735fc85d6c46a89f28ba9d8",
+    "content-hash": "423dd256d0113cc3016674d8cef04f45",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1943,6 +1943,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Fix deprecation warning": "https://www.drupal.org/files/issues/2018-10-30/3008553-deprecated-eck-entity-variable-%238.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3115,6 +3118,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Add information of vote cast in meter template": "https://www.drupal.org/files/issues/poll-2899927-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3779,6 +3785,31 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "itk-dev/itk_azure_video",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:itk-dev/itk_azure_video.git",
+                "reference": "d6ebb7c31a1c53f6261743b32089c569c2c877ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itk-dev/itk_azure_video/zipball/d6ebb7c31a1c53f6261743b32089c569c2c877ad",
+                "reference": "d6ebb7c31a1c53f6261743b32089c569c2c877ad",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.itkdev.dk/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Module that supplies an Azure Video Media Service field for Drupal 8",
+            "keywords": [
+                "Drupal"
+            ],
+            "time": "2018-12-11T08:32:11+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -6570,7 +6601,6 @@
         "drupal/cer": 15,
         "drupal/eck": 15,
         "drupal/entityqueue": 15,
-        "drupal/flag": 15,
         "drupal/inline_entity_form": 5
     },
     "prefer-stable": true,

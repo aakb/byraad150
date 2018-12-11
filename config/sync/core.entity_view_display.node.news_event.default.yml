@@ -7,10 +7,12 @@ dependencies:
     - field.field.node.news_event.field_description
     - field.field.node.news_event.field_image
     - field.field.node.news_event.field_link
+    - field.field.node.news_event.field_video
     - node.type.news_event
   module:
     - datetime
     - image
+    - itk_azure_video
     - link
     - text
     - user
@@ -55,6 +57,17 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
+  field_video:
+    weight: 106
+    label: hidden
+    settings:
+      responsive: true
+      controls: '1'
+      muted: 0
+      autoplay: 0
+    third_party_settings: {  }
+    type: itk_azure_video_formatter
     region: content
   links:
     weight: 100
