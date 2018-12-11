@@ -7,11 +7,13 @@ dependencies:
     - field.field.node.news_event.field_description
     - field.field.node.news_event.field_image
     - field.field.node.news_event.field_link
+    - field.field.node.news_event.field_video
     - image.style.thumbnail
     - node.type.news_event
   module:
     - datetime
     - image
+    - itk_azure_video
     - link
     - text
 id: node.news_event.default
@@ -49,6 +51,14 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_video:
+    type: itk_azure_video_widget
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0

@@ -6,9 +6,11 @@ dependencies:
     - field.field.node.afstemning.body
     - field.field.node.afstemning.field_candidates
     - field.field.node.afstemning.field_poll_ref
+    - field.field.node.afstemning.field_video
     - node.type.afstemning
   module:
     - bricks
+    - itk_azure_video
     - text
     - user
 id: node.afstemning.default
@@ -40,6 +42,17 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
+  field_video:
+    weight: 4
+    label: above
+    settings:
+      responsive: true
+      muted: false
+      autoplay: false
+      controls: true
+    third_party_settings: {  }
+    type: itk_azure_video_formatter
     region: content
   links:
     weight: 0

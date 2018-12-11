@@ -6,9 +6,11 @@ dependencies:
     - field.field.node.afstemning.body
     - field.field.node.afstemning.field_candidates
     - field.field.node.afstemning.field_poll_ref
+    - field.field.node.afstemning.field_video
     - node.type.afstemning
   module:
     - inline_entity_form
+    - itk_azure_video
     - text
 id: node.afstemning.default
 targetEntityType: node
@@ -48,6 +50,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_video:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: itk_azure_video_widget
     region: content
   title:
     type: string_textfield
