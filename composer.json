@@ -19,7 +19,6 @@
             "url": "https://packagist.itkdev.dk"
         }
     },
-
     "require": {
         "php": "~7.2.0",
         "composer/installers": "^1.2",
@@ -40,6 +39,7 @@
         "drupal/poll": "^1.2",
         "drupal/toolbar_visibility": "^1.2",
         "drush/drush": "^9.5",
+        "itk-dev/itk_azure_video": "^1.0",
         "vlucas/phpdotenv": "^2.4",
         "webmozart/path-util": "^2.3",
         "wikimedia/composer-merge-plugin": "^1.4"
@@ -93,6 +93,3 @@
         }
     }
 }
-
-
-
