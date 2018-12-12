@@ -4,6 +4,9 @@
   @include media-breakpoint-up(sm) {
     flex-direction: row;
   }
+  @include media-breakpoint-up(md) {
+    min-height: 25rem;
+  }
   &-image, &-text {
     width: 100%;
     flex: 1 1 100%;
@@ -13,15 +16,17 @@
     }
   }
   &-image {
+    background-color: $primary;
     img {
       object-fit: cover;
       width: 100%;
       height: 100%;
       max-width: 100%;
+      mix-blend-mode: multiply;
     }
   }
   &-text {
-    background-color: $primary;
+    background: darken($primary, 7%);;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,8 +34,14 @@
     @include media-breakpoint-up(sm) {
       padding: $spacer $spacer*3;
     }
+    @include transition(background,in);
     &:hover {
       text-decoration: none;
+      background: $primary;
+      @include transition(background,out);
+      .hero-text-lead {
+        text-decoration: underline;
+      }
     }
     &-title, &-lead {
       color: $white;

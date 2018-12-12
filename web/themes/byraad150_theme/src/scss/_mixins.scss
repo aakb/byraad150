@@ -17,6 +17,8 @@
 }
 
 @mixin underline($color: $white, $size: $spacer*4) {
+  position: relative;
+  margin-bottom: $spacer;
   &:after {
     content: "";
     display: block;
@@ -36,6 +38,16 @@
 @mixin sectionPadding {
   padding-top: $spacer*3;
   padding-bottom: $spacer*3;
+}
+
+@mixin sectionMargin {
+  margin-top: $spacer*3;
+  margin-bottom: $spacer*3;
+}
+
+@mixin titlePadding {
+  padding-top: $spacer*3;
+  padding-bottom: $spacer*1;
 }
 
 @mixin transition($property: all, $direction: in) {

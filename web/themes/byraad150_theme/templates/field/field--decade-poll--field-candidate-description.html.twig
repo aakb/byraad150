@@ -37,11 +37,11 @@
  */
 #}
 {%
-  set wrapper_classes = 'col-sm-4 col-md-12 col-lg-7'
+  set wrapper_classes = 'col-sm-4 col-md-12 col-lg-8'
 %}
 
 <div{{ attributes.addClass(wrapper_classes) }}>
-  <div class="poll-winners-content-description">
+  <div class="poll-content-description hideDescription">
     {% if label_hidden %}
       {% if multiple %}
         {% for item in items %}
@@ -59,4 +59,6 @@
       {% endfor %}
     {% endif %}
   </div>
+  {# TODO: Show/hide more description text #}
+  <button class="btn btn-sm btn-secondary">{{ 'Show more'|t }}</button>
 </div>

@@ -1,0 +1,19 @@
+.year-splash {
+  position: absolute;
+  margin: $spacer/2;
+  padding: $spacer/4 $spacer/2;
+  line-height: $spacer*4;
+  vertical-align: middle;
+  text-align: center;
+  background-color: $primary;
+  color: $white;
+  width: auto;
+  height: auto;
+  border-bottom-left-radius: $spacer*1.5 $spacer*2.5;
+  border-bottom-right-radius: $spacer*2.5 $spacer*1.5;
+  border-top-left-radius: $spacer*2.5 $spacer*1.5;
+  border-top-right-radius: $spacer*1.5 $spacer*2.5;
+  mix-blend-mode: multiply;
+  font-size: $spacer*1.5;
+  font-weight: 900;
+}

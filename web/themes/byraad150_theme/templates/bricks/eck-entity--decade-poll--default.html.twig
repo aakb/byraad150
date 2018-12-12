@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Poll teaser on frontpage for quick vote
+ * Default theme implementation to display an ECK entity.
  *
  * Available variables:
  * - eck_entity: The full ECK entity with limited access to object properties
@@ -21,22 +21,18 @@
  */
 #}
 
-
-
-<div class="col-6 col-sm">
-  <div class="poll-teaser-item js-poll-select" data-entity-id="{{ eck_entity.id() }}">
-    <div class="poll-teaser-item-image">
+<div class="row poll-candidate js-poll-select" data-decade="{{ decade }}" data-entity-id="{{ eck_entity.id() }}">
+  <div class="col-sm-12">
+    <h2>{{ content.title[0] }}</h2>
+  </div>
+  <div class="col-sm-8 col-md-8 col-lg-4">
+    <div class="poll-content-image">
+      <div class="year-splash">
+        <span>{{ content.field_candidate_year[0] }}</span>
+      </div>
       {{ content.field_candidate_image }}
-    </div>
-    <div class="poll-teaser-item-year year-splash">
-      <span>{{ content.field_candidate_year[0] }}</span>
-    </div>
-    <div class="poll-teaser-item-title">
-      <h3>{{ content.title[0] }}</h3>
-    </div>
-    <div class="poll-teaser-item-choice">
-      <span class="poll-teaser-item-choice-select">{{ 'Select'|t }}</span>
-      <span class="poll-teaser-item-choice-chosen">{{ 'Chosen'|t }}</span>
+      <span class="poll-content-image-text">{{ content.field_candidate_image_text[0] }}</span>
     </div>
   </div>
+  {{ content|without('field_candidate_year','field_candidate_image_text', 'field_candidate_image', 'title') }}
 </div>

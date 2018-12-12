@@ -4,11 +4,44 @@
   .is-hidden {
     display: none;
   }
-
+  &-candidate {
+    @include sectionPadding();
+  }
+  &-content {
+    &-image {
+      position: relative;
+      background-color: $primary;
+      color: $white;
+      img {
+        width: 100%;
+        height: auto;
+        max-width: none;
+      }
+      &-text {
+        margin: .5rem;
+        display: inline-block;
+      }
+    }
+    &-year {
+      .label, .data {
+        display: block;
+      }
+      .data {
+        font-size: $font-size-title-h3;
+        font-weight: 900;
+      }
+    }
+    &-description {
+      overflow: hidden;
+      margin-bottom: $spacer;
+      &.hideDescription {
+        max-height: $spacer*14;
+      }
+    }
+  }
   &-teaser {
-    @include sectionPadding;
     &-title {
-      margin-bottom: $spacer*2;
+      @include titlePadding;
       text-align: center;
     }
     &-item {
@@ -21,22 +54,24 @@
       outline-offset: $spacer/4;
       margin-bottom: $spacer;
       border-radius: $spacer/8;
+      height: 100%;
+      background-color: $gray-100;
       &-title {
         h3 {
           font-size: $font-size-title-h3*.75;
+          margin-top: $spacer;
+          margin-right: $spacer;
+          margin-bottom: 0;
+          margin-left: $spacer;
         }
       }
-      &-image {}
-      &-year {
-        background-color: $primary;
-        color: $white;
-        @include media-breakpoint-up(sm) {
-          width: 50%;
-          align-self: flex-end;
-          margin-top: -$spacer*.75;
-          margin-right: $spacer/2;
-          text-align: center;
-          border-radius: $spacer/8;
+      &-image {
+        &:after {
+          content: "";
+          background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); ;
+          display: block;
+          width: 100%;
+          height: 100%;
         }
       }
       &-choice {
@@ -44,13 +79,23 @@
         color: $white;
         text-align: center;
         visibility: hidden;
-        opacity: 0;
-        border-radius: $spacer/8;
+        @include media-breakpoint-up(sm) {
+          opacity: 0;
+        }
+        margin-top: auto;
         @include transition(opacity, in);
+        @include transition(box-shadow, in);
+        &-chosen {
+          display: none;
+        }
       }
-      &:hover, &.is-active {
-        background-color: $white;
+      &:hover {
+        box-shadow: 0 0 $spacer rgba(0,0,0,.32);
+        @include transition(box-shadow, out);
+      }
+      &.is-active {
         outline: solid $spacer/4 $primary;
+        cursor: pointer;
         @include transition(outline, out);
       }
       &:hover #{$p}-choice, &.is-active #{$p}-choice {
@@ -58,11 +103,16 @@
         opacity: 1;
         @include transition(opacity, out);
       }
+      &.is-active #{$p}-choice-select {
+        display: none;
+      }
+      &.is-active #{$p}-choice-chosen {
+        display: block;
+      }
     }
     &-btns {
       text-align: center;
-      margin-top: $spacer;
-      margin-bottom: $spacer;
+      margin-top: $spacer*3;
     }
   }
   &-winners {
@@ -76,31 +126,10 @@
         font-weight: bold;
       }
     }
-    &-content {
-      &-image {
-        background-color: $primary;
-        color: $white;
-        img {
-          width: 100%;
-          height: auto;
-          max-width: none;
-        }
-        span {
-          margin: .5rem;
-          display: inline-block;
-        }
-      }
-      &-year {
-        height: 100%;
-        .data {
-          font-size: $font-size-title-h3;
-          font-weight: 900;
-        }
-      }
-    }
   }
 }
 
+// Have the poll vote btn look like other btns
 .poll-teaser-btns {
   .button--primary {
     @extend .btn;

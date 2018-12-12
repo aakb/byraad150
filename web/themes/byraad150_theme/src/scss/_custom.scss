@@ -37,7 +37,7 @@ $pink:                              #ee0043;
 $pink-light:                        #fab2c6;
 $purple:                            #673ab7;
 $purple-light:                      #d1c4e9;
-$blue:                              #285268;
+$blue:                              #009BDD;
 $blue-light:                       lighten($blue, 40%);
 $navy:                              #2b3ba2;
 $navy-light:                        #bfc4e3;
@@ -82,3 +82,5 @@ $font-size-title-h1: $spacer*2.4;
   font-family: $font-family-serif;
 }
 
+/* Disable rounded corners */
+$enable-rounded: false;

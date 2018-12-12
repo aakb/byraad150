@@ -1,15 +1,15 @@
 .news {
   &-teaser {
-    @include sectionPadding;
+    @include sectionMargin;
     &-title {
-
+      @include titlePadding;
     }
     &-item {
       $n: &; // Declare parent as a variable
       display: flex;
       flex-direction: column;
       margin-bottom: $spacer;
-      background-color: $gray-100;
+      background-color: $white;
       border-bottom: $spacer/8 solid $gray-300;
       color: $black;
 
