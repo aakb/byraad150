@@ -3,24 +3,49 @@
     attach: function (context, settings) {
       var pollWinnerYears = $('.poll-winners-years .col');
 
-      function clickDecade(event) {
+      /**
+       * Handle decade winner clicks.
+       */
+      function clickDecade() {
         var decade = $(this).attr('data-year-show');
 
+        // Remove is-active class from all.
         pollWinnerYears.each(function () {
           $(this).removeClass('is-active');
         });
 
+        // Add is-active to clicked decade.
         $(this).addClass('is-active');
 
-        $('.poll-candidate').hide();
-        $('.js-poll-decade-' + decade).show();
+        // Hide all decades.
+        $('.poll-candidate').hide('slow');
+
+        // Show clicked decade.
+        $('.js-poll-decade-' + decade).show('show');
       }
 
+      // Register click listeners.
       pollWinnerYears.each(function () {
         $(this).on('click', clickDecade);
       });
 
+      // Hide all decades.
       $('.poll-candidate').hide();
+
+      // Find latest registered decade winner.
+      var latest = null;
+      $('.poll-candidate').each(function () {
+        var decade = $(this).attr('data-decade');
+
+        if (decade > latest) {
+          latest = decade;
+        }
+      });
+
+      // Show latest decade winner.
+      if (latest !== null) {
+        $('.poll-winners-years .col[data-year-show="' + latest + '"]').click();
+      }
     }
   }
 }(jQuery));
