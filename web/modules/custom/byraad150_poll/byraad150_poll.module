@@ -125,5 +125,13 @@ function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
       $node->field_poll_ref->target_id = $poll->id();
     }
   }
+}
 
+/**
+ * Implements template_preprocess_views_view().
+ */
+function byraad150_poll_preprocess_views_view(&$variables) {
+  if ($variables["view"]->element["#view_id"] == 'decade_winners') {
+    $variables['#attached']['library'][] = 'byraad150_poll/poll-winners';
+  }
 }

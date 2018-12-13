@@ -1,0 +1,3 @@
+poll-winners:
+  js:
+    js/poll-winners.js: {}
