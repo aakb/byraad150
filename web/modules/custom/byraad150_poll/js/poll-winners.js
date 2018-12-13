@@ -9,6 +9,10 @@
       function clickDecade() {
         var decade = $(this).attr('data-year-show');
 
+        if ($(this).hasClass('is-active')) {
+          return;
+        }
+
         // Remove is-active class from all.
         pollWinnerYears.each(function () {
           $(this).removeClass('is-active');
@@ -21,7 +25,7 @@
         $('.poll-candidate').hide('slow');
 
         // Show clicked decade.
-        $('.js-poll-decade-' + decade).show('show');
+        $('.poll-candidate[data-decade="' + decade + '"]').show('slow');
       }
 
       // Register click listeners.
