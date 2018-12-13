@@ -1,3 +1,7 @@
 poll-winners:
   js:
     js/poll-winners.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal

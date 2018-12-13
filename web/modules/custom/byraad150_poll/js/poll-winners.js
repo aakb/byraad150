@@ -1,4 +1,4 @@
-(function ($) {
+(function ($, Drupal) {
   Drupal.behaviors.pollWinners = {
     attach: function (context, settings) {
       var pollWinnerYears = $('.poll-winners-years .col');
@@ -52,4 +52,4 @@
       }
     }
   }
-}(jQuery));
+}(jQuery, Drupal));
