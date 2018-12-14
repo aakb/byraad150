@@ -74,6 +74,14 @@ class AarhusHeroSettingsForm extends FormBase {
       '#open' => TRUE,
     );
 
+    $form['hero']['hero_video'] = array(
+      '#title' => $this->t('Hero video'),
+      '#type' => 'itk_azure_video',
+      '#default_value' => !empty($config->get('hero_video')) ? array($config->get('hero_video')) : NULL,
+      '#weight' => '4',
+      '#open' => TRUE,
+    );
+
     $form['submit'] = array(
       '#type' => 'submit',
       '#value' => t('Save changes'),
@@ -100,6 +108,7 @@ class AarhusHeroSettingsForm extends FormBase {
     $this->getBaseConfig()->setMultiple(array(
       'hero_title' => $form_state->getValue('hero_title'),
       'hero_text' => $form_state->getValue('hero_text'),
+      'hero_video' => $form_state->getValue('hero_video'),
       'hero_image'=> !empty($form_state->getValue('hero_image')[0]) ? $form_state->getValue('hero_image')[0] : NULL,
     ));
 
