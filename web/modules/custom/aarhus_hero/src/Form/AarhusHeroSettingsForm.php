@@ -74,10 +74,42 @@ class AarhusHeroSettingsForm extends FormBase {
       '#open' => TRUE,
     );
 
+    $form['hero_video'] = array(
+      '#type' => 'details',
+      '#title' => $this->t('Hero Video'),
+      '#open' => TRUE,
+    );
+
+    $form['hero_video']['hero_video'] = array(
+      '#title' => $this->t('Hero video'),
+      '#type' => 'textfield',
+      '#default_value' => !empty($config->get('hero_video')) ? array($config->get('hero_video')) : NULL,
+      '#weight' => '4',
+      '#maxlength' => 2048,
+      '#open' => TRUE,
+    );
+
+    $form['hero_video']['hero_video_title'] = array(
+      '#title' => $this->t('Hero video title'),
+      '#type' => 'textfield',
+      '#default_value' => !empty($config->get('hero_video_title')) ? array($config->get('hero_video_title')) : NULL,
+      '#weight' => '5',
+      '#maxlength' => 2048,
+      '#open' => TRUE,
+    );
+
+    $form['hero_video']['hero_video_description'] = array(
+      '#title' => $this->t('Hero video description'),
+      '#type' => 'textarea',
+      '#default_value' => $config->get('hero_video_description'),
+      '#weight' => '6',
+      '#open' => TRUE,
+    );
+
     $form['submit'] = array(
       '#type' => 'submit',
       '#value' => t('Save changes'),
-      '#weight' => '6',
+      '#weight' => '7',
     );
 
     return $form;
@@ -96,11 +128,15 @@ class AarhusHeroSettingsForm extends FormBase {
       // Add file to file_usage table.
       \Drupal::service('file.usage')->add($file, 'aarhus_hero', 'user', '1');
     }
+
     // Set the configuration values.
     $this->getBaseConfig()->setMultiple(array(
       'hero_title' => $form_state->getValue('hero_title'),
       'hero_text' => $form_state->getValue('hero_text'),
       'hero_image'=> !empty($form_state->getValue('hero_image')[0]) ? $form_state->getValue('hero_image')[0] : NULL,
+      'hero_video' => $form_state->getValue('hero_video'),
+      'hero_video_title' => $form_state->getValue('hero_video_title'),
+      'hero_video_description' => $form_state->getValue('hero_video_description'),
     ));
 
     drupal_flush_all_caches();

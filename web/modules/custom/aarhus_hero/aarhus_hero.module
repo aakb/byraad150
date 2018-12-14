@@ -15,5 +15,9 @@ function aarhus_hero_theme($existing, $type, $theme, $path) {
       'template' => 'aarhus-hero-block',
       'variables' => ['config' => NULL, 'image' => NULL],
     ],
+    'aarhus_hero_video_block' => [
+      'template' => 'aarhus-hero-video-block',
+      'variables' => ['video' => NULL, 'video_title' => NULL, 'video_description' => NULL],
+    ],
   ];
 }
