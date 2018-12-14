@@ -37,6 +37,7 @@
         "drupal/itk_siteimprove": "^1.0",
         "drupal/pathauto": "^1.2",
         "drupal/poll": "^1.2",
+        "drupal/scheduler": "^1.0",
         "drupal/toolbar_visibility": "^1.2",
         "drush/drush": "^9.5",
         "itk-dev/itk_azure_video": "^1.0.5",

@@ -12,6 +12,7 @@ dependencies:
   module:
     - inline_entity_form
     - itk_azure_video
+    - scheduler
     - text
 id: node.afstemning.default
 targetEntityType: node
@@ -44,7 +45,7 @@ content:
     type: inline_entity_form_complex
     region: content
   field_poll_ref:
-    weight: 26
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
@@ -53,7 +54,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_video:
-    weight: 27
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -61,13 +62,31 @@ content:
     type: itk_azure_video_widget
     region: content
   field_winner_video:
-    weight: 28
+    weight: 6
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: itk_azure_video_widget
     region: content
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0
@@ -76,11 +95,16 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   langcode: true
   path: true
   promote: true
-  status: true
   sticky: true
   uid: true
