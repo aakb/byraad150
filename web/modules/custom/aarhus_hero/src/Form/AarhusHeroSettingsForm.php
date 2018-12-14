@@ -9,7 +9,6 @@ namespace Drupal\aarhus_hero\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
-use Drupal\file\FileInterface;
 
 /**
  * Class AarhusHeroSettingsForm
@@ -83,7 +82,7 @@ class AarhusHeroSettingsForm extends FormBase {
     $form['hero_video']['hero_video'] = array(
       '#title' => $this->t('Hero video'),
       '#type' => 'textfield',
-      '#default_value' => !empty($config->get('hero_video')) ? array($config->get('hero_video')) : NULL,
+      '#default_value' => $config->get('hero_video'),
       '#weight' => '4',
       '#maxlength' => 2048,
       '#open' => TRUE,
@@ -92,7 +91,7 @@ class AarhusHeroSettingsForm extends FormBase {
     $form['hero_video']['hero_video_title'] = array(
       '#title' => $this->t('Hero video title'),
       '#type' => 'textfield',
-      '#default_value' => !empty($config->get('hero_video_title')) ? array($config->get('hero_video_title')) : NULL,
+      '#default_value' => $config->get('hero_video_title'),
       '#weight' => '5',
       '#maxlength' => 2048,
       '#open' => TRUE,
@@ -100,8 +99,10 @@ class AarhusHeroSettingsForm extends FormBase {
 
     $form['hero_video']['hero_video_description'] = array(
       '#title' => $this->t('Hero video description'),
-      '#type' => 'textarea',
-      '#default_value' => $config->get('hero_video_description'),
+      '#type' => 'text_format',
+      '#format' => 'filtered_html',
+      '#allowed_formats' => array('filtered_html'),
+      '#default_value' => $config->get('hero_video_description')['value'],
       '#weight' => '6',
       '#open' => TRUE,
     );
@@ -136,7 +137,7 @@ class AarhusHeroSettingsForm extends FormBase {
       'hero_image'=> !empty($form_state->getValue('hero_image')[0]) ? $form_state->getValue('hero_image')[0] : NULL,
       'hero_video' => $form_state->getValue('hero_video'),
       'hero_video_title' => $form_state->getValue('hero_video_title'),
-      'hero_video_description' => $form_state->getValue('hero_video_description'),
+      'hero_video_description' => $form_state->getValue('hero_video_description')
     ));
 
     drupal_flush_all_caches();

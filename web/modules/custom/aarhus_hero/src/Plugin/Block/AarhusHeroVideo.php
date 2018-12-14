@@ -50,7 +50,11 @@ class AarhusHeroVideo extends BlockBase {
       '#type' => 'markup',
       '#theme' => 'aarhus_hero_video_block',
       '#video_title' => $config['hero_video_title'],
-      '#video_description' => $config['hero_video_description'],
+      '#video_description' => [
+        '#type' => 'processed_text',
+        '#text' => $config['hero_video_description']['value'],
+        '#format' => 'filtered_html',
+      ],
       '#video' => $videoElement,
     );
   }
