@@ -2,3 +2,18 @@
 .underline {
   @include underline();
 }
+
+// Lead text to follow a headline
+.lead {
+  font-family: $font-family-serif;
+}
+
+// Set main headings style
+h1 {
+  font-family: "Arial Black", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+img {
+  @include img-fluid;
+}

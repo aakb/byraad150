@@ -37,11 +37,11 @@
  */
 #}
 {%
-  set wrapper_classes = 'col-sm-4 col-md-12 col-lg-8'
+  set wrapper_classes = 'col-sm-12 col-md-6 col-lg-8 poll-content'
 %}
 
 <div{{ attributes.addClass(wrapper_classes) }}>
-  <div class="poll-content-description hideDescription">
+  <div class="poll-content-description">
     {% if label_hidden %}
       {% if multiple %}
         {% for item in items %}
@@ -60,5 +60,7 @@
     {% endif %}
   </div>
   {# TODO: Show/hide more description text #}
-  <button class="btn btn-sm btn-secondary">{{ 'Show more'|t }}</button>
+  <button class="btn btn-sm btn-outline-secondary poll-content-expand"><i class="fas fa-angle-down"></i> {{ 'Read more'|t }}</button>
+  <button class="btn btn-lg btn-primary poll-content-choose">{{ 'Choose this candidate'|t }}</button>
+
 </div>

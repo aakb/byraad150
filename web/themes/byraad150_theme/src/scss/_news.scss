@@ -1,8 +1,19 @@
 .news {
+  &-title {
+    position: relative;
+    overflow: hidden;
+    &-bg-image {
+      position: absolute;
+      width: 100%;
+      mix-blend-mode: multiply;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
   &-teaser {
-    @include sectionMargin;
+    @include sectionSpacing(top bottom, padding);
     &-title {
-      @include titlePadding;
+      @include titleSpacing(top, padding);
     }
     &-item {
       $n: &; // Declare parent as a variable
@@ -12,7 +23,7 @@
       background-color: $white;
       border-bottom: $spacer/8 solid $gray-300;
       color: $black;
-
+      @include transition(box-shadow, in);
       &-image {
         overflow: hidden;
         img {
@@ -38,6 +49,7 @@
       }
       &:hover {
         text-decoration: none;
+        @include boxShadow;
       }
       &:hover #{$n}-image {
         img {

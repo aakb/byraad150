@@ -35,21 +35,16 @@
   }
 }
 
-@mixin sectionPadding {
-  padding-top: $spacer*3;
-  padding-bottom: $spacer*3;
+@mixin sectionSpacing($position: top, $type: padding) {
+  @each $var in $position {
+    #{$type}-#{$var}: $spacer*3;
+  }
 }
-
-@mixin sectionMargin {
-  margin-top: $spacer*3;
-  margin-bottom: $spacer*3;
+@mixin titleSpacing($position: top, $type: padding) {
+  @each $var in $position {
+    #{$type}-#{$var}: $spacer;
+  }
 }
-
-@mixin titlePadding {
-  padding-top: $spacer*3;
-  padding-bottom: $spacer*1;
-}
-
 @mixin transition($property: all, $direction: in) {
   @if $direction == "in" {
     transition: $property .2s ease-in;
@@ -57,4 +52,9 @@
   @else {
     transition: $property .4s ease-out;
   }
+}
+
+@mixin boxShadow {
+  box-shadow: 0 0 $spacer rgba(0,0,0,.16);
+  @include transition(box-shadow, out)
 }
