@@ -70,11 +70,10 @@
  *   in different view modes.
  */
 #}
-<div class="container-fluid poll">
 
-
-  <div class="row bg-primary poll-title mb-3">
-    <div class="poll-title-bg-image">
+<div class="container-fluid news">
+  <div class="row bg-primary news-title mb-3">
+    <div class="news-title-bg-image">
       {{ content.field_image[0] }}
     </div>
     <div class="col-sm-12 mt-5 mb-5 text-white">
@@ -85,8 +84,21 @@
       {{ title_suffix }}
     </div>
   </div>
-  {{ content }}
+  <article{{ attributes }}>
+    <div class="row">
+      <div class="col-md-4">
+        {{ content.field_image[0] }}
+        {% if display_submitted %}
+          {{ author_picture }}
+          <div{{ author_attributes }}>
+            {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+            {{ metadata }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="col-md-8" {{ content_attributes }}>
+        {{ content.field_description }}
+      </div>
+    </div>
+  </article>
 </div>
-
-
-

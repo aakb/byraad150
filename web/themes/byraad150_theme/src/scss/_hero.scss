@@ -1,32 +1,27 @@
 ﻿.hero {
-  display: flex;
-  flex-direction: column;
-  @include media-breakpoint-up(sm) {
-    flex-direction: row;
-  }
+  position: relative;
+  overflow: hidden;
+  background-color: $primary;
   @include media-breakpoint-up(md) {
     min-height: 25rem;
   }
-  &-image, &-text {
+  &-text {
     width: 100%;
     flex: 1 1 100%;
-    @include media-breakpoint-up(sm) {
-      width: 50%;
-      flex: 1 1 50%;
-    }
   }
   &-image {
-    background-color: $primary;
+    width: 100%;
+    height: 100%;
+    position: absolute;
     img {
-      object-fit: cover;
       width: 100%;
       height: 100%;
-      max-width: 100%;
       mix-blend-mode: multiply;
+      object-fit: cover;
+      object-position: center;
     }
   }
   &-text {
-    background: darken($primary, 7%);;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,11 +39,11 @@
       }
     }
     &-title, &-lead {
+      position: relative;
       color: $white;
       margin: 0;
     }
     &-title {
-      position: relative;
       font-weight: 900;
       margin-bottom: $spacer*1.5;
       font-size: $font-size-title-h1*.8;
@@ -58,6 +53,7 @@
       @include underline($white, $spacer*6);
     }
     &-lead {
+      margin-top: $spacer;
       font-size: $font-size-lead*.8;
       @include media-breakpoint-up(sm) {
         font-size: $font-size-lead;

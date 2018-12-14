@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.afstemning.field_candidates
     - field.field.node.afstemning.field_poll_ref
     - field.field.node.afstemning.field_video
+    - field.field.node.afstemning.field_winner_video
     - node.type.afstemning
   module:
     - bricks
@@ -21,13 +22,13 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
   field_candidates:
     type: bricks_nested
-    weight: 2
+    weight: 3
     region: content
     label: hidden
     settings:
@@ -35,7 +36,7 @@ content:
       link: false
     third_party_settings: {  }
   field_poll_ref:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       view_mode: default
@@ -44,8 +45,19 @@ content:
     type: entity_reference_entity_view
     region: content
   field_video:
-    weight: 4
-    label: above
+    weight: 0
+    label: hidden
+    settings:
+      responsive: true
+      muted: false
+      autoplay: false
+      controls: true
+    third_party_settings: {  }
+    type: itk_azure_video_formatter
+    region: content
+  field_winner_video:
+    weight: 1
+    label: hidden
     settings:
       responsive: true
       muted: false
@@ -55,7 +67,7 @@ content:
     type: itk_azure_video_formatter
     region: content
   links:
-    weight: 0
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

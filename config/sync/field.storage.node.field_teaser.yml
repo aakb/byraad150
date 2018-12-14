@@ -1,16 +1,18 @@
-uuid: 013682dc-090a-42b3-a959-d5acd8b8bac7
+uuid: 3853c7ae-5ccb-4dfe-bc6a-0459a7e9937a
 langcode: da
 status: true
 dependencies:
   module:
-    - itk_azure_video
     - node
-id: node.field_video
-field_name: field_video
+id: node.field_teaser
+field_name: field_teaser
 entity_type: node
-type: itk_azure_video_field
-settings: {  }
-module: itk_azure_video
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

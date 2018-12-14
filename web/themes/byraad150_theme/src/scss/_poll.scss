@@ -5,12 +5,17 @@
     display: none;
   }
   &-candidate {
-    @include sectionPadding();
+    @include sectionSpacing(bottom, padding);
+    &-title {
+      margin-bottom: $spacer*1.5;
+    }
   }
   &-content {
+    display: flex;
+    flex-direction: column;
     &-image {
       position: relative;
-      background-color: $primary;
+      background-color: $gray-900;
       color: $white;
       img {
         width: 100%;
@@ -22,26 +27,45 @@
         display: inline-block;
       }
     }
-    &-year {
-      .label, .data {
-        display: block;
-      }
-      .data {
-        font-size: $font-size-title-h3;
-        font-weight: 900;
-      }
-    }
     &-description {
       overflow: hidden;
       margin-bottom: $spacer;
-      &.hideDescription {
-        max-height: $spacer*14;
+      max-height: $spacer*14;
+      @include transition(max-height, in);
+      .expand &{
+        @include transition(max-height, out);
+        max-height: 100%;
       }
+    }
+    &-expand {
+      margin-bottom: $spacer;
+      i {
+        @include transition(transform, in);
+      }
+      .less {
+        display: none;
+      }
+      .expand & {
+        i{
+          @include transition(transform, out);
+          transform: rotate(180deg);
+        }
+        .less {
+          display: inline;
+        }
+        .more {
+          display: none;
+        }
+      }
+    }
+    &-choose {
+      margin-top: auto;
     }
   }
   &-teaser {
+    @include sectionSpacing(top bottom, margin);
     &-title {
-      @include titlePadding;
+      @include titleSpacing(top bottom, margin);
       text-align: center;
     }
     &-item {
@@ -90,8 +114,7 @@
         }
       }
       &:hover {
-        box-shadow: 0 0 $spacer rgba(0,0,0,.32);
-        @include transition(box-shadow, out);
+        @include boxShadow;
       }
       &.is-active {
         outline: solid $spacer/4 $primary;
@@ -116,14 +139,16 @@
     }
   }
   &-winners {
-    @include sectionPadding;
+    @include sectionSpacing(top, padding);
     &-title, &-years {
       margin-bottom: $spacer*2;
     }
     &-years {
+      color: $gray-700;
       .is-active {
         font-size: $font-size-lead;
         font-weight: bold;
+        color: $gray-900;
       }
     }
   }

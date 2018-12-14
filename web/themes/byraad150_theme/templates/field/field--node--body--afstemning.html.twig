@@ -36,12 +36,41 @@
  * @see template_preprocess_field()
  */
 #}
-{%
-  set wrapper_classes = 'col-sm-12 col-md-6 col-lg-8 poll-content'
+{# {%
+  set title_classes = [
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
 %}
 
-<div{{ attributes.addClass(wrapper_classes) }}>
-  <div class="poll-content-description">
+{% if label_hidden %}
+  {% if multiple %}
+    <div{{ attributes }}>
+      {% for item in items %}
+        <div{{ item.attributes }}>{{ item.content }}</div>
+      {% endfor %}
+    </div>
+  {% else %}
+    {% for item in items %}
+      <div{{ attributes }}>{{ item.content }}</div>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  <div{{ attributes }}>
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    {% if multiple %}
+      <div>
+    {% endif %}
+    {% for item in items %}
+      <div{{ item.attributes }}>{{ item.content }}</div>
+    {% endfor %}
+    {% if multiple %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %} #}
+
+<div class="row">
+  <div class="col-sm-7">
     {% if label_hidden %}
       {% if multiple %}
         {% for item in items %}
@@ -59,7 +88,8 @@
       {% endfor %}
     {% endif %}
   </div>
-  <button class="btn btn-sm btn-outline-secondary poll-content-expand"><i class="fas fa-angle-down"></i> <span class="more">{{ 'Show more'|t }}</span><span class="less">{{ 'Show less'|t }}</span></button>
-  <button class="btn btn-lg btn-primary poll-content-choose">{{ 'Choose this candidate'|t }}</button>
-
+  <div class="col-sm-5">
+    {# TODO: Place video inside this container. #}
+    Video
+  </div>
 </div>

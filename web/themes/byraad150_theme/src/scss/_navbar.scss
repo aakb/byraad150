@@ -6,6 +6,8 @@
   height: $spacer*4;
   &-brand {
     height: 100%;
+    margin-left: $spacer*2;
+    margin-right: $spacer*2;
     img{
       height: $spacer*3;
     }
