@@ -11,10 +11,12 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access polls'
   - 'cancel account'
   - 'edit own comments'
   - 'flag promote'
   - 'post comments'
   - 'skip comment approval'
   - 'unflag promote'
+  - 'view any decade_poll entities'
   - 'view the administration theme'
