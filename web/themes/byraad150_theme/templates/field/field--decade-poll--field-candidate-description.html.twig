@@ -59,8 +59,7 @@
       {% endfor %}
     {% endif %}
   </div>
-  {# TODO: Show/hide more description text #}
-  <button class="btn btn-sm btn-outline-secondary poll-content-expand"><i class="fas fa-angle-down"></i> {{ 'Read more'|t }}</button>
+  <button class="btn btn-sm btn-outline-secondary poll-content-expand"><i class="fas fa-angle-down"></i> <span class="more">{{ 'Show more'|t }}</span><span class="less">{{ 'Show less'|t }}</span></button>
   <button class="btn btn-lg btn-primary poll-content-choose">{{ 'Choose this candidate'|t }}</button>
 
 </div>

@@ -8,13 +8,14 @@ dependencies:
     - field.field.node.news_event.field_description
     - field.field.node.news_event.field_image
     - field.field.node.news_event.field_link
+    - field.field.node.news_event.field_teaser
+    - field.field.node.news_event.field_video
     - image.style.card
     - node.type.news_event
   module:
     - datetime
     - image
     - link
-    - text
     - user
 id: node.news_event.teaser
 targetEntityType: node
@@ -29,13 +30,6 @@ content:
     settings:
       format_type: medium
       timezone_override: ''
-    third_party_settings: {  }
-  field_description:
-    type: text_default
-    weight: 2
-    region: content
-    label: hidden
-    settings: {  }
     third_party_settings: {  }
   field_image:
     type: image
@@ -58,6 +52,16 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+  field_teaser:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
+  field_description: true
+  field_video: true
   langcode: true
   links: true

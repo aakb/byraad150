@@ -4,9 +4,9 @@ import '../assets/js/poll-selection';
 
 (function ($) {
   $(function (context) {
-    $(".poll-content-description").each(function() {
+    $(".poll-content").each(function() {
       $(".poll-content-expand").on('click', function() {
-        $(this).prev().toggleClass("expand");
+        $(this).parent().toggleClass("expand");
       });
     });
   });

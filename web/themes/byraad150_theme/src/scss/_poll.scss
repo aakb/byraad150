@@ -32,20 +32,29 @@
       margin-bottom: $spacer;
       max-height: $spacer*14;
       @include transition(max-height, in);
-      &.expand {
+      .expand &{
         @include transition(max-height, out);
         max-height: 100%;
       }
     }
     &-expand {
       margin-bottom: $spacer;
-      i.fa {
+      i {
         @include transition(transform, in);
       }
+      .less {
+        display: none;
+      }
       .expand & {
-        i.fa {
+        i{
           @include transition(transform, out);
           transform: rotate(180deg);
+        }
+        .less {
+          display: inline;
+        }
+        .more {
+          display: none;
         }
       }
     }

@@ -1,0 +1,19 @@
+uuid: d90343fa-58aa-4179-bbae-e63d65ea956e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser
+    - node.type.news_event
+id: node.news_event.field_teaser
+field_name: field_teaser
+entity_type: node
+bundle: news_event
+label: Teaser
+description: 'En kort tekst der vises på oversiger'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

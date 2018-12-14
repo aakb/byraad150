@@ -17,6 +17,5 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings:
-  responsive: true
+settings: {  }
 field_type: itk_azure_video_field

@@ -1,12 +1,12 @@
-uuid: 013682dc-090a-42b3-a959-d5acd8b8bac7
+uuid: 3dff7256-28be-4e33-ba9e-e6d1d3e75b66
 langcode: da
 status: true
 dependencies:
   module:
     - itk_azure_video
     - node
-id: node.field_video
-field_name: field_video
+id: node.field_winner_video
+field_name: field_winner_video
 entity_type: node
 type: itk_azure_video_field
 settings: {  }
