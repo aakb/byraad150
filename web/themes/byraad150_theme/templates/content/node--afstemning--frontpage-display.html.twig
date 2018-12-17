@@ -75,6 +75,15 @@
     <div class="col-sm-12">
       <h2 class="poll-teaser-title">{{ label }}</h2>
     </div>
-    {{ content }}
+    {{ content|without('field_poll_ref') }}
+
+    <div class="col-sm-12 poll-teaser-btns">
+      <a class="btn btn-secondary btn-lg"
+         href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+        {{ 'Read more about the candidates'|t }}
+      </a>
+
+      {{ content.field_poll_ref }}
+    </div>
   </div>
 </div>

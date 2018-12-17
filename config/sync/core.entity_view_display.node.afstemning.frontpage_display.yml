@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.afstemning.body
     - field.field.node.afstemning.field_candidates
     - field.field.node.afstemning.field_poll_ref
+    - field.field.node.afstemning.field_video
+    - field.field.node.afstemning.field_winner_video
     - node.type.afstemning
   module:
     - bricks
@@ -37,7 +39,13 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
+  links:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   body: true
+  field_video: true
+  field_winner_video: true
   langcode: true
-  links: true
