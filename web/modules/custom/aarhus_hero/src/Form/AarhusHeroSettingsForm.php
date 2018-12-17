@@ -64,12 +64,21 @@ class AarhusHeroSettingsForm extends FormBase {
       '#maxlength' => 128,
     );
 
+    $form['hero']['hero_link'] = array(
+      '#title' => $this->t('Hero link'),
+      '#type' => 'textfield',
+      '#default_value' => $config->get('hero_link'),
+      '#weight' => '3',
+      '#size' => 60,
+      '#maxlength' => 2048,
+    );
+
     $form['hero']['hero_image'] = array(
       '#title' => $this->t('Hero image'),
       '#type' => 'managed_file',
       '#default_value' => !empty($config->get('hero_image')) ? array($config->get('hero_image')) : NULL,
       '#upload_location' => 'public://',
-      '#weight' => '3',
+      '#weight' => '4',
       '#open' => TRUE,
     );
 
@@ -83,7 +92,7 @@ class AarhusHeroSettingsForm extends FormBase {
       '#title' => $this->t('Hero video'),
       '#type' => 'textfield',
       '#default_value' => $config->get('hero_video'),
-      '#weight' => '4',
+      '#weight' => '5',
       '#maxlength' => 2048,
       '#open' => TRUE,
     );
@@ -92,7 +101,7 @@ class AarhusHeroSettingsForm extends FormBase {
       '#title' => $this->t('Hero video title'),
       '#type' => 'textfield',
       '#default_value' => $config->get('hero_video_title'),
-      '#weight' => '5',
+      '#weight' => '6',
       '#maxlength' => 2048,
       '#open' => TRUE,
     );
@@ -103,14 +112,14 @@ class AarhusHeroSettingsForm extends FormBase {
       '#format' => 'filtered_html',
       '#allowed_formats' => array('filtered_html'),
       '#default_value' => $config->get('hero_video_description')['value'],
-      '#weight' => '6',
+      '#weight' => '7',
       '#open' => TRUE,
     );
 
     $form['submit'] = array(
       '#type' => 'submit',
       '#value' => t('Save changes'),
-      '#weight' => '7',
+      '#weight' => '8',
     );
 
     return $form;
@@ -134,6 +143,7 @@ class AarhusHeroSettingsForm extends FormBase {
     $this->getBaseConfig()->setMultiple(array(
       'hero_title' => $form_state->getValue('hero_title'),
       'hero_text' => $form_state->getValue('hero_text'),
+      'hero_link' => $form_state->getValue('hero_link'),
       'hero_image'=> !empty($form_state->getValue('hero_image')[0]) ? $form_state->getValue('hero_image')[0] : NULL,
       'hero_video' => $form_state->getValue('hero_video'),
       'hero_video_title' => $form_state->getValue('hero_video_title'),
