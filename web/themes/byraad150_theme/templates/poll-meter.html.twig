@@ -24,7 +24,11 @@
  * @ingroup themeable
  */
 #}
-<dt class="choice-title" data-user-selected="{{ selected ? 1 : 0}}">{{ choice }}</dt>
+<dt class="choice-title js-choice-result"
+    data-user-selected="{{ selected ? 1 : 0 }}"
+    data-display-result="{{ display_value }}"
+    data-choice="{{ choice }}"
+    data-result="{{ percentage }}">{{ choice }}</dt>
 <dd class="choice-result">
   <div{{ attributes }}>
     <div style="width: {{ percentage }}%" class="foreground"></div>
