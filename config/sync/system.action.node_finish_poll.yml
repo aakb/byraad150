@@ -1,0 +1,13 @@
+uuid: c28eaefd-13b3-4ec6-b3e1-31051d32899f
+langcode: da
+status: true
+dependencies:
+  module:
+    - byraad150_poll
+_core:
+  default_config_hash: C4AHHXHa5h5o1rfNdb5giN1PJIkn2rMA-HYWduN8nh8
+id: node_finish_poll
+label: 'Finish poll'
+type: node
+plugin: finish_poll
+configuration: {  }
