@@ -222,7 +222,7 @@ function byraad150_poll_form_node_afstemning_edit_form_alter(
             t('@votes votes (@percentage %)',
               [
                 '@votes' => $result['vote'],
-                '@percentage' => (1.0 * $result['vote'] / $totalVotes) * 100,
+                '@percentage' => $totalVotes > 0 ? (1.0 * $result['vote'] / $totalVotes) * 100 : ' - ',
               ]),
             ' ',
             $result['vote'] == $highest_votes ? ' - ' . t('Most votes') : '',
