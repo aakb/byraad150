@@ -6660,6 +6660,9 @@ img {
   display: inline-block;
   vertical-align: bottom; }
 
+.poll-result {
+  margin: 1em; }
+
 .bg-image {
   width: 100%;
   height: 100%;

@@ -4,7 +4,18 @@
     attach: function (context, settings) {
       $(document).ready(function () {
         function setResults() {
+          // Remove previous poll-results.
+          $('.poll-result').remove();
+
           var choiceResults = $('.js-choice-result');
+          var usersChoiceId = $('.choice-title[data-user-selected="1"]').text();
+
+          if (choiceResults.length > 0) {
+            $('.js-poll-content-choose').hide();
+          }
+          else {
+            $('.js-poll-content-choose').show();
+          }
 
           choiceResults.each(function () {
             var choiceElement = $(this);
@@ -12,20 +23,24 @@
             var parentContainer = $(this).parents('.container-fluid').first();
 
             var choiceId = choiceElement.attr('data-choice');
-//            var result = choiceElement.attr('data-result');
-            var displayResult = choiceElement.attr('data-display-result');
+            var result = choiceElement.attr('data-result');
+            var resultPercentage = result + '%';
 
             var jsPollSelect =  parentContainer.find('.js-poll-select[data-entity-id="' + choiceId + '"]');
 
-            var resultElement = jsPollSelect.find('.poll-result');
+            var usersChoice = '';
 
-            if (resultElement.length === 1) {
-              resultElement.text(displayResult);
+            if (choiceId === usersChoiceId) {
+              usersChoice = '<div class="poll-users-choice">' + Drupal.t("Your choice") + '</div>';
             }
-            else {
-              var element = $('<div class="poll-result"></div>').text(displayResult);
-              jsPollSelect.append(element);
-            }
+
+            var element = $(
+              '<div class="poll-result">' + usersChoice + '<div class="progress">' +
+              '  <div class="progress-bar" role="progressbar" style="width: ' + resultPercentage + '" aria-valuenow="' + result + '" aria-valuemin="0" aria-valuemax="100">' + resultPercentage + '</div>' +
+              '</div></div>'
+            );
+
+            jsPollSelect.find('.poll-content').append(element);
           });
         }
 

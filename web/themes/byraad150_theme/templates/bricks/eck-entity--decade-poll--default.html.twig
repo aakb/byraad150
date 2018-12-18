@@ -38,7 +38,7 @@
     {{ content.field_candidate_description }}
 
     <button class="btn btn-sm btn-outline-secondary poll-content-expand"><i class="fas fa-angle-down"></i> <span class="more">{{ 'Show more'|t }}</span><span class="less">{{ 'Show less'|t }}</span></button>
-    <button class="btn btn-lg btn-primary poll-content-choose">{{ 'Choose this candidate'|t }}</button>
+    <button class="btn btn-lg btn-primary poll-content-choose js-poll-content-choose"><span class="select">{{ 'Select this candidate'|t }}</span><span class="selected"><i class="fas fa-check"></i></span></button>
   </div>
 
   {{ content|without('field_candidate_year','field_candidate_image_text', 'field_candidate_image', 'title', 'field_candidate_description') }}
