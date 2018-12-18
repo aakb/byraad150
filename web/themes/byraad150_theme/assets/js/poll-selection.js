@@ -5,16 +5,16 @@
       $(document).ready(function () {
         function setResults() {
           // Remove previous poll-results.
-          $('.poll-result').remove();
+          $('.js-poll-result').remove();
 
           var choiceResults = $('.js-choice-result');
           var usersChoiceId = $('.choice-title[data-user-selected="1"]').text();
 
           if (choiceResults.length > 0) {
-            $('.js-poll-content-choose').hide();
+            $('.js-poll-content-choose').addClass('is-hidden');
           }
           else {
-            $('.js-poll-content-choose').show();
+            $('.js-poll-content-choose').removeClass('is-hidden');
           }
 
           choiceResults.each(function () {
@@ -35,7 +35,7 @@
             }
 
             var element = $(
-              '<div class="poll-result">' + usersChoice + '<div class="progress">' +
+              '<div class="poll-result js-poll-result">' + usersChoice + '<div class="progress">' +
               '  <div class="progress-bar" role="progressbar" style="width: ' + resultPercentage + '" aria-valuenow="' + result + '" aria-valuemin="0" aria-valuemax="100">' + resultPercentage + '</div>' +
               '</div></div>'
             );
@@ -43,8 +43,6 @@
             jsPollSelect.find('.poll-content').append(element);
           });
         }
-
-        setResults();
 
         // Act on poll selection.
         $('.js-poll-select').click(function () {
@@ -60,7 +58,7 @@
             // Get radio button id through matching label/Brick title.
             var entity_id = $(this).data('entity-id');
             var radioId = $('.js-poll .option').filter(function () {
-              return ($(this).text() == entity_id)
+              return (parseInt($(this).text()) === entity_id)
             }).attr('for');
 
             // Set checked on radio button match.
@@ -82,9 +80,10 @@
         }
         else {
           // Remove locked state and is-active state on all poll elements.
-          $('.js-poll-select').removeClass('is-locked');
-          $('.js-poll-select').removeClass('is-active');
+          $('.js-poll-select').removeClass('is-locked').removeClass('is-active');
         }
+
+        setResults();
       });
     }
   }
