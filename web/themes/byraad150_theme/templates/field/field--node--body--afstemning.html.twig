@@ -36,7 +36,7 @@
  * @see template_preprocess_field()
  */
 #}
-{# {%
+{%
   set title_classes = [
     label_display == 'visually_hidden' ? 'visually-hidden',
   ]
@@ -67,29 +67,4 @@
       </div>
     {% endif %}
   </div>
-{% endif %} #}
-
-<div class="row">
-  <div class="col-sm-7">
-    {% if label_hidden %}
-      {% if multiple %}
-        {% for item in items %}
-          {{ item.content }}
-        {% endfor %}
-      {% else %}
-        {% for item in items %}
-          {{ item.content }}
-        {% endfor %}
-      {% endif %}
-    {% else %}
-      {{ label }}
-      {% for item in items %}
-        {{ item.content }}
-      {% endfor %}
-    {% endif %}
-  </div>
-  <div class="col-sm-5">
-    {# TODO: Place video inside this container. #}
-    Video
-  </div>
-</div>
+{% endif %}
