@@ -190,15 +190,12 @@ function byraad150_poll_form_node_afstemning_edit_form_alter(
   $highest_votes = 0;
   $results = [];
   $totalVotes = 0;
-  $options = $poll->getOptions();
-  foreach ($poll->getVotes() as $pid => $vote) {
-    $choice = PollChoice::load($options[$pid]);
+  foreach ($poll->getVotes() as $cid => $vote) {
     $candidate = \Drupal::entityTypeManager()
       ->getStorage('decade_poll')
-      ->load($choice->id());
-    $results[$pid] = [
-      'poll_choice_id' => $pid,
-      'poll_choice' => $choice,
+      ->load($cid);
+    $results[$cid] = [
+      'poll_choice_id' => $cid,
       'vote' => $vote,
       'candidate' => $candidate,
     ];
