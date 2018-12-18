@@ -2,6 +2,7 @@
 
 use Drupal\poll\Entity\Poll;
 use Drupal\poll\Entity\PollChoice;
+use Drupal\node\Entity\Node;
 
 /**
  * Automatically create or change a poll when saving a node
@@ -11,7 +12,7 @@ use Drupal\poll\Entity\PollChoice;
 function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
   if ($node->bundle() == 'afstemning') {
     // Change existing poll.
-    if(!empty($node->original)) {
+    if (!empty($node->original)) {
       // Change poll.
       $node_candidates = $node->field_candidates->getValue();
       $original_candidates = $node->original->field_candidates->getValue();
@@ -41,11 +42,13 @@ function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
       // Add candidates to poll.
       if (!empty($added_candidates)) {
         foreach ($added_candidates as $candidate) {
-          $cand = \Drupal::entityTypeManager()->getStorage('decade_poll')->load($candidate['target_id']);
-          $poll_choice = PollChoice::create(array(
+          $cand = \Drupal::entityTypeManager()
+            ->getStorage('decade_poll')
+            ->load($candidate['target_id']);
+          $poll_choice = PollChoice::create([
             'langcode' => 'da',
-            'choice' => $cand->id()
-          ));
+            'choice' => $cand->id(),
+          ]);
           $poll_choice->save();
 
           $poll = Poll::load($node->field_poll_ref->target_id);
@@ -57,7 +60,9 @@ function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
       $remaining_candidate_labels = [];
       $candidates = $node->field_candidates->getValue();
       foreach ($candidates as $key => $value) {
-        $cand = \Drupal::entityTypeManager()->getStorage('decade_poll')->load($value['target_id']);
+        $cand = \Drupal::entityTypeManager()
+          ->getStorage('decade_poll')
+          ->load($value['target_id']);
         $remaining_candidate_labels[] = $cand->label();
       }
 
@@ -65,23 +70,32 @@ function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
       $query = \Drupal::database()->select('poll__choice', 'p')->fields('p');
       $query->condition('p.entity_id', $node->field_poll_ref->target_id, '=');
       $query->condition('p.bundle', 'poll', '=');
-      $query->leftJoin('poll_choice_field_data', 'f', 'f.id = p.choice_target_id');
+      $query->leftJoin('poll_choice_field_data', 'f',
+        'f.id = p.choice_target_id');
       $query->fields('f');
       $results = $query->execute()->fetchAll();
 
       // If candidates have been removed loop through titles.
-      if(!empty($removed_candidates)) {
+      if (!empty($removed_candidates)) {
         foreach ($results as $key => $choice) {
-          if (!in_array($choice->choice, $remaining_candidate_labels) && $choice->choice != null) {
+          if (!in_array($choice->choice,
+              $remaining_candidate_labels) && $choice->choice != NULL) {
 
             // Delete poll choice that has no corresponding decade.
-            $choice_ent =\Drupal::entityTypeManager()->getStorage('poll_choice')->load($choice->choice_target_id);
-            \Drupal::entityTypeManager()->getStorage('poll_choice')->delete([$choice_ent]);
+            $choice_ent = \Drupal::entityTypeManager()
+              ->getStorage('poll_choice')
+              ->load($choice->choice_target_id);
+            \Drupal::entityTypeManager()
+              ->getStorage('poll_choice')
+              ->delete([$choice_ent]);
 
             // Remove the poll choice reference from the poll.
-            $poll_ent = \Drupal::entityTypeManager()->getStorage('poll')->load($choice->entity_id);
+            $poll_ent = \Drupal::entityTypeManager()
+              ->getStorage('poll')
+              ->load($choice->entity_id);
             $choice_values = $poll_ent->get('choice')->getValue();
-            $choice_values_key = array_search($choice->choice_target_id, array_column($choice_values, 'target_id'));
+            $choice_values_key = array_search($choice->choice_target_id,
+              array_column($choice_values, 'target_id'));
             $poll_ent->get('choice')->removeItem($choice_values_key);
             $poll_ent->save();
           }
@@ -94,28 +108,30 @@ function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
       // Create poll choices for each candidate.
       $choices = [];
       foreach ($candidates as $candidate) {
-        $cand = \Drupal::entityTypeManager()->getStorage('decade_poll')->load($candidate['target_id']);
-        $poll_choice = PollChoice::create(array(
+        $cand = \Drupal::entityTypeManager()
+          ->getStorage('decade_poll')
+          ->load($candidate['target_id']);
+        $poll_choice = PollChoice::create([
           'langcode' => 'da',
-          'choice' => $cand->id()
-        ));
+          'choice' => $cand->id(),
+        ]);
         $poll_choice->save();
         $choices[] = $poll_choice->id();
       }
 
       // Create poll.
-      $poll = Poll::create(array(
+      $poll = Poll::create([
         'uid' => '1',
         'langcode' => 'da',
         'question' => 'Poll:' . $node->label(),
         'anonymous_vote_allow' => '1',
         'result_vote_allow' => '0',
         'status' => '1',
-        'choice' => []
-      ));
+        'choice' => [],
+      ]);
 
       // Append poll choices to poll.
-      foreach($choices as $target_id){
+      foreach ($choices as $target_id) {
         $poll->choice->appendItem($target_id);
       }
 
@@ -134,4 +150,85 @@ function byraad150_poll_preprocess_views_view(&$variables) {
   if ($variables["view"]->element["#view_id"] == 'decade_winners') {
     $variables['#attached']['library'][] = 'byraad150_poll/poll-winners';
   }
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function byraad150_poll_form_node_afstemning_edit_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state,
+  $form_id
+) {
+  $node = $form_state->getFormObject()->getEntity();
+  $poll = $node->field_poll_ref->entity;
+
+  $form['poll_status'] = [
+    '#type' => 'details',
+    '#title' => t('Poll status'),
+    '#weight' => 3,
+    '#open' => TRUE,
+  ];
+
+  $poll_open_markup = '<p><b>' . ($poll->isOpen() ? t('Poll is open') : t('Poll is closed')) . '</b></p>';
+  $status_markup = '<p>' . t('Remember to select a winner.') . '</p>';
+
+  $form['poll_status']['poll'] = [
+    '#markup' =>
+      implode('', [
+        $poll_open_markup,
+        $status_markup,
+      ]),
+  ];
+
+  // Get winner
+  $winner = NULL;
+  $highest_votes = 0;
+  $results = [];
+  $totalVotes = 0;
+  $options = $poll->getOptions();
+  foreach ($poll->getVotes() as $pid => $vote) {
+    $choice = PollChoice::load($options[$pid]);
+    $candidate = \Drupal::entityTypeManager()
+      ->getStorage('decade_poll')
+      ->load($choice->id());
+    $results[$pid] = [
+      'poll_choice_id' => $pid,
+      'poll_choice' => $choice,
+      'vote' => $vote,
+      'candidate' => $candidate,
+    ];
+    if ($vote > $highest_votes) {
+      $highest_votes = $vote;
+    }
+
+    $totalVotes += $vote;
+  }
+
+  $form['poll_status']['total'] = [
+    '#markup' => '<p>' . t('Total votes: @total',
+        ['@total' => $totalVotes]) . '</p>',
+  ];
+
+  foreach ($results as $result) {
+    $form['poll_status'][$result['candidate']->title->value] = [
+      '#markup' =>
+        implode('', [
+            '<div>',
+            $result['candidate']->title->value,
+            ' - ',
+            t('@votes votes (@percentage %)',
+              [
+                '@votes' => $result['vote'],
+                '@percentage' => (1.0 * $result['vote'] / $totalVotes) * 100,
+              ]),
+            ' ',
+            $result['vote'] == $highest_votes ? ' - ' . t('Most votes') : '',
+            '</div>',
+          ]
+        ),
+    ];
+  }
+
 }
