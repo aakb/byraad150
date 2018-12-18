@@ -3,10 +3,10 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_candidates
+    - core.entity_view_mode.node.minimal
+    - field.storage.node.field_decade
     - node.type.afstemning
   module:
-    - bricks
     - node
     - poll
     - user
@@ -69,21 +69,16 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: html_list
+        type: default
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
-          type: ul
-          wrapper_class: item-list
-          class: ''
       row:
-        type: fields
+        type: 'entity:node'
         options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
+          relationship: none
+          view_mode: minimal
       fields:
         title:
           id: title
@@ -132,10 +127,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_candidates:
-          id: field_candidates
-          table: node__field_candidates
-          field: field_candidates
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
           relationship: none
           group_type: group
           admin_label: ''
@@ -180,26 +175,16 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: bricks_nested
-          settings:
-            view_mode: default
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 1
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        status:
-          id: status
-          table: poll_field_data
-          field: status
-          relationship: field_poll_ref
+          text: vis
+          output_url_as_text: false
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link
+        field_decade:
+          id: field_decade
+          table: node__field_decade
+          field: field_decade
+          relationship: none
           group_type: group
           admin_label: ''
           label: ''
@@ -244,11 +229,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: boolean
+          type: number_integer
           settings:
-            format: default
-            format_custom_true: ''
-            format_custom_false: ''
+            thousand_separator: ''
+            prefix_suffix: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -259,8 +243,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: poll
-          entity_field: status
           plugin_id: field
       filters:
         status:
@@ -338,7 +320,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_candidates'
+        - 'config:field.storage.node.field_decade'
   page_1:
     display_plugin: page
     id: page_1
@@ -356,4 +338,4 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_candidates'
+        - 'config:field.storage.node.field_decade'

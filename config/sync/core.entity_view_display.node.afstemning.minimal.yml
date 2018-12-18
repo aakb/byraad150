@@ -1,0 +1,41 @@
+uuid: 7ec9bc92-59c0-4593-81ac-fb417ae76677
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.minimal
+    - field.field.node.afstemning.body
+    - field.field.node.afstemning.field_candidates
+    - field.field.node.afstemning.field_decade
+    - field.field.node.afstemning.field_poll_ref
+    - field.field.node.afstemning.field_video
+    - field.field.node.afstemning.field_winner_video
+    - node.type.afstemning
+  module:
+    - user
+id: node.afstemning.minimal
+targetEntityType: node
+bundle: afstemning
+mode: minimal
+content:
+  field_decade:
+    weight: 0
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_candidates: true
+  field_poll_ref: true
+  field_video: true
+  field_winner_video: true
+  langcode: true

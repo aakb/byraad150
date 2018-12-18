@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.afstemning.body
     - field.field.node.afstemning.field_candidates
+    - field.field.node.afstemning.field_decade
     - field.field.node.afstemning.field_poll_ref
     - field.field.node.afstemning.field_video
     - field.field.node.afstemning.field_winner_video
@@ -72,4 +73,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_decade: true
   langcode: true

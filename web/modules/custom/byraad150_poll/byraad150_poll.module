@@ -161,6 +161,9 @@ function byraad150_poll_form_node_afstemning_edit_form_alter(
   \Drupal\Core\Form\FormStateInterface $form_state,
   $form_id
 ) {
+  // Set step of field_decade to 10.
+  $form["field_decade"]["widget"][0]["value"]['#step'] = 10;
+
   $node = $form_state->getFormObject()->getEntity();
   $poll = $node->field_poll_ref->entity;
 
@@ -211,6 +214,7 @@ function byraad150_poll_form_node_afstemning_edit_form_alter(
         ['@total' => $totalVotes]) . '</p>',
   ];
 
+  // Generate markup for poll results.
   foreach ($results as $result) {
     $form['poll_status'][$result['candidate']->title->value] = [
       '#markup' =>
@@ -230,5 +234,4 @@ function byraad150_poll_form_node_afstemning_edit_form_alter(
         ),
     ];
   }
-
 }
