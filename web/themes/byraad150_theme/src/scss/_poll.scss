@@ -10,10 +10,6 @@
     &-title {
       margin-bottom: $spacer*1.5;
     }
-    &:hover {
-      background-color: $gray-100;
-      @include transition(background-color, out);
-    }
     &.is-active {
       background-color: lighten($blue-light,10%);
       @include transition(background-color, out);

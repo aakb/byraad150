@@ -44,7 +44,7 @@
     <div class="col-sm-12">
       <div class="row poll-winners-years">
         {% for i in range(1860, 2010, 10) %}
-          <div class="col{% if loop.index == 1 %} is-active{% endif %}" data-year-show="{{ i }}">
+          <div class="col" data-year-show="{{ i }}">
             <span>{{ i }}</span>
           </div>
         {% endfor %}
