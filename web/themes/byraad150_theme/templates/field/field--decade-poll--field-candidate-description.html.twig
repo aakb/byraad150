@@ -47,10 +47,7 @@
         {{ item.content }}
       {% endfor %}
     {% endif %}
-  {% else %}
-    {{ label }}
-    {% for item in items %}
-      {{ item.content }}
-    {% endfor %}
-  {% endif %}
+  </div>
+  <button class="btn btn-sm btn-outline-secondary poll-content-expand"><i class="fas fa-angle-down"></i> <span class="more">{{ 'Show more'|t }}</span><span class="less">{{ 'Show less'|t }}</span></button>
+  <button class="btn btn-lg btn-primary poll-content-choose"><span class="select">{{ 'Select this candidate'|t }}</span><span class="selected"><i class="fas fa-check"></i></span></button>
 </div>

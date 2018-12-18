@@ -1613,7 +1613,7 @@ textarea.form-control {
     .form-inline .custom-control-label {
       margin-bottom: 0; } }
 
-.btn, .poll-teaser-btns .button--primary {
+.btn, .poll .poll input.form-submit, .poll-teaser-btns .button--primary {
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -1630,16 +1630,16 @@ textarea.form-control {
   border-radius: 0;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media screen and (prefers-reduced-motion: reduce) {
-    .btn, .poll-teaser-btns .button--primary {
+    .btn, .poll .poll input.form-submit, .poll-teaser-btns .button--primary {
       transition: none; } }
-  .btn:hover, .poll-teaser-btns .button--primary:hover, .btn:focus, .poll-teaser-btns .button--primary:focus {
+  .btn:hover, .poll .poll input.form-submit:hover, .poll-teaser-btns .button--primary:hover, .btn:focus, .poll .poll input.form-submit:focus, .poll-teaser-btns .button--primary:focus {
     text-decoration: none; }
-  .btn:focus, .poll-teaser-btns .button--primary:focus, .btn.focus, .poll-teaser-btns .focus.button--primary {
+  .btn:focus, .poll .poll input.form-submit:focus, .poll-teaser-btns .button--primary:focus, .btn.focus, .poll .poll input.focus.form-submit, .poll-teaser-btns .focus.button--primary {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 155, 221, 0.25); }
-  .btn.disabled, .poll-teaser-btns .disabled.button--primary, .btn:disabled, .poll-teaser-btns .button--primary:disabled {
+  .btn.disabled, .poll .poll input.disabled.form-submit, .poll-teaser-btns .disabled.button--primary, .btn:disabled, .poll .poll input.form-submit:disabled, .poll-teaser-btns .button--primary:disabled {
     opacity: 0.65; }
-  .btn:not(:disabled):not(.disabled), .poll-teaser-btns .button--primary:not(:disabled):not(.disabled) {
+  .btn:not(:disabled):not(.disabled), .poll .poll input.form-submit:not(:disabled):not(.disabled), .poll-teaser-btns .button--primary:not(:disabled):not(.disabled) {
     cursor: pointer; }
 
 a.btn.disabled, .poll-teaser-btns a.disabled.button--primary,
@@ -1648,28 +1648,30 @@ fieldset:disabled .poll-teaser-btns a.button--primary,
 .poll-teaser-btns fieldset:disabled a.button--primary {
   pointer-events: none; }
 
-.btn-primary, .poll-teaser-btns .button--primary {
+.btn-primary, .poll .poll input.form-submit, .poll-teaser-btns .button--primary {
   color: #ffffff;
   background-color: #009BDD;
   border-color: #009BDD; }
-  .btn-primary:hover, .poll-teaser-btns .button--primary:hover {
+  .btn-primary:hover, .poll .poll input.form-submit:hover, .poll-teaser-btns .button--primary:hover {
     color: #ffffff;
     background-color: #0080b7;
     border-color: #0077aa; }
-  .btn-primary:focus, .poll-teaser-btns .button--primary:focus, .btn-primary.focus, .poll-teaser-btns .focus.button--primary {
+  .btn-primary:focus, .poll .poll input.form-submit:focus, .poll-teaser-btns .button--primary:focus, .btn-primary.focus, .poll .poll input.focus.form-submit, .poll-teaser-btns .focus.button--primary {
     box-shadow: 0 0 0 0.2rem rgba(0, 155, 221, 0.5); }
-  .btn-primary.disabled, .poll-teaser-btns .disabled.button--primary, .btn-primary:disabled, .poll-teaser-btns .button--primary:disabled {
+  .btn-primary.disabled, .poll .poll input.disabled.form-submit, .poll-teaser-btns .disabled.button--primary, .btn-primary:disabled, .poll .poll input.form-submit:disabled, .poll-teaser-btns .button--primary:disabled {
     color: #ffffff;
     background-color: #009BDD;
     border-color: #009BDD; }
-  .btn-primary:not(:disabled):not(.disabled):active, .poll-teaser-btns .button--primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .poll-teaser-btns .button--primary:not(:disabled):not(.disabled).active,
+  .btn-primary:not(:disabled):not(.disabled):active, .poll .poll input.form-submit:not(:disabled):not(.disabled):active, .poll-teaser-btns .button--primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .poll .poll input.form-submit:not(:disabled):not(.disabled).active, .poll-teaser-btns .button--primary:not(:disabled):not(.disabled).active,
   .show > .btn-primary.dropdown-toggle,
+  .poll .poll .show > input.dropdown-toggle.form-submit,
   .poll-teaser-btns .show > .dropdown-toggle.button--primary {
     color: #ffffff;
     background-color: #0077aa;
     border-color: #006e9d; }
-    .btn-primary:not(:disabled):not(.disabled):active:focus, .poll-teaser-btns .button--primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .poll-teaser-btns .button--primary:not(:disabled):not(.disabled).active:focus,
+    .btn-primary:not(:disabled):not(.disabled):active:focus, .poll .poll input.form-submit:not(:disabled):not(.disabled):active:focus, .poll-teaser-btns .button--primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .poll .poll input.form-submit:not(:disabled):not(.disabled).active:focus, .poll-teaser-btns .button--primary:not(:disabled):not(.disabled).active:focus,
     .show > .btn-primary.dropdown-toggle:focus,
+    .poll .poll .show > input.dropdown-toggle.form-submit:focus,
     .poll-teaser-btns .show > .dropdown-toggle.button--primary:focus {
       box-shadow: 0 0 0 0.2rem rgba(0, 155, 221, 0.5); }
 
@@ -2035,13 +2037,13 @@ fieldset:disabled .poll-teaser-btns a.button--primary,
     color: #9d9d9d;
     pointer-events: none; }
 
-.btn-lg, .btn-group-lg > .btn, .poll-teaser-btns .button--primary {
+.btn-lg, .btn-group-lg > .btn, .poll .poll .btn-group-lg > input.form-submit, .poll-teaser-btns .button--primary {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0; }
 
-.btn-sm, .btn-group-sm > .btn, .poll-teaser-btns .btn-group-sm > .button--primary {
+.btn-sm, .btn-group-sm > .btn, .poll .poll .btn-group-sm > input.form-submit, .poll-teaser-btns .btn-group-sm > .button--primary {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -2256,42 +2258,69 @@ input[type="button"].btn-block {
   position: relative;
   display: inline-flex;
   vertical-align: middle; }
-  .btn-group > .btn, .poll-teaser-btns .btn-group > .button--primary,
+  .btn-group > .btn, .poll .poll .btn-group > input.form-submit, .poll-teaser-btns .btn-group > .button--primary,
   .btn-group-vertical > .btn,
+  .poll .poll .btn-group-vertical > input.form-submit,
   .poll-teaser-btns .btn-group-vertical > .button--primary {
     position: relative;
     flex: 0 1 auto; }
-    .btn-group > .btn:hover, .poll-teaser-btns .btn-group > .button--primary:hover,
+    .btn-group > .btn:hover, .poll .poll .btn-group > input.form-submit:hover, .poll-teaser-btns .btn-group > .button--primary:hover,
     .btn-group-vertical > .btn:hover,
+    .poll .poll .btn-group-vertical > input.form-submit:hover,
     .poll-teaser-btns .btn-group-vertical > .button--primary:hover {
       z-index: 1; }
-    .btn-group > .btn:focus, .poll-teaser-btns .btn-group > .button--primary:focus, .btn-group > .btn:active, .poll-teaser-btns .btn-group > .button--primary:active, .btn-group > .btn.active, .poll-teaser-btns .btn-group > .active.button--primary,
+    .btn-group > .btn:focus, .poll .poll .btn-group > input.form-submit:focus, .poll-teaser-btns .btn-group > .button--primary:focus, .btn-group > .btn:active, .poll .poll .btn-group > input.form-submit:active, .poll-teaser-btns .btn-group > .button--primary:active, .btn-group > .btn.active, .poll .poll .btn-group > input.active.form-submit, .poll-teaser-btns .btn-group > .active.button--primary,
     .btn-group-vertical > .btn:focus,
+    .poll .poll .btn-group-vertical > input.form-submit:focus,
     .poll-teaser-btns .btn-group-vertical > .button--primary:focus,
     .btn-group-vertical > .btn:active,
+    .poll .poll .btn-group-vertical > input.form-submit:active,
     .poll-teaser-btns .btn-group-vertical > .button--primary:active,
     .btn-group-vertical > .btn.active,
+    .poll .poll .btn-group-vertical > input.active.form-submit,
     .poll-teaser-btns .btn-group-vertical > .active.button--primary {
       z-index: 1; }
-  .btn-group .btn + .btn, .btn-group .poll-teaser-btns .button--primary + .btn, .poll-teaser-btns .btn-group .button--primary + .btn, .btn-group .poll-teaser-btns .btn + .button--primary, .poll-teaser-btns .btn-group .btn + .button--primary, .btn-group .poll-teaser-btns .button--primary + .button--primary, .poll-teaser-btns .btn-group .button--primary + .button--primary,
+  .btn-group .btn + .btn, .btn-group .poll .poll input.form-submit + .btn, .poll .poll .btn-group input.form-submit + .btn, .btn-group .poll-teaser-btns .button--primary + .btn, .poll-teaser-btns .btn-group .button--primary + .btn, .btn-group .poll .poll .btn + input.form-submit, .poll .poll .btn-group .btn + input.form-submit, .btn-group .poll .poll input.form-submit + input.form-submit, .poll .poll .btn-group input.form-submit + input.form-submit, .btn-group .poll-teaser-btns .poll .poll .button--primary + input.form-submit, .poll .poll .btn-group .poll-teaser-btns .button--primary + input.form-submit, .poll-teaser-btns .btn-group .poll .poll .button--primary + input.form-submit, .poll .poll .poll-teaser-btns .btn-group .button--primary + input.form-submit, .btn-group .poll-teaser-btns .btn + .button--primary, .poll-teaser-btns .btn-group .btn + .button--primary, .btn-group .poll .poll .poll-teaser-btns input.form-submit + .button--primary, .poll-teaser-btns .btn-group .poll .poll input.form-submit + .button--primary, .poll .poll .btn-group .poll-teaser-btns input.form-submit + .button--primary, .poll-teaser-btns .poll .poll .btn-group input.form-submit + .button--primary, .btn-group .poll-teaser-btns .button--primary + .button--primary, .poll-teaser-btns .btn-group .button--primary + .button--primary,
   .btn-group .btn + .btn-group,
+  .btn-group .poll .poll input.form-submit + .btn-group,
+  .poll .poll .btn-group input.form-submit + .btn-group,
   .btn-group .poll-teaser-btns .button--primary + .btn-group,
   .poll-teaser-btns .btn-group .button--primary + .btn-group,
   .btn-group .btn-group + .btn,
+  .btn-group .poll .poll .btn-group + input.form-submit,
+  .poll .poll .btn-group .btn-group + input.form-submit,
   .btn-group .poll-teaser-btns .btn-group + .button--primary,
   .poll-teaser-btns .btn-group .btn-group + .button--primary,
   .btn-group .btn-group + .btn-group,
   .btn-group-vertical .btn + .btn,
+  .btn-group-vertical .poll .poll input.form-submit + .btn,
+  .poll .poll .btn-group-vertical input.form-submit + .btn,
   .btn-group-vertical .poll-teaser-btns .button--primary + .btn,
   .poll-teaser-btns .btn-group-vertical .button--primary + .btn,
+  .btn-group-vertical .poll .poll .btn + input.form-submit,
+  .poll .poll .btn-group-vertical .btn + input.form-submit,
+  .btn-group-vertical .poll .poll input.form-submit + input.form-submit,
+  .poll .poll .btn-group-vertical input.form-submit + input.form-submit,
+  .btn-group-vertical .poll-teaser-btns .poll .poll .button--primary + input.form-submit,
+  .poll .poll .btn-group-vertical .poll-teaser-btns .button--primary + input.form-submit,
+  .poll-teaser-btns .btn-group-vertical .poll .poll .button--primary + input.form-submit,
+  .poll .poll .poll-teaser-btns .btn-group-vertical .button--primary + input.form-submit,
   .btn-group-vertical .poll-teaser-btns .btn + .button--primary,
   .poll-teaser-btns .btn-group-vertical .btn + .button--primary,
+  .btn-group-vertical .poll .poll .poll-teaser-btns input.form-submit + .button--primary,
+  .poll-teaser-btns .btn-group-vertical .poll .poll input.form-submit + .button--primary,
+  .poll .poll .btn-group-vertical .poll-teaser-btns input.form-submit + .button--primary,
+  .poll-teaser-btns .poll .poll .btn-group-vertical input.form-submit + .button--primary,
   .btn-group-vertical .poll-teaser-btns .button--primary + .button--primary,
   .poll-teaser-btns .btn-group-vertical .button--primary + .button--primary,
   .btn-group-vertical .btn + .btn-group,
+  .btn-group-vertical .poll .poll input.form-submit + .btn-group,
+  .poll .poll .btn-group-vertical input.form-submit + .btn-group,
   .btn-group-vertical .poll-teaser-btns .button--primary + .btn-group,
   .poll-teaser-btns .btn-group-vertical .button--primary + .btn-group,
   .btn-group-vertical .btn-group + .btn,
+  .btn-group-vertical .poll .poll .btn-group + input.form-submit,
+  .poll .poll .btn-group-vertical .btn-group + input.form-submit,
   .btn-group-vertical .poll-teaser-btns .btn-group + .button--primary,
   .poll-teaser-btns .btn-group-vertical .btn-group + .button--primary,
   .btn-group-vertical .btn-group + .btn-group {
@@ -2304,7 +2333,7 @@ input[type="button"].btn-block {
   .btn-toolbar .input-group {
     width: auto; }
 
-.btn-group > .btn:first-child, .poll-teaser-btns .btn-group > .button--primary:first-child {
+.btn-group > .btn:first-child, .poll .poll .btn-group > input.form-submit:first-child, .poll-teaser-btns .btn-group > .button--primary:first-child {
   margin-left: 0; }
 
 .dropdown-toggle-split {
@@ -2317,11 +2346,11 @@ input[type="button"].btn-block {
   .dropleft .dropdown-toggle-split::before {
     margin-right: 0; }
 
-.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .poll-teaser-btns .btn-group-sm > .button--primary + .dropdown-toggle-split {
+.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .poll .poll .btn-group-sm > input.form-submit + .dropdown-toggle-split, .poll-teaser-btns .btn-group-sm > .button--primary + .dropdown-toggle-split {
   padding-right: 0.375rem;
   padding-left: 0.375rem; }
 
-.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .poll-teaser-btns .btn-group-lg > .button--primary + .dropdown-toggle-split, .poll-teaser-btns .button--primary + .dropdown-toggle-split {
+.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .poll .poll .btn-group-lg > input.form-submit + .dropdown-toggle-split, .poll-teaser-btns .btn-group-lg > .button--primary + .dropdown-toggle-split, .poll-teaser-btns .button--primary + .dropdown-toggle-split {
   padding-right: 0.75rem;
   padding-left: 0.75rem; }
 
@@ -2329,28 +2358,34 @@ input[type="button"].btn-block {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center; }
-  .btn-group-vertical .btn, .btn-group-vertical .poll-teaser-btns .button--primary, .poll-teaser-btns .btn-group-vertical .button--primary,
+  .btn-group-vertical .btn, .btn-group-vertical .poll .poll input.form-submit, .poll .poll .btn-group-vertical input.form-submit, .btn-group-vertical .poll-teaser-btns .button--primary, .poll-teaser-btns .btn-group-vertical .button--primary,
   .btn-group-vertical .btn-group {
     width: 100%; }
-  .btn-group-vertical > .btn + .btn, .poll-teaser-btns .btn-group-vertical > .button--primary + .btn, .poll-teaser-btns .btn-group-vertical > .btn + .button--primary, .poll-teaser-btns .btn-group-vertical > .button--primary + .button--primary,
+  .btn-group-vertical > .btn + .btn, .poll .poll .btn-group-vertical > input.form-submit + .btn, .poll-teaser-btns .btn-group-vertical > .button--primary + .btn, .poll .poll .btn-group-vertical > .btn + input.form-submit, .poll .poll .btn-group-vertical > input.form-submit + input.form-submit, .poll-teaser-btns .poll .poll .btn-group-vertical > .button--primary + input.form-submit, .poll .poll .poll-teaser-btns .btn-group-vertical > .button--primary + input.form-submit, .poll-teaser-btns .btn-group-vertical > .btn + .button--primary, .poll .poll .poll-teaser-btns .btn-group-vertical > input.form-submit + .button--primary, .poll-teaser-btns .poll .poll .btn-group-vertical > input.form-submit + .button--primary, .poll-teaser-btns .btn-group-vertical > .button--primary + .button--primary,
   .btn-group-vertical > .btn + .btn-group,
+  .poll .poll .btn-group-vertical > input.form-submit + .btn-group,
   .poll-teaser-btns .btn-group-vertical > .button--primary + .btn-group,
   .btn-group-vertical > .btn-group + .btn,
+  .poll .poll .btn-group-vertical > .btn-group + input.form-submit,
   .poll-teaser-btns .btn-group-vertical > .btn-group + .button--primary,
   .btn-group-vertical > .btn-group + .btn-group {
     margin-top: -1px;
     margin-left: 0; }
 
-.btn-group-toggle > .btn, .poll-teaser-btns .btn-group-toggle > .button--primary,
+.btn-group-toggle > .btn, .poll .poll .btn-group-toggle > input.form-submit, .poll-teaser-btns .btn-group-toggle > .button--primary,
 .btn-group-toggle > .btn-group > .btn,
+.poll .poll .btn-group-toggle > .btn-group > input.form-submit,
 .poll-teaser-btns .btn-group-toggle > .btn-group > .button--primary {
   margin-bottom: 0; }
-  .btn-group-toggle > .btn input[type="radio"], .poll-teaser-btns .btn-group-toggle > .button--primary input[type="radio"],
+  .btn-group-toggle > .btn input[type="radio"], .poll .poll .btn-group-toggle > input.form-submit input[type="radio"], .poll-teaser-btns .btn-group-toggle > .button--primary input[type="radio"],
   .btn-group-toggle > .btn input[type="checkbox"],
+  .poll .poll .btn-group-toggle > input.form-submit input[type="checkbox"],
   .poll-teaser-btns .btn-group-toggle > .button--primary input[type="checkbox"],
   .btn-group-toggle > .btn-group > .btn input[type="radio"],
+  .poll .poll .btn-group-toggle > .btn-group > input.form-submit input[type="radio"],
   .poll-teaser-btns .btn-group-toggle > .btn-group > .button--primary input[type="radio"],
   .btn-group-toggle > .btn-group > .btn input[type="checkbox"],
+  .poll .poll .btn-group-toggle > .btn-group > input.form-submit input[type="checkbox"],
   .poll-teaser-btns .btn-group-toggle > .btn-group > .button--primary input[type="checkbox"] {
     position: absolute;
     clip: rect(0, 0, 0, 0);
@@ -2392,32 +2427,56 @@ input[type="button"].btn-block {
 .input-group-prepend,
 .input-group-append {
   display: flex; }
-  .input-group-prepend .btn, .input-group-prepend .poll-teaser-btns .button--primary, .poll-teaser-btns .input-group-prepend .button--primary,
+  .input-group-prepend .btn, .input-group-prepend .poll .poll input.form-submit, .poll .poll .input-group-prepend input.form-submit, .input-group-prepend .poll-teaser-btns .button--primary, .poll-teaser-btns .input-group-prepend .button--primary,
   .input-group-append .btn,
+  .input-group-append .poll .poll input.form-submit,
+  .poll .poll .input-group-append input.form-submit,
   .input-group-append .poll-teaser-btns .button--primary,
   .poll-teaser-btns .input-group-append .button--primary {
     position: relative;
     z-index: 2; }
-  .input-group-prepend .btn + .btn, .input-group-prepend .poll-teaser-btns .button--primary + .btn, .poll-teaser-btns .input-group-prepend .button--primary + .btn, .input-group-prepend .poll-teaser-btns .btn + .button--primary, .poll-teaser-btns .input-group-prepend .btn + .button--primary, .input-group-prepend .poll-teaser-btns .button--primary + .button--primary, .poll-teaser-btns .input-group-prepend .button--primary + .button--primary,
+  .input-group-prepend .btn + .btn, .input-group-prepend .poll .poll input.form-submit + .btn, .poll .poll .input-group-prepend input.form-submit + .btn, .input-group-prepend .poll-teaser-btns .button--primary + .btn, .poll-teaser-btns .input-group-prepend .button--primary + .btn, .input-group-prepend .poll .poll .btn + input.form-submit, .poll .poll .input-group-prepend .btn + input.form-submit, .input-group-prepend .poll .poll input.form-submit + input.form-submit, .poll .poll .input-group-prepend input.form-submit + input.form-submit, .input-group-prepend .poll-teaser-btns .poll .poll .button--primary + input.form-submit, .poll .poll .input-group-prepend .poll-teaser-btns .button--primary + input.form-submit, .poll-teaser-btns .input-group-prepend .poll .poll .button--primary + input.form-submit, .poll .poll .poll-teaser-btns .input-group-prepend .button--primary + input.form-submit, .input-group-prepend .poll-teaser-btns .btn + .button--primary, .poll-teaser-btns .input-group-prepend .btn + .button--primary, .input-group-prepend .poll .poll .poll-teaser-btns input.form-submit + .button--primary, .poll-teaser-btns .input-group-prepend .poll .poll input.form-submit + .button--primary, .poll .poll .input-group-prepend .poll-teaser-btns input.form-submit + .button--primary, .poll-teaser-btns .poll .poll .input-group-prepend input.form-submit + .button--primary, .input-group-prepend .poll-teaser-btns .button--primary + .button--primary, .poll-teaser-btns .input-group-prepend .button--primary + .button--primary,
   .input-group-prepend .btn + .input-group-text,
+  .input-group-prepend .poll .poll input.form-submit + .input-group-text,
+  .poll .poll .input-group-prepend input.form-submit + .input-group-text,
   .input-group-prepend .poll-teaser-btns .button--primary + .input-group-text,
   .poll-teaser-btns .input-group-prepend .button--primary + .input-group-text,
   .input-group-prepend .input-group-text + .input-group-text,
   .input-group-prepend .input-group-text + .btn,
+  .input-group-prepend .poll .poll .input-group-text + input.form-submit,
+  .poll .poll .input-group-prepend .input-group-text + input.form-submit,
   .input-group-prepend .poll-teaser-btns .input-group-text + .button--primary,
   .poll-teaser-btns .input-group-prepend .input-group-text + .button--primary,
   .input-group-append .btn + .btn,
+  .input-group-append .poll .poll input.form-submit + .btn,
+  .poll .poll .input-group-append input.form-submit + .btn,
   .input-group-append .poll-teaser-btns .button--primary + .btn,
   .poll-teaser-btns .input-group-append .button--primary + .btn,
+  .input-group-append .poll .poll .btn + input.form-submit,
+  .poll .poll .input-group-append .btn + input.form-submit,
+  .input-group-append .poll .poll input.form-submit + input.form-submit,
+  .poll .poll .input-group-append input.form-submit + input.form-submit,
+  .input-group-append .poll-teaser-btns .poll .poll .button--primary + input.form-submit,
+  .poll .poll .input-group-append .poll-teaser-btns .button--primary + input.form-submit,
+  .poll-teaser-btns .input-group-append .poll .poll .button--primary + input.form-submit,
+  .poll .poll .poll-teaser-btns .input-group-append .button--primary + input.form-submit,
   .input-group-append .poll-teaser-btns .btn + .button--primary,
   .poll-teaser-btns .input-group-append .btn + .button--primary,
+  .input-group-append .poll .poll .poll-teaser-btns input.form-submit + .button--primary,
+  .poll-teaser-btns .input-group-append .poll .poll input.form-submit + .button--primary,
+  .poll .poll .input-group-append .poll-teaser-btns input.form-submit + .button--primary,
+  .poll-teaser-btns .poll .poll .input-group-append input.form-submit + .button--primary,
   .input-group-append .poll-teaser-btns .button--primary + .button--primary,
   .poll-teaser-btns .input-group-append .button--primary + .button--primary,
   .input-group-append .btn + .input-group-text,
+  .input-group-append .poll .poll input.form-submit + .input-group-text,
+  .poll .poll .input-group-append input.form-submit + .input-group-text,
   .input-group-append .poll-teaser-btns .button--primary + .input-group-text,
   .poll-teaser-btns .input-group-append .button--primary + .input-group-text,
   .input-group-append .input-group-text + .input-group-text,
   .input-group-append .input-group-text + .btn,
+  .input-group-append .poll .poll .input-group-text + input.form-submit,
+  .poll .poll .input-group-append .input-group-text + input.form-submit,
   .input-group-append .poll-teaser-btns .input-group-text + .button--primary,
   .poll-teaser-btns .input-group-append .input-group-text + .button--primary {
     margin-left: -1px; }
@@ -2449,8 +2508,10 @@ input[type="button"].btn-block {
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-append > .input-group-text,
 .input-group-lg > .input-group-prepend > .btn,
+.poll .poll .input-group-lg > .input-group-prepend > input.form-submit,
 .poll-teaser-btns .input-group-lg > .input-group-prepend > .button--primary,
 .input-group-lg > .input-group-append > .btn,
+.poll .poll .input-group-lg > .input-group-append > input.form-submit,
 .poll-teaser-btns .input-group-lg > .input-group-append > .button--primary {
   height: calc(2.875rem + 2px);
   padding: 0.5rem 1rem;
@@ -2461,8 +2522,10 @@ input[type="button"].btn-block {
 .input-group-sm > .input-group-prepend > .input-group-text,
 .input-group-sm > .input-group-append > .input-group-text,
 .input-group-sm > .input-group-prepend > .btn,
+.poll .poll .input-group-sm > .input-group-prepend > input.form-submit,
 .poll-teaser-btns .input-group-sm > .input-group-prepend > .button--primary,
 .input-group-sm > .input-group-append > .btn,
+.poll .poll .input-group-sm > .input-group-append > input.form-submit,
 .poll-teaser-btns .input-group-sm > .input-group-append > .button--primary {
   height: calc(1.8125rem + 2px);
   padding: 0.25rem 0.5rem;
@@ -3288,7 +3351,7 @@ input[type="button"].btn-block {
   .badge:empty {
     display: none; }
 
-.btn .badge, .poll-teaser-btns .button--primary .badge {
+.btn .badge, .poll .poll input.form-submit .badge, .poll-teaser-btns .button--primary .badge {
   position: relative;
   top: -1px; }
 
@@ -6443,9 +6506,16 @@ img {
   display: none; }
 
 .poll-candidate {
-  padding-bottom: 3rem; }
+  padding-bottom: 3rem;
+  transition: background-color 0.2s ease-in; }
   .poll-candidate-title {
     margin-bottom: 1.5rem; }
+  .poll-candidate:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.4s ease-out; }
+  .poll-candidate.is-active {
+    background-color: #ddf5ff;
+    transition: background-color 0.4s ease-out; }
 
 .poll-content {
   display: flex;
@@ -6489,6 +6559,12 @@ img {
       display: none; }
   .poll-content-choose {
     margin-top: auto; }
+    .poll-content-choose .selected {
+      display: none; }
+    .is-active .poll-content-choose .selected {
+      display: inline; }
+    .is-active .poll-content-choose .select {
+      display: none; }
 
 .poll-teaser {
   margin-top: 3rem;
@@ -6535,10 +6611,10 @@ img {
         display: none; }
     .poll-teaser-item:hover {
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.16);
-      transition: box-shadow 0.4s ease-out; }
+      transition: box-shadow 0.4s ease-out;
+      cursor: pointer; }
     .poll-teaser-item.is-active {
       outline: solid 0.25rem #009BDD;
-      cursor: pointer;
       transition: outline 0.4s ease-out; }
     .poll-teaser-item:hover .poll-teaser-item-choice, .poll-teaser-item.is-active .poll-teaser-item-choice {
       visibility: visible;
@@ -6564,6 +6640,17 @@ img {
       color: #333333; }
     .poll-winners-years .is-inactive {
       color: #858585; }
+
+.poll .poll {
+  background-color: #f1f1f1;
+  border-top: 1px solid #e6e6e6;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0.25rem 0.5rem;
+  width: 100%; }
+  .poll .poll .vote-form {
+    text-align: center; }
 
 .poll-teaser-btns .button--primary {
   display: block;

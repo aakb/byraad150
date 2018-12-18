@@ -6,8 +6,17 @@
   }
   &-candidate {
     @include sectionSpacing(bottom, padding);
+    @include transition(background-color, in);
     &-title {
       margin-bottom: $spacer*1.5;
+    }
+    &:hover {
+      background-color: $gray-100;
+      @include transition(background-color, out);
+    }
+    &.is-active {
+      background-color: lighten($blue-light,10%);
+      @include transition(background-color, out);
     }
   }
   &-content {
@@ -60,6 +69,17 @@
     }
     &-choose {
       margin-top: auto;
+      .selected {
+        display: none;
+      }
+      .is-active & {
+        .selected {
+          display: inline;
+        }
+        .select {
+          display: none;
+        }
+      }
     }
   }
   &-teaser {
@@ -115,10 +135,10 @@
       }
       &:hover {
         @include boxShadow;
+        cursor: pointer;
       }
       &.is-active {
         outline: solid $spacer/4 $primary;
-        cursor: pointer;
         @include transition(outline, out);
       }
       &:hover #{$p}-choice, &.is-active #{$p}-choice {
@@ -153,6 +173,22 @@
       .is-inactive {
         color: $gray-700;
       }
+    }
+  }
+  .poll {
+    background-color: $gray-100;
+    border-top: 1px solid $gray-300;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: $spacer/4 $spacer/2;
+    width: 100%;
+    .vote-form {
+      text-align: center;
+    }
+    input.form-submit {
+      @extend .btn;
+      @extend .btn-primary;
     }
   }
 }
