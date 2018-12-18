@@ -36,30 +36,21 @@
  * @see template_preprocess_field()
  */
 #}
-{%
-  set wrapper_classes = 'col-sm-12 col-md-6 col-lg-8 poll-content'
-%}
-
-<div{{ attributes.addClass(wrapper_classes) }}>
-  <div class="poll-content-description">
-    {% if label_hidden %}
-      {% if multiple %}
-        {% for item in items %}
-          {{ item.content }}
-        {% endfor %}
-      {% else %}
-        {% for item in items %}
-          {{ item.content }}
-        {% endfor %}
-      {% endif %}
+<div class="poll-content-description">
+  {% if label_hidden %}
+    {% if multiple %}
+      {% for item in items %}
+        {{ item.content }}
+      {% endfor %}
     {% else %}
-      {{ label }}
       {% for item in items %}
         {{ item.content }}
       {% endfor %}
     {% endif %}
-  </div>
-  <button class="btn btn-sm btn-outline-secondary poll-content-expand"><i class="fas fa-angle-down"></i> <span class="more">{{ 'Show more'|t }}</span><span class="less">{{ 'Show less'|t }}</span></button>
-  <button class="btn btn-lg btn-primary poll-content-choose">{{ 'Choose this candidate'|t }}</button>
-
+  {% else %}
+    {{ label }}
+    {% for item in items %}
+      {{ item.content }}
+    {% endfor %}
+  {% endif %}
 </div>

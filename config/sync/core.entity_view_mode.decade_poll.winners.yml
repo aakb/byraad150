@@ -1,0 +1,10 @@
+uuid: a72685d5-e8e1-4498-96fe-c8f9c15674f5
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+id: decade_poll.winners
+label: Vindere
+targetEntityType: decade_poll
+cache: true

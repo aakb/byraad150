@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.decade_poll.winners
     - eck.eck_type.decade_poll.decade_poll_candidate
   module:
     - eck
@@ -60,7 +61,7 @@ display:
         type: 'entity:decade_poll'
         options:
           relationship: none
-          view_mode: default
+          view_mode: winners
       fields:
         title:
           table: decade_poll_field_data

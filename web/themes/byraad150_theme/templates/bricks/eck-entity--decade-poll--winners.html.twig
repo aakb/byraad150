@@ -21,7 +21,7 @@
  */
 #}
 
-<div class="row poll-candidate js-poll-select js-poll-decade-{{ decade }}" data-decade="{{ decade }}" data-entity-id="{{ eck_entity.id() }}">
+<div class="row poll-candidate" data-decade="{{ decade }}" data-entity-id="{{ eck_entity.id() }}">
   <div class="col-sm-12">
     <p class="small">{{ 'Candidate nr.'|t }}</p>
     <h2 class="poll-candidate-title">{{ content.title[0] }}</h2>
@@ -39,7 +39,6 @@
     {{ content.field_candidate_description }}
 
     <button class="btn btn-sm btn-outline-secondary poll-content-expand"><i class="fas fa-angle-down"></i> <span class="more">{{ 'Show more'|t }}</span><span class="less">{{ 'Show less'|t }}</span></button>
-    <button class="btn btn-lg btn-primary poll-content-choose">{{ 'Choose this candidate'|t }}</button>
   </div>
 
   {{ content|without('field_candidate_year','field_candidate_image_text', 'field_candidate_image', 'title', 'field_candidate_description') }}
