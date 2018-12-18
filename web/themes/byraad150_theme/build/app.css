@@ -6557,11 +6557,13 @@ img {
   .poll-winners-title, .poll-winners-years {
     margin-bottom: 2rem; }
   .poll-winners-years {
-    color: #858585; }
+    color: #009BDD; }
     .poll-winners-years .is-active {
       font-size: 1.5rem;
       font-weight: bold;
       color: #333333; }
+    .poll-winners-years .is-inactive {
+      color: #858585; }
 
 .poll-teaser-btns .button--primary {
   display: block;

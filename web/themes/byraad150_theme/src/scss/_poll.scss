@@ -144,11 +144,14 @@
       margin-bottom: $spacer*2;
     }
     &-years {
-      color: $gray-700;
+      color: $primary;
       .is-active {
         font-size: $font-size-lead;
         font-weight: bold;
         color: $gray-900;
+      }
+      .is-inactive {
+        color: $gray-700;
       }
     }
   }

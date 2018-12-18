@@ -1,7 +1,13 @@
 (function ($, Drupal) {
   Drupal.behaviors.pollWinners = {
     attach: function (context, settings) {
+      // Hide all candidates.
+      $('.poll-candidate').hide();
+
       var pollWinnerYears = $('.poll-winners-years .col');
+      pollWinnerYears.each(function () {
+        $(this).addClass('is-inactive');
+      });
 
       /**
        * Handle decade winner clicks.
@@ -28,13 +34,6 @@
         $('.poll-candidate[data-decade="' + decade + '"]').show('slow');
       }
 
-      // Register click listeners.
-      pollWinnerYears.each(function () {
-        $(this).on('click', clickDecade);
-      });
-
-      // Hide all decades.
-      $('.poll-candidate').hide();
 
       // Find latest registered decade winner.
       var latest = null;
@@ -44,6 +43,9 @@
         if (decade > latest) {
           latest = decade;
         }
+
+        // Add click listener and remove is-inactive class.
+        $('.poll-winners-years .col[data-year-show="' + decade + '"]').on('click', clickDecade).removeClass('is-inactive');
       });
 
       // Show latest decade winner.
