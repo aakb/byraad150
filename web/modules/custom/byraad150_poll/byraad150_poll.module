@@ -2,14 +2,12 @@
 
 use Drupal\poll\Entity\Poll;
 use Drupal\poll\Entity\PollChoice;
-use Drupal\node\Entity\Node;
 
 /**
- * Automatically create or change a poll when saving a node
- *
- * @param \Drupal\Core\Entity\EntityInterface $node
+ * Implements HOOK_node_presave().
  */
 function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
+  // Automatically create or change a poll when saving a node.
   if ($node->bundle() == 'afstemning') {
     // Change existing poll.
     if (!empty($node->original)) {
