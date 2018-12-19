@@ -70,12 +70,30 @@
  *   in different view modes.
  */
 #}
-<div class="container-fluid decade">
-  <div class="row mb-3">
-    <div class="col-sm-12 mt-5 mb-5">
-      {{ label }}
-      {{ content.field_decade }}
-      {{ url }}
+<div class="col-6 col-sm-3 mb-3">
+  <a class="decade-item" href="{{ url }}">
+
+    <div class="decade-item-header">
+      {% if content.field_candidates[0]['#decade_poll'].field_candidate_image.entity.uri.value %}
+        <div class="decade-item-header-bg-image">
+          <img src="{{ file_url(content.field_candidates[0]['#decade_poll'].field_candidate_image.entity.uri.value) }}" alt="">
+        </div>
+      {% endif %}
+      <div class="decade-item-header-text">
+        {{ content.field_decade[0] }}
+      </div>
     </div>
-  </div>
+    <div class="decade-item-label">
+      <h3>{{ label[0] }}</h3>
+    </div>
+    <div class="decade-item-btn">
+      <button class="btn btn-primary btn-block" role="button" >{{ 'Show decade'|t}}</button>
+    </div>
+
+  </a>
 </div>
+
+
+
+    {# {{dump(content.field_candidates[0]['#decade_poll'].field_candidate_image[0])}} #}
+    {# {{dump(content.field_candidates[0]['#decade_poll'].field_candidate_image[0].entity.uri)}} #}
