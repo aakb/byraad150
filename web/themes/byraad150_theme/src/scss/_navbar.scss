@@ -29,4 +29,13 @@
       }
     }
   }
+  &-expand {
+    &-nav {
+      &-link {
+        @include media-breakpoint-up(md){
+          padding-right: $spacer*2.5;
+        }
+      }
+    }
+  }
 }

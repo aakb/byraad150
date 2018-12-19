@@ -12,6 +12,8 @@
 /* Spacer helper */
 /* Set default font */
 /* Set serif font */
+/* Set black font */
+/* Set font sizes */
 /* Disable rounded corners */
 /* Bootstrap overrides goes in this file */
 /*!
@@ -6428,6 +6430,9 @@ img {
         color: #222222; }
     .navbar .nav-link.active {
       opacity: .65; }
+  @media (min-width: 768px) {
+    .navbar-expand-nav-link {
+      padding-right: 2.5rem; } }
 
 .hero {
   position: relative;
@@ -6462,7 +6467,7 @@ img {
     .hero-text:hover {
       text-decoration: none;
       background: #009BDD;
-      transition: background 0.4s ease-out; }
+      transition: background 0.4s ease-in-out; }
       .hero-text:hover .hero-text-lead {
         text-decoration: underline; }
     .hero-text-title, .hero-text-lead {
@@ -6512,7 +6517,7 @@ img {
     margin-bottom: 1.5rem; }
   .poll-candidate.is-active {
     background-color: #ddf5ff;
-    transition: background-color 0.4s ease-out; }
+    transition: background-color 0.4s ease-in-out; }
 
 .poll-content {
   display: flex;
@@ -6534,7 +6539,7 @@ img {
     max-height: 14rem;
     transition: max-height 0.2s ease-in; }
     .expand .poll-content-description {
-      transition: max-height 0.4s ease-out;
+      transition: max-height 0.4s ease-in-out;
       max-height: 100%; }
   .poll-content-expand {
     margin-bottom: 1rem; }
@@ -6545,9 +6550,9 @@ img {
     .poll-content-expand .less {
       display: none; }
     .expand .poll-content-expand i {
-      transition: -webkit-transform 0.4s ease-out;
-      transition: transform 0.4s ease-out;
-      transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;
+      transition: -webkit-transform 0.4s ease-in-out;
+      transition: transform 0.4s ease-in-out;
+      transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
       -webkit-transform: rotate(180deg);
               transform: rotate(180deg); }
     .expand .poll-content-expand .less {
@@ -6608,15 +6613,15 @@ img {
         display: none; }
     .poll-teaser-item:hover {
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.16);
-      transition: box-shadow 0.4s ease-out;
+      transition: box-shadow 0.4s ease-in-out;
       cursor: pointer; }
     .poll-teaser-item.is-active {
       outline: solid 0.25rem #009BDD;
-      transition: outline 0.4s ease-out; }
+      transition: outline 0.4s ease-in-out; }
     .poll-teaser-item:hover .poll-teaser-item-choice, .poll-teaser-item.is-active .poll-teaser-item-choice {
       visibility: visible;
       opacity: 1;
-      transition: opacity 0.4s ease-out; }
+      transition: opacity 0.4s ease-in-out; }
     .poll-teaser-item.is-active .poll-teaser-item-choice-select {
       display: none; }
     .poll-teaser-item.is-active .poll-teaser-item-choice-chosen {
@@ -6734,13 +6739,13 @@ img {
     .news-teaser-item:hover {
       text-decoration: none;
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.16);
-      transition: box-shadow 0.4s ease-out; }
+      transition: box-shadow 0.4s ease-in-out; }
     .news-teaser-item:hover .news-teaser-item-image img {
       -webkit-transform: scale(1.07);
               transform: scale(1.07);
-      transition: -webkit-transform 0.4s ease-out;
-      transition: transform 0.4s ease-out;
-      transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out; }
+      transition: -webkit-transform 0.4s ease-in-out;
+      transition: transform 0.4s ease-in-out;
+      transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out; }
   .news-teaser-btns {
     text-align: center;
     margin-top: 1rem;
@@ -6774,6 +6779,56 @@ img {
     border-bottom-right-radius: 2.5rem 1.5rem;
     border-top-left-radius: 2.5rem 1.5rem;
     border-top-right-radius: 1.5rem 2.5rem; }
+
+.decade-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f1f1f1; }
+  .decade-item-header {
+    position: relative;
+    background-color: #009BDD;
+    padding: 3rem 1rem;
+    text-align: center;
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 4rem;
+    color: #ffffff; }
+    .decade-item-header-bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+      .decade-item-header-bg-image img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: center;
+           object-position: center;
+        mix-blend-mode: multiply; }
+    .decade-item-header-text {
+      position: relative;
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      transition: -webkit-transform 0.2s ease-in;
+      transition: transform 0.2s ease-in;
+      transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in; }
+  .decade-item-label {
+    padding: 1rem;
+    color: #222222; }
+  .decade-item-btn {
+    margin-top: auto; }
+  .decade-item:hover {
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.16);
+    transition: box-shadow 0.4s ease-in-out;
+    text-decoration: none; }
+    .decade-item:hover .decade-item-header-text {
+      -webkit-transform: scale(1.15);
+              transform: scale(1.15);
+      transition: -webkit-transform 0.4s ease-in-out;
+      transition: transform 0.4s ease-in-out;
+      transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out; }
 
 /*** EXPORTS FROM exports-loader ***/
 

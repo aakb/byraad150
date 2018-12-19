@@ -11,7 +11,7 @@ dependencies:
     - poll
     - user
 id: decade_polls
-label: Afstemninger
+label: Årtier
 module: views
 description: 'Liste over alle afstemninger'
 tag: ''
@@ -295,7 +295,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: Afstemninger
+      title: Årtier
       header: {  }
       footer: {  }
       empty: {  }
@@ -328,7 +328,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: afstemninger
+      path: aartier
     cache_metadata:
       max-age: -1
       contexts:

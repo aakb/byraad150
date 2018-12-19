@@ -50,7 +50,7 @@
     transition: $property .2s ease-in;
   }
   @else {
-    transition: $property .4s ease-out;
+    transition: $property .4s ease-in-out;
   }
 }
 

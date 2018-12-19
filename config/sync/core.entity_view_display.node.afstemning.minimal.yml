@@ -12,12 +12,22 @@ dependencies:
     - field.field.node.afstemning.field_winner_video
     - node.type.afstemning
   module:
+    - bricks
     - user
 id: node.afstemning.minimal
 targetEntityType: node
 bundle: afstemning
 mode: minimal
 content:
+  field_candidates:
+    type: bricks_nested
+    weight: 1
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
   field_decade:
     weight: 0
     label: above
@@ -28,13 +38,12 @@ content:
     type: number_integer
     region: content
   links:
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   body: true
-  field_candidates: true
   field_poll_ref: true
   field_video: true
   field_winner_video: true
