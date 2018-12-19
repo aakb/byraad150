@@ -77,7 +77,7 @@ class AarhusHeroSettingsForm extends FormBase {
       '#title' => $this->t('Hero image'),
       '#type' => 'managed_file',
       '#default_value' => !empty($config->get('hero_image')) ? array($config->get('hero_image')) : NULL,
-      '#upload_location' => 'public://',
+      '#upload_location' => 'public://images',
       '#weight' => '4',
       '#open' => TRUE,
     );
