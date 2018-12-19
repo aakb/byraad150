@@ -1,0 +1,10 @@
+status: true
+dependencies:
+  module:
+  - node
+  - poll
+id: node_open_poll
+label: 'Open poll'
+type: node
+plugin: open_poll
+configuration: {  }
