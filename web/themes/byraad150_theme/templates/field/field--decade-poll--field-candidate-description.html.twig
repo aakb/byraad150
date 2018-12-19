@@ -37,16 +37,7 @@
  */
 #}
 <div class="poll-content-description">
-  {% if label_hidden %}
-    {% if multiple %}
-      {% for item in items %}
-        {{ item.content }}
-      {% endfor %}
-    {% endif %}
-  {% else %}
-    {{ label }}
-    {% for item in items %}
-      {{ item.content }}
-    {% endfor %}
-  {% endif %}
+  {% for item in items %}
+    {{ item.content }}
+  {% endfor %}
 </div>
