@@ -43,5 +43,10 @@
         {{ item.content }}
       {% endfor %}
     {% endif %}
+  {% else %}
+    {{ label }}
+    {% for item in items %}
+      {{ item.content }}
+    {% endfor %}
   {% endif %}
 </div>
