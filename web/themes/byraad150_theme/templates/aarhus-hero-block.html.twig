@@ -13,8 +13,14 @@
   <div class="hero-image">
     {{ image }}
   </div>
-  <a href="{{ config.hero_link }}" class="hero-text">
-    <h1 class="hero-text-title">{{ config.hero_title }}</h1>
-    <p class="hero-text-lead">{{ config.hero_text }}</p>
-  </a>
+  <div class="container">
+    <div class="row h-100">
+      <div class="col h-100">
+        <a href="{{ config.hero_link }}" class="hero-text h-100">
+          <h1 class="hero-text-title">{{ config.hero_title }}</h1>
+          <p class="hero-text-lead">{{ config.hero_text }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

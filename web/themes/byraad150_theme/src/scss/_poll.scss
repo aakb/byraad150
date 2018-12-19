@@ -118,7 +118,6 @@
         background-color: $primary;
         color: $white;
         text-align: center;
-        visibility: hidden;
         @include media-breakpoint-up(sm) {
           opacity: 0;
         }
@@ -138,15 +137,8 @@
         @include transition(outline, out);
       }
       &:hover #{$p}-choice, &.is-active #{$p}-choice {
-        visibility: visible;
         opacity: 1;
         @include transition(opacity, out);
-      }
-      &.is-active #{$p}-choice-select {
-        display: none;
-      }
-      &.is-active #{$p}-choice-chosen {
-        display: block;
       }
     }
     &-btns {
@@ -177,7 +169,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    padding: $spacer/4 $spacer/2;
+    padding: $spacer/2 0;
     width: 100%;
     .vote-form {
       text-align: center;

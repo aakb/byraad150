@@ -38,44 +38,48 @@
 %}
 <div{{ attributes.addClass(classes) }}>
   <div class="row">
-    <div class="col-sm-12">
-      <h2 class="poll-winners-title">{{ 'Decade winners'|t }}</h2>
-    </div>
-    <div class="col-sm-12">
-      <div class="row poll-winners-years">
-        {% for i in range(1860, 2010, 10) %}
-          <div class="col" data-year-show="{{ i }}">
-            <span>{{ i }}</span>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="poll-winners-title">{{ 'Decade winners'|t }}</h2>
+        </div>
+        <div class="col-sm-12">
+          <div class="row poll-winners-years">
+            {% for i in range(1860, 2010, 10) %}
+              <div class="col" data-year-show="{{ i }}">
+                <span>{{ i }}</span>
+              </div>
+            {% endfor %}
           </div>
-        {% endfor %}
+          {{ title_prefix }}
+          {{ title }}
+          {{ title_suffix }}
+
+          {% if header %}
+            <header>
+              {{ header }}
+            </header>
+          {% endif %}
+
+          {{ exposed }}
+          {{ attachment_before }}
+
+          {{ rows }}
+          {{ empty }}
+          {{ pager }}
+
+          {{ attachment_after }}
+          {{ more }}
+
+          {% if footer %}
+            <footer>
+              {{ footer }}
+            </footer>
+          {% endif %}
+
+          {{ feed_icons }}
+        </div>
       </div>
-      {{ title_prefix }}
-      {{ title }}
-      {{ title_suffix }}
-
-      {% if header %}
-        <header>
-          {{ header }}
-        </header>
-      {% endif %}
-
-      {{ exposed }}
-      {{ attachment_before }}
-
-      {{ rows }}
-      {{ empty }}
-      {{ pager }}
-
-      {{ attachment_after }}
-      {{ more }}
-
-      {% if footer %}
-        <footer>
-          {{ footer }}
-        </footer>
-      {% endif %}
-
-      {{ feed_icons }}
     </div>
   </div>
 </div>

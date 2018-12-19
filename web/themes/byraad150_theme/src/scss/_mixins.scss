@@ -46,12 +46,32 @@
   }
 }
 @mixin transition($property: all, $direction: in) {
+  $duration-in: .2s;
+  $method-in: ease-in;
+  $duration-out: .4s;
+  $method-out: ease-in-out;
+  $value: ();
   @if $direction == "in" {
-    transition: $property .2s ease-in;
+    @each $var in $property {
+      @if length($value) > 0 {
+        $value: append($value, unquote(",") #{$var} $duration-in $method-in);
+      }
+      @else {
+          $value: append($value, #{$var} $duration-in $method-in);
+      }
+    }
   }
   @else {
-    transition: $property .4s ease-in-out;
+    @each $var in $property {
+      @if length($value) > 0 {
+        $value: append($value, unquote(",") #{$var} $duration-out $method-out);
+      }
+      @else {
+          $value: append($value, #{$var} $duration-out $method-out);
+      }
+    }
   }
+  transition: $value;
 }
 
 @mixin boxShadow {

@@ -72,24 +72,32 @@
 #}
 <div class="container-fluid poll">
   <div class="row bg-primary poll-title mb-3">
-    <div class="poll-title-bg-image">
-      {{ content.field_image[0] }}
-    </div>
-    <div class="col-sm-12 mt-5 mb-5 text-white">
-      {{ title_prefix }}
-        <h1 class="underline"{{ title_attributes }}>
-          {{ label[0] }}
-        </h1>
-      {{ title_suffix }}
+    <div class="container">
+      <div class="row">
+        <div class="poll-title-bg-image">
+          {{ content.field_image[0] }}
+        </div>
+        <div class="col-sm-12 mt-5 mb-5 text-white">
+          {{ title_prefix }}
+            <h1 class="underline"{{ title_attributes }}>
+              {{ label[0] }}
+            </h1>
+          {{ title_suffix }}
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-7">
-      {{ content.body }}
-    </div>
-    <div class="col-sm-5">
-      {{ content.field_video }}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7">
+          {{ content.body }}
+        </div>
+        <div class="col-sm-5">
+          {{ content.field_video }}
+        </div>
+      </div>
+      {{ content|without('field_video','body') }}
     </div>
   </div>
-  {{ content|without('field_video','body') }}
 </div>

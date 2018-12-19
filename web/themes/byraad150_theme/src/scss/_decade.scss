@@ -10,7 +10,10 @@
       padding: $spacer*3 $spacer;
       text-align: center;
       font-family: $font-family-black;
-      font-size: $font-size-title-h2*2;
+      font-size: $font-size-title-h2;
+      @include media-breakpoint-up(sm){
+        font-size: $font-size-title-h2*2;
+      }
       color: $white;
       &-bg-image {
         position: absolute;
@@ -35,6 +38,12 @@
     &-label {
       padding: $spacer;
       color: $black;
+      h3 {
+        font-size: $font-size-title-h3/2;
+        @include media-breakpoint-up(sm){
+          font-size: $font-size-title-h3;
+        }
+      }
     }
     &-btn {
       margin-top: auto;

@@ -6422,17 +6422,19 @@ img {
   .navbar .nav-link {
     font-weight: 900;
     color: #222222;
-    transition: color .2s ease-in, opacity .2s ease-in; }
+    transition: color 0.2s ease-in , opacity 0.2s ease-in; }
+    @media (min-width: 576px) {
+      .navbar .nav-link {
+        padding-right: 2.5rem; } }
     .navbar .nav-link:hover {
       color: #009BDD;
-      transition: color 0.4s ease-out; }
+      transition: color 0.4s ease-in-out; }
       .navbar .nav-link:hover.active {
         color: #222222; }
-    .navbar .nav-link.active {
-      opacity: .65; }
-  @media (min-width: 768px) {
-    .navbar-expand-nav-link {
-      padding-right: 2.5rem; } }
+    .navbar .nav-link.is-active {
+      color: #009BDD;
+      opacity: .65;
+      transition: opacity 0.4s ease-in-out; }
 
 .hero {
   position: relative;
@@ -6463,10 +6465,9 @@ img {
     transition: background 0.2s ease-in; }
     @media (min-width: 576px) {
       .hero-text {
-        padding: 1rem 3rem; } }
+        padding: 1rem 0; } }
     .hero-text:hover {
       text-decoration: none;
-      background: #009BDD;
       transition: background 0.4s ease-in-out; }
       .hero-text:hover .hero-text-lead {
         text-decoration: underline; }
@@ -6602,7 +6603,6 @@ img {
       background-color: #009BDD;
       color: #ffffff;
       text-align: center;
-      visibility: hidden;
       margin-top: auto;
       transition: opacity 0.2s ease-in;
       transition: box-shadow 0.2s ease-in; }
@@ -6619,13 +6619,8 @@ img {
       outline: solid 0.25rem #009BDD;
       transition: outline 0.4s ease-in-out; }
     .poll-teaser-item:hover .poll-teaser-item-choice, .poll-teaser-item.is-active .poll-teaser-item-choice {
-      visibility: visible;
       opacity: 1;
       transition: opacity 0.4s ease-in-out; }
-    .poll-teaser-item.is-active .poll-teaser-item-choice-select {
-      display: none; }
-    .poll-teaser-item.is-active .poll-teaser-item-choice-chosen {
-      display: block; }
   .poll-teaser-btns {
     text-align: center;
     margin-top: 3rem; }
@@ -6649,7 +6644,7 @@ img {
   position: fixed;
   bottom: 0;
   left: 0;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0;
   width: 100%; }
   .poll .poll .vote-form {
     text-align: center; }
@@ -6791,8 +6786,11 @@ img {
     padding: 3rem 1rem;
     text-align: center;
     font-family: "Arial Black", Arial, sans-serif;
-    font-size: 4rem;
+    font-size: 2rem;
     color: #ffffff; }
+    @media (min-width: 576px) {
+      .decade-item-header {
+        font-size: 4rem; } }
     .decade-item-header-bg-image {
       position: absolute;
       top: 0;
@@ -6817,6 +6815,11 @@ img {
   .decade-item-label {
     padding: 1rem;
     color: #222222; }
+    .decade-item-label h3 {
+      font-size: 0.9rem; }
+      @media (min-width: 576px) {
+        .decade-item-label h3 {
+          font-size: 1.8rem; } }
   .decade-item-btn {
     margin-top: auto; }
   .decade-item:hover {

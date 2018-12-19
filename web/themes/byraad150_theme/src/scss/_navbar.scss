@@ -16,25 +16,21 @@
     &-link {
       font-weight: 900;
       color: $black;
-      transition: color .2s ease-in, opacity .2s ease-in;
+      @include transition(color opacity, in);
+      @include media-breakpoint-up(sm){
+        padding-right: $spacer*2.5;
+      }
       &:hover {
         color: $primary;
-        transition: color .4s ease-out,;
+        @include transition(color, out);
         &.active {
           color: $black;
         }
       }
-      &.active {
+      &.is-active {
+        color: $primary;
         opacity: .65;
-      }
-    }
-  }
-  &-expand {
-    &-nav {
-      &-link {
-        @include media-breakpoint-up(md){
-          padding-right: $spacer*2.5;
-        }
+        @include transition(opacity, out);
       }
     }
   }

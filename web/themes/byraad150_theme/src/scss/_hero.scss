@@ -25,12 +25,11 @@
     justify-content: center;
     padding: $spacer $spacer*2;
     @include media-breakpoint-up(sm) {
-      padding: $spacer $spacer*3;
+      padding: $spacer 0;
     }
     @include transition(background,in);
     &:hover {
       text-decoration: none;
-      background: $primary;
       @include transition(background,out);
       .hero-text-lead {
         text-decoration: underline;
