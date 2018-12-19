@@ -7,8 +7,8 @@
           // Remove previous poll-results.
           $('.js-poll-result').remove();
 
-          //Disable submit until a choice has been selected
-          $('.js-form-submit').prop('disabled', true);
+          // Disable submit until a choice has been selected
+          $('.poll .js-form-submit').prop('disabled', true);
 
           var choiceResults = $('.js-choice-result');
           var usersChoiceId = $('.choice-title[data-user-selected="1"]').text();
