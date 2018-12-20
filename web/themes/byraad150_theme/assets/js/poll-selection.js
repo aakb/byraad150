@@ -31,6 +31,8 @@
 
             var jsPollSelect =  parentContainer.find('.js-poll-select[data-entity-id="' + choiceId + '"]');
 
+            jsPollSelect.find('.poll-teaser-item-choice').hide();
+
             var usersChoice = '';
 
             if (choiceId === usersChoiceId) {
