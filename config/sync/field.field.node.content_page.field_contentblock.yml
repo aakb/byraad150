@@ -1,0 +1,23 @@
+uuid: 95779108-7110-4979-8288-e43605f7eefb
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contentblock
+    - node.type.content_page
+  module:
+    - bricks
+id: node.content_page.field_contentblock
+field_name: field_contentblock
+entity_type: node
+bundle: content_page
+label: Indholdsblok
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:bricks_content_block'
+  handler_settings: {  }
+field_type: bricks

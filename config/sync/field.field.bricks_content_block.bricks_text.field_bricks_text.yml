@@ -1,0 +1,21 @@
+uuid: 89cb97bd-79b7-450b-9102-f27520a0427b
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.bricks_content_block.bricks_text
+    - field.storage.bricks_content_block.field_bricks_text
+  module:
+    - text
+id: bricks_content_block.bricks_text.field_bricks_text
+field_name: field_bricks_text
+entity_type: bricks_content_block
+bundle: bricks_text
+label: Tekst
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
