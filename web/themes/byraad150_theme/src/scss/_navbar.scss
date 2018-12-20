@@ -3,7 +3,7 @@
 */
 
 .navbar {
-  height: $spacer*4;
+
   &-brand {
     height: 100%;
     margin-left: $spacer*2;
@@ -18,19 +18,32 @@
       color: $black;
       @include transition(color opacity, in);
       @include media-breakpoint-up(sm){
-        padding-right: $spacer*2.5;
+        padding-right: $spacer*2.5 !important;
+      }
+      &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: $spacer/4;
+        background-color: $primary;
+        opacity: 0;
+        @include transition(opacity, in);
       }
       &:hover {
         color: $primary;
         @include transition(color, out);
-        &.active {
-          color: $black;
+        &:after {
+          opacity: 1;
+          @include transition(opacity, out);
         }
       }
       &.is-active {
         color: $primary;
         opacity: .65;
         @include transition(opacity, out);
+        &:after {
+          opacity: 0;
+        }
       }
     }
   }
