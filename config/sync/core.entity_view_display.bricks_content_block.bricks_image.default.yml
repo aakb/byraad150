@@ -1,0 +1,26 @@
+uuid: 404be0e8-4e0d-4ba5-8d40-e7a0cac3b285
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.bricks_content_block.bricks_image
+    - field.field.bricks_content_block.bricks_image.field_bricks_image
+  module:
+    - image
+id: bricks_content_block.bricks_image.default
+targetEntityType: bricks_content_block
+bundle: bricks_image
+mode: default
+content:
+  field_bricks_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  langcode: true
+  title: true

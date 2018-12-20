@@ -1,0 +1,30 @@
+uuid: c324ecb2-85e3-410a-9b94-7c95bf246e5c
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+    - file
+    - image
+id: bricks_content_block.field_bricks_image
+field_name: field_bricks_image
+entity_type: bricks_content_block
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
