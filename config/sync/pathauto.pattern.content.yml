@@ -1,0 +1,23 @@
+uuid: 29ab1543-12af-48be-91c0-609f263cde2b
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: content
+label: Content
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  2fada53e-eac7-42f5-8500-902456fc0482:
+    id: node_type
+    bundles:
+      afstemning: afstemning
+      news_event: news_event
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 2fada53e-eac7-42f5-8500-902456fc0482
+selection_logic: and
+weight: -5
+relationships: {  }
