@@ -8,20 +8,25 @@
  * - image: A rendered image
  */
 #}
-<div class="container-fluid">
-  <div class="hero row">
-    <div class="hero-image">
-      {{ image }}
-    </div>
-    <div class="container">
-      <div class="row h-100">
-        <div class="col h-100">
-          <a href="{{ config.hero_link }}" class="hero-text h-100">
-            <h1 class="hero-text-title">{{ config.hero_title }}</h1>
-            <p class="hero-text-lead">{{ config.hero_text }}</p>
-          </a>
+<a href="{{ config.hero_link }}" class="hero">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="hero-image">
+        {{ image }}
+      </div>
+      <div class="container">
+        <div class="row mt-3 mt-sm-5 mb-3 mb-sm-5">
+          <div class="col-11">
+            <span class="hero-text d-block mt-3 mt-sm-5 mb-3 mb-sm-5">
+              <h1 class="hero-text-title">{{ config.hero_title }}</h1>
+              <p class="hero-text-lead">{{ config.hero_text }}</p>
+            </span>
+          </div>
         </div>
+      </div>
+      <div class="logo-byraad150">
+        <img src="/{{ directory }}/images/aarhusbyraad150.svg" alt="byraad150">
       </div>
     </div>
   </div>
-</div>
+</a>

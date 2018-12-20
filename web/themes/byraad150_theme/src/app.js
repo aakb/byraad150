@@ -10,4 +10,13 @@ import '../assets/js/poll-selection';
       });
     });
   });
+  $(document).scroll(function() {
+    if($(window).scrollTop() === 0) {
+      $("body").addClass('scrolltop');
+    } else {
+      $("body").removeClass('scrolltop');
+    }
+  });
 })(jQuery);
+
+

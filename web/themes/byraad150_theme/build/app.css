@@ -6399,11 +6399,28 @@ a.text-dark:hover, a.text-dark:focus {
 
 h1 {
   font-family: "Arial Black", Arial, sans-serif;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-size: 1.2rem; }
+  @media (min-width: 576px) {
+    h1 {
+      font-size: 2.4rem; } }
 
 img {
   max-width: 100%;
   height: auto; }
+
+.logo-byraad150 {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 5rem;
+  height: 50rem; }
+  @media (min-width: 576px) {
+    .logo-byraad150 {
+      top: 2rem;
+      right: 2rem;
+      width: 10rem;
+      height: 10rem; } }
 
 /*
 * Import component styling
@@ -6411,38 +6428,48 @@ img {
 /*
 * Navigation
 */
-.navbar {
-  height: 4rem; }
-  .navbar-brand {
-    height: 100%;
-    margin-left: 2rem;
-    margin-right: 2rem; }
-    .navbar-brand img {
-      height: 3rem; }
-  .navbar .nav-link {
-    font-weight: 900;
-    color: #222222;
-    transition: color 0.2s ease-in , opacity 0.2s ease-in; }
-    @media (min-width: 576px) {
-      .navbar .nav-link {
-        padding-right: 2.5rem; } }
-    .navbar .nav-link:hover {
-      color: #009BDD;
-      transition: color 0.4s ease-in-out; }
-      .navbar .nav-link:hover.active {
-        color: #222222; }
-    .navbar .nav-link.is-active {
-      color: #009BDD;
-      opacity: .65;
+.navbar-brand {
+  height: 100%;
+  margin-left: 2rem;
+  margin-right: 2rem; }
+  .navbar-brand img {
+    height: 3rem; }
+
+.navbar .nav-link {
+  font-weight: 900;
+  color: #222222;
+  transition: color 0.2s ease-in , opacity 0.2s ease-in; }
+  @media (min-width: 576px) {
+    .navbar .nav-link {
+      padding-right: 2.5rem !important; } }
+  .navbar .nav-link:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.25rem;
+    background-color: #009BDD;
+    opacity: 0;
+    transition: opacity 0.2s ease-in; }
+  .navbar .nav-link:hover {
+    color: #009BDD;
+    transition: color 0.4s ease-in-out; }
+    .navbar .nav-link:hover:after {
+      opacity: 1;
       transition: opacity 0.4s ease-in-out; }
+  .navbar .nav-link.is-active {
+    color: #009BDD;
+    opacity: .65;
+    transition: opacity 0.4s ease-in-out; }
+    .navbar .nav-link.is-active:after {
+      opacity: 0; }
 
 .hero {
+  display: block;
   position: relative;
   overflow: hidden;
   background-color: #009BDD; }
-  @media (min-width: 768px) {
-    .hero {
-      min-height: 25rem; } }
+  .hero:hover {
+    text-decoration: none; }
   .hero-image {
     width: 100%;
     height: 100%;
@@ -6460,17 +6487,7 @@ img {
     flex: 1 1 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 1rem 2rem;
-    transition: background 0.2s ease-in; }
-    @media (min-width: 576px) {
-      .hero-text {
-        padding: 1rem 0; } }
-    .hero-text:hover {
-      text-decoration: none;
-      transition: background 0.4s ease-in-out; }
-      .hero-text:hover .hero-text-lead {
-        text-decoration: underline; }
+    justify-content: center; }
     .hero-text-title, .hero-text-lead {
       position: relative;
       color: #ffffff;
@@ -6661,11 +6678,22 @@ img {
   margin: 1em 0; }
 
 .bg-image {
-  width: 100%;
-  height: 100%;
   position: absolute;
-  background-size: cover;
-  z-index: -1; }
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+  .bg-image img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    mix-blend-mode: multiply; }
+  .bg-image-container {
+    position: relative;
+    overflow: hidden; }
 
 .bg-primary {
   background-color: #009BDD; }
