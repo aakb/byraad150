@@ -36,7 +36,7 @@
             var usersChoice = '';
 
             if (choiceId === usersChoiceId) {
-              usersChoice = '<div class="poll-users-choice">' + Drupal.t("Your choice") + '</div>';
+              usersChoice = '<div class="poll-users-choice"><i class="fas fa-check-circle ml-3 mr-2"></i>' + Drupal.t("Your choice") + '</div>';
             }
 
             var element = $(
@@ -57,6 +57,8 @@
           else {
             // Remove all instances of is-active.
             $('.js-poll-select').removeClass('is-active');
+            // Remove previous animations
+            $('.js-form-submit').removeClass('animate pop');
 
             // Add is-active to selected element.
             $(this).addClass('is-active');
@@ -71,6 +73,10 @@
 
             // Remove disable on submit as a choice has been selected
             $('.js-form-submit').prop('disabled', false);
+
+            // Attract some attention to the vote btn.
+            $('body').addClass('voting');
+            $('.js-form-submit').addClass('animate pop');
           }
         });
 

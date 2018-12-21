@@ -87,22 +87,28 @@
     }
     &-item {
       $p: &; // Declare parent as a variable
+      position: relative;
       display: flex;
       flex-direction: column;
       box-sizing: content-box;
       @include transition(outline, in);
       outline: solid $spacer/4 transparent;
-      outline-offset: $spacer/4;
+      outline-offset: $spacer/8;
       margin-bottom: $spacer;
       border-radius: $spacer/8;
-      height: 100%;
       background-color: $gray-100;
+      margin-left: $spacer/4;
+      margin-right: $spacer/4;
+      flex: 0 1 calc(50% - #{$spacer/2});
+      @include media-breakpoint-up(sm) {
+        flex: 0 1 calc(20% - #{$spacer/2});
+      }
       &-title {
         h3 {
           font-size: $font-size-title-h3*.75;
           margin-top: $spacer;
           margin-right: $spacer;
-          margin-bottom: 0;
+          margin-bottom: $spacer;
           margin-left: $spacer;
         }
       }
@@ -121,6 +127,10 @@
         text-align: center;
         margin-top: auto;
         @include transition(box-shadow, in);
+      }
+      .poll-content {
+        display: none;
+        margin-top: auto;
       }
       &:hover {
         @include boxShadow;
@@ -166,13 +176,15 @@
     }
   }
   .poll {
-    background-color: $gray-100;
-    border-top: 1px solid $gray-300;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding: $spacer/2 0;
-    width: 100%;
+    .voting & {
+      background-color: $gray-100;
+      border-top: 1px solid $gray-300;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: $spacer/2 0;
+      width: 100%;
+    }
     .vote-form {
       text-align: center;
     }
@@ -198,8 +210,31 @@
 .poll-view-form {
   display: inline-block;
   vertical-align: bottom;
+  .voting & {
+    z-index: 1;
+    background-color: $gray-100;
+    border-top: 1px solid $gray-300;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: $spacer/2 0;
+    width: 100%;
+    .vote-form {
+      text-align: center;
+    }
+  }
 }
 
-.poll-result {
-  margin: 1em 0;
+// .poll-result {
+//   margin: 1em 0;
+// }
+
+.poll-content {
+  .is-locked & {
+    display: flex;
+  }
+}
+
+.progress {
+  height: 2.5rem;
 }

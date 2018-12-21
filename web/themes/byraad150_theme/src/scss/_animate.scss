@@ -34,3 +34,17 @@
     transform: scaleX(1)
   }
 }
+
+
+@keyframes pop{
+  50%  {transform: scale(1.2);}
+}
+
+.animate {
+  &.grow-right{
+    animation: growRight 0.3s linear 1;
+  }
+  &.pop{
+    animation: pop 0.3s linear 1;
+  }
+}
