@@ -6621,23 +6621,20 @@ img {
       color: #ffffff;
       text-align: center;
       margin-top: auto;
-      transition: opacity 0.2s ease-in;
       transition: box-shadow 0.2s ease-in; }
-      @media (min-width: 576px) {
-        .poll-teaser-item-choice {
-          opacity: 0; } }
-      .poll-teaser-item-choice-chosen {
-        display: none; }
     .poll-teaser-item:hover {
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.16);
       transition: box-shadow 0.4s ease-in-out;
       cursor: pointer; }
+      .poll-teaser-item:hover .poll-content-choose {
+        background-color: #0077aa;
+        border-color: #0077aa; }
     .poll-teaser-item.is-active {
-      outline: solid 0.25rem #009BDD;
+      outline: solid 0.25rem #0077aa;
       transition: outline 0.4s ease-in-out; }
-    .poll-teaser-item:hover .poll-teaser-item-choice, .poll-teaser-item.is-active .poll-teaser-item-choice {
-      opacity: 1;
-      transition: opacity 0.4s ease-in-out; }
+      .poll-teaser-item.is-active .poll-content-choose {
+        background-color: #0077aa;
+        border-color: #0077aa; }
   .poll-teaser-btns {
     text-align: center;
     margin-top: 3rem; }

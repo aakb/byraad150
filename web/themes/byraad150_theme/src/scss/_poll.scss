@@ -118,27 +118,24 @@
         background-color: $primary;
         color: $white;
         text-align: center;
-        @include media-breakpoint-up(sm) {
-          opacity: 0;
-        }
         margin-top: auto;
-        @include transition(opacity, in);
         @include transition(box-shadow, in);
-        &-chosen {
-          display: none;
-        }
       }
       &:hover {
         @include boxShadow;
         cursor: pointer;
+        .poll-content-choose {
+          background-color: darken($primary, 10%);
+          border-color: darken($primary, 10%);
+        }
       }
       &.is-active {
-        outline: solid $spacer/4 $primary;
+        outline: solid $spacer/4 darken($primary, 10%);
         @include transition(outline, out);
-      }
-      &:hover #{$p}-choice, &.is-active #{$p}-choice {
-        opacity: 1;
-        @include transition(opacity, out);
+        .poll-content-choose {
+          background-color: darken($primary, 10%);
+          border-color: darken($primary, 10%);
+        }
       }
     }
     &-btns {
