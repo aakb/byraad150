@@ -13,47 +13,23 @@
  */
 #}
 
-<div class="footer">
+<div class="footer bg-gray-900">
   <div class="container">
-    <div class="row mt-5 mb-5">
-      <div class="col-md-3 mb-3">
-        {% if (custom_config_exists) %}
-          {% if (footer_text) %}
-              {{ footer_text|raw }}
-          {% endif %}
-        {% endif %}
+    <div class="row pt-5 pb-5 justify-content-center">
+      <div class="col-12 mt-3 mb-3">
+        <p class="text-white text-center">{{ 'This page is developed in collaboration with Aarhus Kultur og Borgerservice and Aarhus Stadsarkiv'|t }}</p>
       </div>
-      <div class="col-md-6 mb-3">
-        <div class="row">
-          <div class="col">
-            {% if (custom_config_exists) %}
-              {% if (footer_second) %}
-                {{ footer_second|raw }}
-              {% endif %}
-            {% endif %}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            {% if (custom_config_exists) %}
-              {% if (custom_config_exists) %}
-                {% if (footer_third) %}
-                  {{ footer_third|raw }}
-                {% endif %}
-              {% endif %}
-            {% endif %}
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-3">
-        {% if (custom_config_exists) %}
-          {% if (footer_forth) %}
-            {{ footer_forth|raw }}
-          {% endif %}
-        {% endif %}
-        {% if content %}
-          {{ content }}
-        {% endif %}
+      <div class="col-6 col-sm-auto"><a class="nav-link" href="https://aarhus.dk"><img src="/{{ directory }}/images/aak_kb_logo_negative.svg" alt="Aarhus Kommune Kutur og Borgerservice"></a></div>
+      <div class="col-6 col-sm-auto"><a class="nav-link" href="https://stadsarkiv.aarhus.dk/"><img src="/{{ directory }}/images/as_logo_white_51x187.png" alt="Aarhus Stadsarkiv"></a></div>
+      <div class="col-12 mt-3 mb-3">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link" href="https://aarhus.dk">aarhus.dk</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://stadsarkiv.aarhus.dk/">stadsarkiv.aarhus.dk</a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

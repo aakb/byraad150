@@ -71,13 +71,15 @@
  */
 #}
 <div class="container-fluid poll">
-  <div class="row bg-primary poll-title mb-3">
+  <div class="row bg-primary poll-title mb-3 mb-sm-5 bg-image-container">
+    <div class="bg-image">
+      {% if content.field_candidates[0]['#decade_poll'].field_candidate_image.entity.uri.value %}
+          <img src="{{ file_url(content.field_candidates[0]['#decade_poll'].field_candidate_image.entity.uri.value) }}" alt="">
+      {% endif %}
+    </div>
     <div class="container">
-      <div class="row">
-        <div class="poll-title-bg-image">
-          {{ content.field_image[0] }}
-        </div>
-        <div class="col-sm-12 mt-5 mb-5 text-white">
+      <div class="row ">
+        <div class="col-sm-12 mt-3 mb-3 mt-sm-5 mb-sm-5 text-white">
           {{ title_prefix }}
             <h1 class="underline"{{ title_attributes }}>
               {{ label[0] }}
@@ -85,6 +87,9 @@
           {{ title_suffix }}
         </div>
       </div>
+    </div>
+    <div class="logo-byraad150">
+      <img src="/{{ directory }}/images/aarhusbyraad150.svg" alt="byraad150">
     </div>
   </div>
   <div class="row">

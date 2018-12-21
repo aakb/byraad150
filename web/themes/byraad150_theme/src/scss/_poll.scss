@@ -5,14 +5,15 @@
     display: none;
   }
   &-candidate {
-    @include sectionSpacing(bottom, padding);
-    @include transition(background-color, in);
+    @include sectionSpacing(bottom, margin);
+    @include transition(padding background-color, in);
     &-title {
       margin-bottom: $spacer*1.5;
     }
     &.is-active {
       background-color: lighten($blue-light,10%);
-      @include transition(background-color, out);
+      @include sectionSpacing(top right bottom left, padding);
+      @include transition(padding background-color, out);
     }
   }
   &-content {
@@ -86,22 +87,28 @@
     }
     &-item {
       $p: &; // Declare parent as a variable
+      position: relative;
       display: flex;
       flex-direction: column;
       box-sizing: content-box;
       @include transition(outline, in);
       outline: solid $spacer/4 transparent;
-      outline-offset: $spacer/4;
+      outline-offset: $spacer/8;
       margin-bottom: $spacer;
       border-radius: $spacer/8;
-      height: 100%;
       background-color: $gray-100;
+      margin-left: $spacer/4;
+      margin-right: $spacer/4;
+      flex: 0 1 calc(50% - #{$spacer/2});
+      @include media-breakpoint-up(sm) {
+        flex: 0 1 calc(20% - #{$spacer/2});
+      }
       &-title {
         h3 {
           font-size: $font-size-title-h3*.75;
           margin-top: $spacer;
           margin-right: $spacer;
-          margin-bottom: 0;
+          margin-bottom: $spacer;
           margin-left: $spacer;
         }
       }
@@ -115,30 +122,35 @@
         }
       }
       &-choice {
-        background-color: $primary;
+        background-color: $orange;
         color: $white;
         text-align: center;
-        @include media-breakpoint-up(sm) {
-          opacity: 0;
-        }
         margin-top: auto;
-        @include transition(opacity, in);
         @include transition(box-shadow, in);
-        &-chosen {
-          display: none;
-        }
+      }
+      .poll-content {
+        display: none;
+        margin-top: auto;
       }
       &:hover {
         @include boxShadow;
         cursor: pointer;
+        .poll-content-choose {
+          background-color: darken($orange, 10%);
+          border-color: darken($orange, 10%);
+        }
+        .year-splash-year {
+          transform: scale(1.15);
+          @include transition(transform, out);
+        }
       }
       &.is-active {
-        outline: solid $spacer/4 $primary;
+        outline: solid $spacer/4 darken($orange, 10%);
         @include transition(outline, out);
-      }
-      &:hover #{$p}-choice, &.is-active #{$p}-choice {
-        opacity: 1;
-        @include transition(opacity, out);
+        .poll-content-choose {
+          background-color: darken($orange, 10%);
+          border-color: darken($orange, 10%);
+        }
       }
     }
     &-btns {
@@ -152,7 +164,7 @@
       margin-bottom: $spacer*2;
     }
     &-years {
-      color: $primary;
+      color: $orange;
       .is-active {
         font-size: $font-size-lead;
         font-weight: bold;
@@ -164,6 +176,43 @@
     }
   }
   .poll {
+    .voting & {
+      background-color: $gray-100;
+      border-top: 1px solid $gray-300;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: $spacer/2 0;
+      width: 100%;
+    }
+    .vote-form {
+      text-align: center;
+    }
+    input.form-submit {
+      @extend .btn;
+      @extend .btn-lg;
+      @extend .btn-secondary;
+    }
+  }
+}
+
+// Have the poll vote btn look like other btns
+.poll-teaser-btns {
+  .button--primary {
+    @extend .btn;
+    @extend .btn-lg;
+    @extend .btn-secondary;
+
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.poll-view-form {
+  display: inline-block;
+  vertical-align: bottom;
+  .voting & {
+    z-index: 1;
     background-color: $gray-100;
     border-top: 1px solid $gray-300;
     position: fixed;
@@ -174,30 +223,19 @@
     .vote-form {
       text-align: center;
     }
-    input.form-submit {
-      @extend .btn;
-      @extend .btn-primary;
-    }
   }
 }
 
-// Have the poll vote btn look like other btns
-.poll-teaser-btns {
-  .button--primary {
-    @extend .btn;
-    @extend .btn-lg;
-    @extend .btn-primary;
+// .poll-result {
+//   margin: 1em 0;
+// }
 
-    display: block;
-    margin: 0 auto;
+.poll-content {
+  .is-locked & {
+    display: flex;
   }
 }
 
-.poll-view-form {
-  display: inline-block;
-  vertical-align: bottom;
-}
-
-.poll-result {
-  margin: 1em 0;
+.progress {
+  height: 2.5rem;
 }
