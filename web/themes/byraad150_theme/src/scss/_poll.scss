@@ -5,14 +5,15 @@
     display: none;
   }
   &-candidate {
-    @include sectionSpacing(bottom, padding);
-    @include transition(background-color, in);
+    @include sectionSpacing(bottom, margin);
+    @include transition(padding background-color, in);
     &-title {
       margin-bottom: $spacer*1.5;
     }
     &.is-active {
       background-color: lighten($blue-light,10%);
-      @include transition(background-color, out);
+      @include sectionSpacing(top right bottom left, padding);
+      @include transition(padding background-color, out);
     }
   }
   &-content {
@@ -127,6 +128,10 @@
         .poll-content-choose {
           background-color: darken($primary, 10%);
           border-color: darken($primary, 10%);
+        }
+        .year-splash-year {
+          transform: scale(1.15);
+          @include transition(transform, out);
         }
       }
       &.is-active {

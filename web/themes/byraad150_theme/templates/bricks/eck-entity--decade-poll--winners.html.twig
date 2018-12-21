@@ -28,7 +28,10 @@
   <div class="col-sm-12 col-md-6 col-lg-4">
     <div class="poll-content-image">
       <div class="year-splash">
-        <span>{{ content.field_candidate_year[0] }}</span>
+        <div class="year-splash-bg"></div>
+        <div class="year-splash-year">
+          {{ content.field_candidate_year[0] }}
+        </div>
       </div>
       {{ content.field_candidate_image }}
       <span class="poll-content-image-text"><i class="fas fa-camera"></i> {{ content.field_candidate_image_text[0] }}</span>
