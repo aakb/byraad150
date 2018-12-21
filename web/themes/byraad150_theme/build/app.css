@@ -6750,6 +6750,9 @@ img {
 .bg-gray-100 {
   background-color: #f1f1f1; }
 
+.bg-gray-900 {
+  background-color: #333333; }
+
 .bg-blue {
   background-color: #009BDD; }
   .bg-blue-light {
