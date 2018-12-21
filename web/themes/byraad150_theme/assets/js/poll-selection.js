@@ -3,6 +3,16 @@
   Drupal.behaviors.pollSelection = {
     attach: function (context, settings) {
       $(document).ready(function () {
+        // Sort candidates if there is a winner, so winner ends up on top of list.
+        if ($('.js-poll-select[data-winner="1"]').length > 0) {
+          $(".poll-candidates .js-poll-select").sort(function sort_li(a, b) {
+            return ($(b).data('winner')) > ($(a).data('winner')) ? 1 : -1;
+          }).appendTo('.poll-candidates');
+        }
+
+        // Show elements.
+        $('.js-poll-select').removeClass('is-hidden');
+
         function setResults() {
           // Remove previous poll-results.
           $('.js-poll-result').remove();
@@ -40,9 +50,11 @@
             }
 
             var element = $(
-              '<div class="poll-result js-poll-result">' + usersChoice + '<div class="progress">' +
-              '  <div class="progress-bar" role="progressbar" style="width: ' + resultPercentage + '" aria-valuenow="' + result + '" aria-valuemin="0" aria-valuemax="100">' + resultPercentage + '</div>' +
-              '</div></div>'
+              '<div class="poll-result js-poll-result">' + usersChoice +
+              '<div class="progress">' +
+              '<div class="progress-bar" role="progressbar" style="width:' + resultPercentage + '" aria-valuenow="' + result + '" aria-valuemin="0" aria-valuemax="100">' + resultPercentage + '</div>' +
+              '</div>' +
+              '</div>'
             );
 
             jsPollSelect.find('.poll-content').append(element);

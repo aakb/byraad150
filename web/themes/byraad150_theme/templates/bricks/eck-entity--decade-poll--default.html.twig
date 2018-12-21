@@ -21,7 +21,9 @@
  */
 #}
 
-<div class="row poll-candidate js-poll-select js-poll-decade-{{ decade }}" data-decade="{{ decade }}" data-entity-id="{{ eck_entity.id() }}">
+{% set winner_class = (eck_entity.field_winner.value ? 'is-winner' : '') %}
+
+<div class="row poll-candidate js-poll-select is-hidden js-poll-decade-{{ decade }} {{ winner_class }}" data-winner="{{ eck_entity.field_winner.value }}" data-decade="{{ decade }}" data-entity-id="{{ eck_entity.id() }}">
   <div class="col-sm-12">
     <h2 class="poll-candidate-title">{{ content.title[0] }}</h2>
   </div>
@@ -41,5 +43,5 @@
     <button class="btn btn-lg btn-primary poll-content-choose js-poll-content-choose is-hidden"><span class="select">{{ 'Select this candidate'|t }}</span><span class="selected"><i class="fas fa-check"></i></span></button>
   </div>
 
-  {{ content|without('field_candidate_year','field_candidate_image_text', 'field_candidate_image', 'title', 'field_candidate_description') }}
+  {{ content|without('field_candidate_year','field_candidate_image_text','field_candidate_image','title','field_candidate_description','field_winner') }}
 </div>

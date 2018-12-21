@@ -101,7 +101,12 @@
           {% endif %}
         </div>
       </div>
-      {{ content|without('field_video','body','field_winner_video') }}
+
+      <div class="poll-candidates">
+        {{ content.field_candidates }}
+      </div>
+
+      {{ content|without('field_video','body','field_winner_video','field_candidates') }}
     </div>
   </div>
 </div>
