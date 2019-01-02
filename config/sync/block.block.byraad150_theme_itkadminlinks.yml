@@ -9,7 +9,7 @@ dependencies:
 id: byraad150_theme_itkadminlinks
 theme: byraad150_theme
 region: footer
-weight: -1
+weight: -2
 provider: null
 plugin: itk_admin_links
 settings:
