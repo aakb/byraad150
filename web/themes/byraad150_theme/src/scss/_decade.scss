@@ -1,4 +1,7 @@
 .decade {
+  &-title {
+    position: relative;
+  }
   &-item {
     display: flex;
     flex-direction: column;
@@ -32,6 +35,8 @@
       &-text {
         position: relative;
         transform: scale(1);
+        transform-origin: center center;
+        backface-visibility: hidden; // Added to prevent text jumping on hover
         @include transition(transform, in);
       }
     }

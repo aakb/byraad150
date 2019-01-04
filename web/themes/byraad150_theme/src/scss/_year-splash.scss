@@ -32,7 +32,8 @@
     font-weight: 900;
     font-family: $font-family-black;
     @include transition(transform, in);
-    transform-origin: center;
+    transform-origin: center center;
+    backface-visibility: hidden; // Added to prevent text jumping on hover
     @include media-breakpoint-down(sm) {
       line-height: $spacer*3;
       font-size: $spacer;
