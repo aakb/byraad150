@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.decade_poll.winners
     - eck.eck_type.decade_poll.decade_poll_candidate
   module:
     - eck
@@ -60,7 +61,7 @@ display:
         type: 'entity:decade_poll'
         options:
           relationship: none
-          view_mode: default
+          view_mode: winners
       fields:
         title:
           table: decade_poll_field_data
@@ -176,7 +177,20 @@ display:
       title: 'Decade winners'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<div class="no-results">Ingen vindere endnu.</div>'
+            format: filtered_html
+          plugin_id: text
       relationships: {  }
       arguments: {  }
       display_extenders: {  }

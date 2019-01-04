@@ -70,14 +70,22 @@
  *   in different view modes.
  */
 #}
-<div class="container-fluid poll-teaser bg-gray-100">
+<div class="container-fluid poll-teaser">
   <div class="row">
-    <div class="col-sm-10 offset-sm-1 ">
-      <h2 class="poll-teaser-title">{{ label }}</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="poll-teaser-title">{{ label }}</h2>
+        </div>
+        {{ content|without('field_poll_ref') }}
+        <div class="col-sm-12 poll-teaser-btns">
+          <a class="btn btn-dark btn-lg mb-3 mb-sm-0"
+            href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+            {{ 'Read more about the candidates'|t }}
+          </a>
+          {{ content.field_poll_ref }}
+        </div>
+      </div>
     </div>
-    {{ content }}
   </div>
 </div>
-
-
-

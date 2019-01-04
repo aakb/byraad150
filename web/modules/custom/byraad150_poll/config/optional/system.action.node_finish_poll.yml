@@ -1,0 +1,10 @@
+status: true
+dependencies:
+  module:
+  - node
+  - poll
+id: node_finish_poll
+label: 'Finish poll'
+type: node
+plugin: finish_poll
+configuration: {  }

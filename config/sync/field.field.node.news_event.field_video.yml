@@ -1,0 +1,21 @@
+uuid: a8a287b3-4353-488b-a32f-04216eaa2f60
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video
+    - node.type.news_event
+  module:
+    - itk_azure_video
+id: node.news_event.field_video
+field_name: field_video
+entity_type: node
+bundle: news_event
+label: Video
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: itk_azure_video_field

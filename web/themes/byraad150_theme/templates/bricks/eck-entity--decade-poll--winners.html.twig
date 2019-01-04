@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display an ECK entity.
+ *
+ * Available variables:
+ * - eck_entity: The full ECK entity with limited access to object properties
+ *   and methods. Only "getter" methods (method names starting with "get",
+ *   "has", or "is") and a few common methods such as "id" and "label" are
+ *   available. Calling other methods (such as node.delete) will result in an
+ *   exception.
+ * - content: All ECK entity items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *
+ * @see template_preprocess_eck_entity()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div class="row poll-candidate" data-decade="{{ decade }}" data-entity-id="{{ eck_entity.id() }}">
+  <div class="col-sm-12">
+    <h3 class="poll-candidate-title">{{ content.title[0] }}</h3>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-4">
+    <div class="poll-content-image">
+      <div class="year-splash">
+        <div class="year-splash-bg"></div>
+        <div class="year-splash-year">
+          {{ content.field_candidate_year[0] }}
+        </div>
+      </div>
+      {{ content.field_candidate_image }}
+      <span class="poll-content-image-text"><i class="fas fa-camera"></i> {{ content.field_candidate_image_text[0] }}</span>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-8 poll-content">
+    {{ content.field_candidate_description }}
+
+    <button class="btn btn-sm btn-outline-secondary poll-content-expand"><i class="fas fa-angle-down"></i> <span class="more">{{ 'Show more'|t }}</span><span class="less">{{ 'Show less'|t }}</span></button>
+  </div>
+
+  {{ content|without('field_candidate_year','field_candidate_image_text', 'field_candidate_image', 'title', 'field_candidate_description') }}
+</div>

@@ -6,14 +6,11 @@
 
 
 /*
-* Import scss mixins
+* Import scss dependencys
 */
-@import "_mixins";
-
-/*
-* Import scss animations
-*/
-@import "_animate";
+@import "mixins";
+@import "animate";
+@import "utility";
 
 /*
 * Import component styling
@@ -23,3 +20,5 @@
 @import "poll";
 @import "background";
 @import "news";
+@import "year-splash";
+@import "decade";

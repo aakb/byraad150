@@ -1,0 +1,55 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+
+
+
+<div class="container-fluid decade">
+  <div class="row bg-primary decade-title mb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 mt-3 mb-3 mt-sm-5 mb-sm-5 text-white">
+          <h1 class="underline">
+          {% if title %}
+            {{ title }}
+          {% else %}
+            {{ 'Decades'|t }}
+          {% endif %}
+          </h1>
+        </div>
+      </div>
+      <div class="logo-byraad150">
+        <img src="/{{ directory }}/images/aarhusbyraad150.svg" alt="byraad150">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        {% for row in rows %}
+          {%
+            set row_classes = [
+              default_row_class ? 'col',
+            ]
+          %}
+          {{- row.content -}}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

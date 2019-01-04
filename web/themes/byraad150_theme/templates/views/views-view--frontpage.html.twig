@@ -33,7 +33,7 @@
 {%
   set classes = [
     dom_id ? 'js-view-dom-id-' ~ dom_id,
-    'container-fluid news-teaser'
+    'container-fluid news-teaser bg-gray-100'
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
@@ -50,12 +50,16 @@
   {{ exposed }}
   {{ attachment_before }}
   <div class="row">
-    <div class="col-sm-12">
-      <h2 class="news-teaser-title">{{ 'Latest news and events'|t }}</h2>
-    </div>
-    {{ rows }}
-    <div class="col-sm-12 news-teaser-btns">
-      <a href="/nyheder" class="btn btn-primary btn-lg">{{ 'View more news'|t }}</a>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="news-teaser-title">{{ 'Latest news and events'|t }}</h2>
+        </div>
+        {{ rows }}
+        <div class="col-sm-12 news-teaser-btns">
+          <a href="/nyheder-og-begivenheder" class="btn btn-primary btn-lg">{{ 'View more news'|t }}</a>
+        </div>
+      </div>
     </div>
   </div>
 

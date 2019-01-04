@@ -11,6 +11,8 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access polls'
   - 'flag promote'
   - 'unflag promote'
+  - 'view any decade_poll entities'
   - 'view the administration theme'

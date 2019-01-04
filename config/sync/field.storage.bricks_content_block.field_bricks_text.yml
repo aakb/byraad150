@@ -1,0 +1,19 @@
+uuid: e52b772b-c06e-4754-9518-e2acd4fc992d
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+    - text
+id: bricks_content_block.field_bricks_text
+field_name: field_bricks_text
+entity_type: bricks_content_block
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

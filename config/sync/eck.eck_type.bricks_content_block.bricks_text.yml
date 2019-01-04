@@ -1,0 +1,9 @@
+uuid: b478866f-0f93-403b-b053-c0e93964cdcc
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.bricks_content_block
+name: Tekst
+type: bricks_text
+description: 'Indsæt et tekst område'

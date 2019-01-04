@@ -3,36 +3,47 @@
 */
 
 .navbar {
-  height: $spacer*4;
+
   &-brand {
     height: 100%;
+    margin-left: $spacer*2;
+    margin-right: $spacer*2;
     img{
-      max-height: $spacer*5;
-      @include media-breakpoint-up(sm) {
-        max-height: $spacer*6;
-      }
-      @include media-breakpoint-up(md) {
-        max-height: $spacer*8;
-      }
-      @include media-breakpoint-up(lg) {
-        max-height: $spacer*10;
-      }
+      height: $spacer*3;
     }
   }
   .nav {
     &-link {
       font-weight: 900;
       color: $black;
-      transition: color .2s ease-in, opacity .2s ease-in;
+      @include transition(color opacity, in);
+      @include media-breakpoint-up(sm){
+        padding-right: $spacer*2.5 !important;
+      }
+      &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: $spacer/4;
+        background-color: $primary;
+        opacity: 0;
+        @include transition(opacity, in);
+      }
       &:hover {
         color: $primary;
-        transition: color .4s ease-out,;
-        &.active {
-          color: $black;
+        @include transition(color, out);
+        &:after {
+          opacity: 1;
+          @include transition(opacity, out);
         }
       }
-      &.active {
+      &.is-active {
+        color: $primary;
         opacity: .65;
+        @include transition(opacity, out);
+        &:after {
+          opacity: 0;
+        }
       }
     }
   }

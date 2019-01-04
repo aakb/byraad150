@@ -1,0 +1,32 @@
+uuid: 7bc1f78a-6448-417e-a437-9f0fae0ff725
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.bricks_content_block.bricks_text
+    - field.field.bricks_content_block.bricks_text.field_bricks_text
+  module:
+    - text
+id: bricks_content_block.bricks_text.default
+targetEntityType: bricks_content_block
+bundle: bricks_text
+mode: default
+content:
+  field_bricks_text:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

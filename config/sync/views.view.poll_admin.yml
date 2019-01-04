@@ -40,7 +40,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Udfør
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -61,12 +61,12 @@ display:
             last: 'last »'
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Antal elementer'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Forskydning
           quantity: 9
       style:
         type: table
@@ -212,7 +212,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Active
+          label: Aktiv
           exclude: false
           alter:
             alter_text: false
@@ -329,7 +329,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Created
+          label: Oprettet
           exclude: false
           alter:
             alter_text: false
@@ -433,7 +433,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Operations links'
+          label: Redigeringslinks
           exclude: false
           alter:
             alter_text: false
@@ -531,7 +531,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: 'True'
+            label: Sandt
             description: null
             use_operator: false
             operator: status_op
@@ -543,7 +543,7 @@ display:
               authenticated: authenticated
           is_grouped: true
           group_info:
-            label: Active
+            label: Aktiv
             description: ''
             identifier: status
             optional: true
@@ -554,11 +554,11 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: 'Yes'
+                title: Ja
                 operator: '='
                 value: '1'
               2:
-                title: 'No'
+                title: Nej
                 operator: '='
                 value: '0'
           entity_type: poll
@@ -595,7 +595,7 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Page
+    display_title: Side
     position: 1
     display_options:
       display_extenders: {  }

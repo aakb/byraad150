@@ -1,0 +1,10 @@
+uuid: ed3486fa-0212-45ad-8714-e0861526018c
+langcode: da
+status: true
+dependencies: {  }
+id: bricks_content_block
+label: Indholdsblok
+created: false
+changed: false
+uid: false
+title: true

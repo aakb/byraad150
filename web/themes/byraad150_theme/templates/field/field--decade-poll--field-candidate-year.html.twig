@@ -37,14 +37,14 @@
  */
 #}
 {%
-  set wrapper_classes = 'col-sm-4 col-md-4 col-lg-1 poll-winners-content-year bg-primary text-light pt-3 pb-3 text-center'
+  set wrapper_classes = ''
 %}
 
 <div{{ attributes.addClass(wrapper_classes) }}>
   {% if label_hidden %}
     {% if multiple %}
       {% for item in items %}
-        <h3>{{ item.content }}</h3>
+        {{ item.content }}
       {% endfor %}
     {% else %}
       {% for item in items %}

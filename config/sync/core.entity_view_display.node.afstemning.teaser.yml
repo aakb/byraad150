@@ -31,5 +31,8 @@ content:
     region: content
 hidden:
   field_candidates: true
+  field_decade: true
   field_poll_ref: true
+  field_video: true
+  field_winner_video: true
   langcode: true

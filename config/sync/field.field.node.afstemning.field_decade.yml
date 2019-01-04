@@ -1,0 +1,23 @@
+uuid: 786b00e6-1354-4340-abfc-7a9b8db8f594
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_decade
+    - node.type.afstemning
+id: node.afstemning.field_decade
+field_name: field_decade
+entity_type: node
+bundle: afstemning
+label: Årti
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1860
+  max: 2010
+  prefix: ''
+  suffix: ''
+field_type: integer

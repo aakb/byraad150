@@ -36,27 +36,8 @@
  * @see template_preprocess_field()
  */
 #}
-{%
-  set wrapper_classes = 'col-sm-4 col-md-12 col-lg-7'
-%}
-
-<div{{ attributes.addClass(wrapper_classes) }}>
-  <div class="poll-winners-content-description">
-    {% if label_hidden %}
-      {% if multiple %}
-        {% for item in items %}
-          {{ item.content }}
-        {% endfor %}
-      {% else %}
-        {% for item in items %}
-          {{ item.content }}
-        {% endfor %}
-      {% endif %}
-    {% else %}
-      {{ label }}
-      {% for item in items %}
-        {{ item.content }}
-      {% endfor %}
-    {% endif %}
-  </div>
+<div class="poll-content-description">
+  {% for item in items %}
+    {{ item.content }}
+  {% endfor %}
 </div>

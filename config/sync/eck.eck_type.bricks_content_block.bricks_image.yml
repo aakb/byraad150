@@ -1,0 +1,9 @@
+uuid: 499c9d93-e1ba-484c-ab4f-ca18fca66415
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.bricks_content_block
+name: Billede
+type: bricks_image
+description: 'Indsæt et billede'

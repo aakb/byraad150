@@ -1,4 +1,4 @@
-uuid: 5df956b4-9050-4a30-bf68-a06d1bc5f04f
+uuid: 29ab1543-12af-48be-91c0-609f263cde2b
 langcode: da
 status: true
 dependencies:
@@ -9,16 +9,15 @@ label: Content
 type: 'canonical_entities:node'
 pattern: '[node:title]'
 selection_criteria:
-  53332727-619a-46b9-a73f-364a90ee0b0e:
+  2fada53e-eac7-42f5-8500-902456fc0482:
     id: node_type
     bundles:
-      static_page: static_page
-      news: news
-      post: post
+      afstemning: afstemning
+      news_event: news_event
     negate: false
     context_mapping:
       node: node
-    uuid: 53332727-619a-46b9-a73f-364a90ee0b0e
+    uuid: 2fada53e-eac7-42f5-8500-902456fc0482
 selection_logic: and
 weight: -5
 relationships: {  }

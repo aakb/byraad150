@@ -36,7 +36,7 @@
  * @see template_preprocess_field()
  */
 #}
-<div class="col-sm-12 poll-teaser-btns js-poll">
+<span class="js-poll">
   {% if label_hidden %}
     {% if multiple %}
       {% for item in items %}
@@ -44,7 +44,6 @@
       {% endfor %}
     {% else %}
       {% for item in items %}
-        <button type="button" name="" id="" class="btn btn-primary btn-lg">Læs mere om kandidaterne</button>
         {{ item.content }}
       {% endfor %}
     {% endif %}
@@ -54,4 +53,4 @@
       {{ item.content }}
     {% endfor %}
   {% endif %}
-</div>
+</span>

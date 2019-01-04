@@ -1,0 +1,33 @@
+uuid: c9175118-ede4-4b02-8ee6-36ffa75a1238
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.bricks_content_block.bricks_image
+    - field.field.bricks_content_block.bricks_image.field_bricks_image
+    - image.style.thumbnail
+  module:
+    - image
+id: bricks_content_block.bricks_image.default
+targetEntityType: bricks_content_block
+bundle: bricks_image
+mode: default
+content:
+  field_bricks_image:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

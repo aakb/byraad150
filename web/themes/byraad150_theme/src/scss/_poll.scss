@@ -4,108 +4,204 @@
   .is-hidden {
     display: none;
   }
-
-  &-teaser {
-    @include sectionPadding;
+  &-candidate {
+    @include sectionSpacing(bottom, margin);
+    @include transition(padding background-color, in);
     &-title {
-      margin-bottom: $spacer*2;
+      margin-bottom: $spacer*1.5;
+    }
+    &.is-active {
+      background-color: lighten($blue-light,10%);
+      @include sectionSpacing(top right bottom left, padding);
+      @include transition(padding background-color, out);
+    }
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    &-image {
+      position: relative;
+      background-color: $gray-900;
+      color: $white;
+      img {
+        width: 100%;
+        height: auto;
+        max-width: none;
+      }
+      &-text {
+        margin: .5rem;
+        display: inline-block;
+      }
+    }
+    &-description {
+      overflow: hidden;
+      margin-bottom: $spacer;
+      max-height: $spacer*14;
+      @include transition(max-height, in);
+      .expand &{
+        @include transition(max-height, out);
+        max-height: 100%;
+      }
+    }
+    &-expand {
+      margin-bottom: $spacer;
+      i {
+        @include transition(transform, in);
+      }
+      .less {
+        display: none;
+      }
+      .expand & {
+        i{
+          @include transition(transform, out);
+          transform: rotate(180deg);
+        }
+        .less {
+          display: inline;
+        }
+        .more {
+          display: none;
+        }
+      }
+    }
+    &-choose {
+      margin-top: auto;
+      .selected {
+        display: none;
+      }
+      .is-active & {
+        .selected {
+          display: inline;
+        }
+        .select {
+          display: none;
+        }
+      }
+    }
+  }
+  &-teaser {
+    @include sectionSpacing(top bottom, margin);
+    &-title {
+      @include titleSpacing(top bottom, margin);
       text-align: center;
     }
     &-item {
       $p: &; // Declare parent as a variable
+      position: relative;
       display: flex;
       flex-direction: column;
       box-sizing: content-box;
       @include transition(outline, in);
       outline: solid $spacer/4 transparent;
-      outline-offset: $spacer/4;
+      outline-offset: $spacer/8;
       margin-bottom: $spacer;
       border-radius: $spacer/8;
+      background-color: $gray-100;
+      margin-left: $spacer/4;
+      margin-right: $spacer/4;
+      flex: 0 1 calc(50% - #{$spacer/2});
+      @include media-breakpoint-up(sm) {
+        flex: 0 1 calc(20% - #{$spacer/2});
+      }
       &-title {
         h3 {
           font-size: $font-size-title-h3*.75;
+          margin-top: $spacer;
+          margin-right: $spacer;
+          margin-bottom: $spacer;
+          margin-left: $spacer;
         }
       }
-      &-image {}
-      &-year {
-        background-color: $primary;
-        color: $white;
-        @include media-breakpoint-up(sm) {
-          width: 50%;
-          align-self: flex-end;
-          margin-top: -$spacer*.75;
-          margin-right: $spacer/2;
-          text-align: center;
-          border-radius: $spacer/8;
+      &-image {
+        &:after {
+          content: "";
+          background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); ;
+          display: block;
+          width: 100%;
+          height: 100%;
         }
       }
       &-choice {
-        background-color: $primary;
+        background-color: $orange;
         color: $white;
         text-align: center;
-        visibility: hidden;
-        opacity: 0;
-        border-radius: $spacer/8;
-        @include transition(opacity, in);
+        margin-top: auto;
+        @include transition(box-shadow, in);
       }
-      &:hover, &.is-active {
-        background-color: $white;
-        outline: solid $spacer/4 $primary;
+      .poll-content {
+        display: none;
+        margin-top: auto;
+      }
+      &:hover {
+        @include boxShadow;
+        cursor: pointer;
+        .poll-content-choose {
+          background-color: darken($orange, 10%);
+          border-color: darken($orange, 10%);
+        }
+        .year-splash-year {
+          transform: scale(1.15);
+          @include transition(transform, out);
+        }
+      }
+      &.is-active {
+        outline: solid $spacer/4 darken($orange, 10%);
         @include transition(outline, out);
-      }
-      &:hover #{$p}-choice, &.is-active #{$p}-choice {
-        visibility: visible;
-        opacity: 1;
-        @include transition(opacity, out);
+        .poll-content-choose {
+          background-color: darken($orange, 10%);
+          border-color: darken($orange, 10%);
+        }
       }
     }
     &-btns {
       text-align: center;
-      margin-top: $spacer;
-      margin-bottom: $spacer;
+      margin-top: $spacer*3;
     }
   }
   &-winners {
-    @include sectionPadding;
+    @include sectionSpacing(top, padding);
     &-title, &-years {
       margin-bottom: $spacer*2;
     }
     &-years {
+      color: $orange;
       .is-active {
         font-size: $font-size-lead;
         font-weight: bold;
+        color: $gray-900;
+      }
+      .is-inactive {
+        color: $gray-700;
       }
     }
-    &-content {
-      &-image {
-        background-color: $primary;
-        color: $white;
-        img {
-          width: 100%;
-          height: auto;
-          max-width: none;
-        }
-        span {
-          margin: .5rem;
-          display: inline-block;
-        }
-      }
-      &-year {
-        height: 100%;
-        .data {
-          font-size: $font-size-title-h3;
-          font-weight: 900;
-        }
-      }
+  }
+  .poll {
+    .voting & {
+      background-color: $gray-100;
+      border-top: 1px solid $gray-300;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: $spacer/2 0;
+      width: 100%;
+    }
+    .vote-form {
+      text-align: center;
+    }
+    input.form-submit {
+      @extend .btn;
+      @extend .btn-lg;
+      @extend .btn-secondary;
     }
   }
 }
 
+// Have the poll vote btn look like other btns
 .poll-teaser-btns {
   .button--primary {
     @extend .btn;
     @extend .btn-lg;
-    @extend .btn-primary;
+    @extend .btn-secondary;
 
     display: block;
     margin: 0 auto;
@@ -115,4 +211,31 @@
 .poll-view-form {
   display: inline-block;
   vertical-align: bottom;
+  .voting & {
+    z-index: 1;
+    background-color: $gray-100;
+    border-top: 1px solid $gray-300;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: $spacer/2 0;
+    width: 100%;
+    .vote-form {
+      text-align: center;
+    }
+  }
+}
+
+// .poll-result {
+//   margin: 1em 0;
+// }
+
+.poll-content {
+  .is-locked & {
+    display: flex;
+  }
+}
+
+.progress {
+  height: 2.5rem;
 }

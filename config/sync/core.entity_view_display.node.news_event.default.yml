@@ -7,10 +7,13 @@ dependencies:
     - field.field.node.news_event.field_description
     - field.field.node.news_event.field_image
     - field.field.node.news_event.field_link
+    - field.field.node.news_event.field_teaser
+    - field.field.node.news_event.field_video
     - node.type.news_event
   module:
     - datetime
     - image
+    - itk_azure_video
     - link
     - text
     - user
@@ -20,7 +23,7 @@ bundle: news_event
 mode: default
 content:
   field_date:
-    weight: 105
+    weight: 5
     label: hidden
     settings:
       format_type: medium
@@ -29,14 +32,14 @@ content:
     type: datetime_default
     region: content
   field_description:
-    weight: 102
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_image:
-    weight: 104
+    weight: 0
     label: hidden
     settings:
       image_style: ''
@@ -45,7 +48,7 @@ content:
     type: image
     region: content
   field_link:
-    weight: 103
+    weight: 4
     label: hidden
     settings:
       trim_length: 80
@@ -56,10 +59,22 @@ content:
     third_party_settings: {  }
     type: link
     region: content
+  field_video:
+    weight: 1
+    label: hidden
+    settings:
+      responsive: true
+      controls: true
+      muted: false
+      autoplay: false
+    third_party_settings: {  }
+    type: itk_azure_video_formatter
+    region: content
   links:
-    weight: 100
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_teaser: true
   langcode: true

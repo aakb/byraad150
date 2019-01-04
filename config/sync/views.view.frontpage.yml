@@ -148,7 +148,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'Nyheder og begivenheder'
+      title: Forside
       header: {  }
       footer: {  }
       empty: {  }
@@ -179,52 +179,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
-  page_2:
-    display_plugin: page
-    id: page_2
-    display_title: 'Page 2'
-    position: 2
-    display_options:
-      display_extenders: {  }
-      path: nyheder
-      pager:
-        type: full
-        options:
-          items_per_page: 24
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Forrige'
-            next: 'Næste ›'
-            first: '« Første'
-            last: 'Sidste »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-      defaults:
-        pager: false
-        use_more: false
-        use_more_always: false
-        use_more_text: false
-      use_more: false
-      use_more_always: true
-      use_more_text: more
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

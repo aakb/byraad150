@@ -1,0 +1,26 @@
+uuid: de51477e-e8af-470b-bbf9-568c0fe8e0ba
+langcode: da
+status: true
+dependencies:
+  module:
+    - aarhus_hero
+    - system
+  theme:
+    - byraad150_theme
+id: aarhusherovideo
+theme: byraad150_theme
+region: content
+weight: 0
+provider: null
+plugin: aarhus_hero_video
+settings:
+  id: aarhus_hero_video
+  label: 'Aarhus hero video'
+  provider: aarhus_hero
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

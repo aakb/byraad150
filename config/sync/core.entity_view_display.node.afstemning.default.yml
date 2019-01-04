@@ -5,10 +5,14 @@ dependencies:
   config:
     - field.field.node.afstemning.body
     - field.field.node.afstemning.field_candidates
+    - field.field.node.afstemning.field_decade
     - field.field.node.afstemning.field_poll_ref
+    - field.field.node.afstemning.field_video
+    - field.field.node.afstemning.field_winner_video
     - node.type.afstemning
   module:
     - bricks
+    - itk_azure_video
     - text
     - user
 id: node.afstemning.default
@@ -19,13 +23,13 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
   field_candidates:
     type: bricks_nested
-    weight: 2
+    weight: 3
     region: content
     label: hidden
     settings:
@@ -33,7 +37,7 @@ content:
       link: false
     third_party_settings: {  }
   field_poll_ref:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       view_mode: default
@@ -41,10 +45,33 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
-  links:
+  field_video:
     weight: 0
+    label: hidden
+    settings:
+      responsive: true
+      muted: false
+      autoplay: false
+      controls: true
+    third_party_settings: {  }
+    type: itk_azure_video_formatter
+    region: content
+  field_winner_video:
+    weight: 1
+    label: hidden
+    settings:
+      responsive: true
+      muted: false
+      autoplay: false
+      controls: true
+    third_party_settings: {  }
+    type: itk_azure_video_formatter
+    region: content
+  links:
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_decade: true
   langcode: true

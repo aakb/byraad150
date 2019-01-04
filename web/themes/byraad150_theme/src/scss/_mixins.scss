@@ -17,6 +17,8 @@
 }
 
 @mixin underline($color: $white, $size: $spacer*4) {
+  position: relative;
+  margin-bottom: $spacer;
   &:after {
     content: "";
     display: block;
@@ -33,16 +35,46 @@
   }
 }
 
-@mixin sectionPadding {
-  padding-top: $spacer*3;
-  padding-bottom: $spacer*3;
+@mixin sectionSpacing($position: top, $type: padding) {
+  @each $var in $position {
+    #{$type}-#{$var}: $spacer*3;
+  }
 }
-
+@mixin titleSpacing($position: top, $type: padding) {
+  @each $var in $position {
+    #{$type}-#{$var}: $spacer;
+  }
+}
 @mixin transition($property: all, $direction: in) {
+  $duration-in: .2s;
+  $method-in: ease-in;
+  $duration-out: .4s;
+  $method-out: ease-in-out;
+  $value: ();
   @if $direction == "in" {
-    transition: $property .2s ease-in;
+    @each $var in $property {
+      @if length($value) > 0 {
+        $value: append($value, unquote(",") #{$var} $duration-in $method-in);
+      }
+      @else {
+          $value: append($value, #{$var} $duration-in $method-in);
+      }
+    }
   }
   @else {
-    transition: $property .4s ease-out;
+    @each $var in $property {
+      @if length($value) > 0 {
+        $value: append($value, unquote(",") #{$var} $duration-out $method-out);
+      }
+      @else {
+          $value: append($value, #{$var} $duration-out $method-out);
+      }
+    }
   }
+  transition: $value;
+}
+
+@mixin boxShadow {
+  box-shadow: 0 0 $spacer rgba(0,0,0,.16);
+  @include transition(box-shadow, out)
 }

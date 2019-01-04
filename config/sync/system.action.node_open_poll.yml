@@ -1,0 +1,13 @@
+uuid: 80c96a5b-de0b-484c-ad89-958568f85bc2
+langcode: da
+status: true
+dependencies:
+  module:
+    - byraad150_poll
+_core:
+  default_config_hash: 4yDDbEzpJZxr5xOZBRMPrte17jRTIWW7kVsPA53kp40
+id: node_open_poll
+label: 'Open poll'
+type: node
+plugin: open_poll
+configuration: {  }
