@@ -14,5 +14,6 @@ permissions:
   - 'access polls'
   - 'flag promote'
   - 'unflag promote'
+  - 'view any bricks_content_block entities'
   - 'view any decade_poll entities'
   - 'view the administration theme'
