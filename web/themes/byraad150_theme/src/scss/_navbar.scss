@@ -6,8 +6,10 @@
 
   &-brand {
     height: 100%;
-    margin-left: $spacer*2;
     margin-right: $spacer*2;
+    @include media-breakpoint-up(sm){
+      margin-left: $spacer*2;
+    }
     img{
       height: $spacer*3;
     }
@@ -46,5 +48,8 @@
         }
       }
     }
+  }
+  &-toggler-icon {
+    line-height: 1.5;
   }
 }
