@@ -15,6 +15,18 @@
       @include sectionSpacing(top right bottom left, padding);
       @include transition(padding background-color, out);
     }
+    .winner-splash {
+      display: none;
+      background-color: $orange;
+      color: $white;
+    }
+    &.is-winner {
+      border: 2px solid $orange;
+      padding-bottom: $spacer;
+      .winner-splash {
+        display: block;
+      }
+    }
   }
   &-content {
     display: flex;
@@ -76,6 +88,9 @@
         .select {
           display: none;
         }
+      }
+      .is-locked & {
+        display: none;
       }
     }
   }

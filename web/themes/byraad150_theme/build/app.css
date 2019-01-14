@@ -6558,6 +6558,15 @@ img {
     padding-bottom: 3rem;
     padding-left: 3rem;
     transition: padding 0.4s ease-in-out , background-color 0.4s ease-in-out; }
+  .poll-candidate .winner-splash {
+    display: none;
+    background-color: #F65034;
+    color: #ffffff; }
+  .poll-candidate.is-winner {
+    border: 2px solid #F65034;
+    padding-bottom: 1rem; }
+    .poll-candidate.is-winner .winner-splash {
+      display: block; }
 
 .poll-content {
   display: flex;
@@ -6606,6 +6615,8 @@ img {
     .is-active .poll-content-choose .selected {
       display: inline; }
     .is-active .poll-content-choose .select {
+      display: none; }
+    .is-locked .poll-content-choose {
       display: none; }
 
 .poll-teaser {

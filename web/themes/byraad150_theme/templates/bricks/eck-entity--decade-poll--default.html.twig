@@ -24,6 +24,9 @@
 {% set winner_class = (eck_entity.field_winner.value ? 'is-winner' : '') %}
 
 <div class="row poll-candidate js-poll-select is-hidden js-poll-decade-{{ decade }} {{ winner_class }}" data-winner="{{ eck_entity.field_winner.value }}" data-decade="{{ decade }}" data-entity-id="{{ eck_entity.id() }}">
+  <div class="col-sm-12 winner-splash mb-3">
+    <p class="lead mt-1 mb-1">{{ 'Poll winner'|t }}</p>
+  </div>
   <div class="col-sm-12">
     <h2 class="poll-candidate-title">{{ content.title[0] }}</h2>
   </div>
