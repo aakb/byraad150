@@ -40,7 +40,7 @@
   <div class="col-sm-12 col-md-6 col-lg-8 poll-content">
     {{ content.field_candidate_description }}
 
-    <button class="btn btn-sm btn-outline-secondary poll-content-expand"><i class="fas fa-angle-down"></i> <span class="more">{{ 'Show more'|t }}</span><span class="less">{{ 'Show less'|t }}</span></button>
+    <button class="btn btn-sm btn-outline-dark poll-content-expand"><i class="fas fa-angle-down"></i> <span class="more">{{ 'Show more'|t }}</span><span class="less">{{ 'Show less'|t }}</span></button>
   </div>
 
   {{ content|without('field_candidate_year','field_candidate_image_text', 'field_candidate_image', 'title', 'field_candidate_description') }}
