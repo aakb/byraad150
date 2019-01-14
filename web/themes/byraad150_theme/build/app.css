@@ -6826,6 +6826,9 @@ img {
     margin-top: 1rem;
     margin-bottom: 1rem; }
 
+.news-image {
+  margin-bottom: 1rem; }
+
 .year-splash {
   position: absolute;
   margin: 0.5rem;
@@ -6857,12 +6860,17 @@ img {
     transition: -webkit-transform 0.2s ease-in;
     transition: transform 0.2s ease-in;
     transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
-    -webkit-transform-origin: center;
-            transform-origin: center; }
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden; }
     @media (max-width: 767.98px) {
       .year-splash-year {
         line-height: 3rem;
         font-size: 1rem; } }
+
+.decade-title {
+  position: relative; }
 
 .decade-item {
   display: flex;
@@ -6898,6 +6906,10 @@ img {
       position: relative;
       -webkit-transform: scale(1);
               transform: scale(1);
+      -webkit-transform-origin: center center;
+              transform-origin: center center;
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
       transition: -webkit-transform 0.2s ease-in;
       transition: transform 0.2s ease-in;
       transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in; }
