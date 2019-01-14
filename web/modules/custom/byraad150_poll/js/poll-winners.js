@@ -1,10 +1,7 @@
 (function ($, Drupal) {
   Drupal.behaviors.pollWinners = {
     attach: function (context, settings) {
-      // Hide all candidates.
-      $('.poll-candidate').hide();
-
-      var pollWinnerYears = $('.poll-winners-years .col');
+      var pollWinnerYears = $('.poll-winners-years .poll-winners-years--decade');
       pollWinnerYears.each(function () {
         $(this).addClass('is-inactive');
       });
@@ -28,12 +25,11 @@
         $(this).addClass('is-active');
 
         // Hide all decades.
-        $('.poll-candidate').hide('slow');
+        $('.poll-candidate').addClass('is-hidden');
 
         // Show clicked decade.
-        $('.poll-candidate[data-decade="' + decade + '"]').show('slow');
+        $('.poll-candidate[data-decade="' + decade + '"]').removeClass('is-hidden');
       }
-
 
       // Find latest registered decade winner.
       var latest = null;
@@ -45,12 +41,12 @@
         }
 
         // Add click listener and remove is-inactive class.
-        $('.poll-winners-years .col[data-year-show="' + decade + '"]').on('click', clickDecade).removeClass('is-inactive');
+        $('.poll-winners-years .poll-winners-years--decade[data-year-show="' + decade + '"]').on('click', clickDecade).removeClass('is-inactive');
       });
 
       // Show latest decade winner.
       if (latest !== null) {
-        $('.poll-winners-years .col[data-year-show="' + latest + '"]').click();
+        $('.poll-winners-years .poll-winners-years--decade[data-year-show="' + latest + '"]').click();
       }
     }
   }
