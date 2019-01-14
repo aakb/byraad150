@@ -1,4 +1,5 @@
 import './scss/app.scss';
+import 'popper.js/dist/umd/popper';
 import 'bootstrap/js/dist/carousel';
 import '../assets/js/poll-selection';
 
