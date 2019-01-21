@@ -27,11 +27,10 @@ img {
   top: $spacer;
   right: $spacer;
   width: $spacer*5;
-  height: $spacer*50;
+  height: auto;
   @include media-breakpoint-up(sm) {
     top: $spacer*2;
     right: $spacer*2;
     width: $spacer*10;
-    height: $spacer*10;
   }
 }

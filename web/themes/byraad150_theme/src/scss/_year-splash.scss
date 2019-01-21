@@ -10,6 +10,8 @@
   margin: $spacer/2;
   width: $spacer*4.5;
   height: $spacer*4.5;
+  top: 0;
+  left: 0;
   @include media-breakpoint-down(sm) {
     width: $spacer*3;
     height: $spacer*3;
@@ -17,7 +19,11 @@
   &-bg {
     @include borderRadius();
     background-color: $primary;
-    mix-blend-mode: multiply;
+    opacity: .8;
+    @supports (mix-blend-mode:multiply) {
+      opacity: 1;
+      mix-blend-mode: multiply;
+    }
     width: 100%;
     height: 100%;
     position: absolute;

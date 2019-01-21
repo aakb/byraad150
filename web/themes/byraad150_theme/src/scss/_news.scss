@@ -5,9 +5,15 @@
     &-bg-image {
       position: absolute;
       width: 100%;
-      mix-blend-mode: multiply;
-      object-fit: cover;
-      object-position: center;
+      opacity: .8;
+      @supports (mix-blend-mode:multiply) {
+        opacity: 1;
+        mix-blend-mode: multiply;
+      }
+      img {
+        object-fit: cover;
+        object-position: center center;
+      }
     }
   }
   &-teaser {
