@@ -16,12 +16,6 @@
       text-align: center;
       font-family: $font-family-black;
       font-size: $font-size-title-h2;
-      @include media-breakpoint-up(sm){
-        font-size: $font-size-title-h2/2;
-      }
-      @include media-breakpoint-up(md){
-        font-size: $font-size-title-h2;
-      }
       color: $white;
       &-bg-image {
         position: absolute;
