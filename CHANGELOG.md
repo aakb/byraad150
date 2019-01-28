@@ -1,5 +1,8 @@
 # Byraad150
 
+## 1.0.3
+* Templates fixes.
+
 ## 1.0.2
 * Fixed empty hero errors.
 
