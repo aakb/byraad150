@@ -14,7 +14,6 @@ dependencies:
     - datetime
     - image
     - itk_azure_video
-    - link
     - text
     - user
 id: node.news_event.default
@@ -23,16 +22,16 @@ bundle: news_event
 mode: default
 content:
   field_date:
-    weight: 5
-    label: hidden
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_description:
+    type: datetime_custom
     weight: 3
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      date_format: d-m-Y
+    third_party_settings: {  }
+  field_description:
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -47,18 +46,6 @@ content:
     third_party_settings: {  }
     type: image
     region: content
-  field_link:
-    weight: 4
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
   field_video:
     weight: 1
     label: hidden
@@ -70,11 +57,8 @@ content:
     third_party_settings: {  }
     type: itk_azure_video_formatter
     region: content
-  links:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
+  field_link: true
   field_teaser: true
   langcode: true
+  links: true

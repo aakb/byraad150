@@ -1,19 +1,21 @@
 .decade {
+  &-title {
+    position: relative;
+  }
   &-item {
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
     height: 100%;
     background-color: $gray-100;
     &-header {
+      display: flex;
       position: relative;
       background-color: $primary;
       padding: $spacer*3 $spacer;
       text-align: center;
       font-family: $font-family-black;
       font-size: $font-size-title-h2;
-      @include media-breakpoint-up(sm){
-        font-size: $font-size-title-h2*2;
-      }
       color: $white;
       &-bg-image {
         position: absolute;
@@ -26,26 +28,36 @@
           height: 100%;
           object-fit: cover;
           object-position: center;
-          mix-blend-mode: multiply;
+          opacity: .8;
+          @supports (mix-blend-mode:multiply) {
+            opacity: 1;
+            mix-blend-mode: multiply;
+          }
         }
       }
       &-text {
         position: relative;
         transform: scale(1);
+        transform-origin: center center;
+        backface-visibility: hidden; // Added to prevent text jumping on hover
         @include transition(transform, in);
+        text-align: center;
+        width: 100%;
       }
     }
     &-label {
       padding: $spacer;
       color: $black;
+      display: flex;
       h3 {
         font-size: $font-size-title-h3/2;
-        @include media-breakpoint-up(sm){
+        @include media-breakpoint-up(md){
           font-size: $font-size-title-h3;
         }
       }
     }
     &-btn {
+      display: flex;
       margin-top: auto;
     }
     &:hover {

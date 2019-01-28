@@ -13,17 +13,17 @@
  */
 #}
 {% if content %}
-<div class="container-fluid">
-  <div{{ attributes.addClass('row') }}>
-    <nav class="col navbar navbar-expand-sm bg-white">
-      <a class="navbar-brand" href="/"><img src="/{{ directory }}/logo.svg" alt="Aarhus Kommune Kutur og Borgerservice"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarPrimaryNavigation" aria-controls="navbarPrimaryNavigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarPrimaryNavigation">
-        {{ content }}
-      </div>
-    </nav>
-  </div>
-</div>
+  <nav class="navbar navbar-expand-lg bg-white">
+    <a class="navbar-brand" href="/"><img src="/{{ directory }}/logo.svg"
+                                          alt="Aarhus Kommune Kutur og Borgerservice"></a>
+    <button class="navbar-toggler" type="button"
+            data-toggle="collapse" data-target="#navbarPrimaryNavigation"
+            aria-controls="navbarPrimaryNavigation" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><i class="fas fa-bars fa-lg"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarPrimaryNavigation">
+      {{ content }}
+    </div>
+  </nav>
 {% endif %}

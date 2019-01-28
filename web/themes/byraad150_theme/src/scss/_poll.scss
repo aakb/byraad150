@@ -15,6 +15,18 @@
       @include sectionSpacing(top right bottom left, padding);
       @include transition(padding background-color, out);
     }
+    .winner-splash {
+      display: none;
+      background-color: $orange;
+      color: $white;
+    }
+    &.is-winner {
+      border: 2px solid $orange;
+      padding-bottom: $spacer;
+      .winner-splash {
+        display: block;
+      }
+    }
   }
   &-content {
     display: flex;
@@ -77,6 +89,9 @@
           display: none;
         }
       }
+      .is-locked & {
+        display: none;
+      }
     }
   }
   &-teaser {
@@ -99,10 +114,15 @@
       background-color: $gray-100;
       margin-left: $spacer/4;
       margin-right: $spacer/4;
-      flex: 0 1 calc(50% - #{$spacer/2});
+      flex-basis: calc(50% - #{$spacer/2});
+      flex-grow: 0;
+      flex-scrink: 1;
       @include media-breakpoint-up(sm) {
-        flex: 0 1 calc(20% - #{$spacer/2});
+        flex-basis: calc(20% - #{$spacer/2});
+        flex-grow: 0;
+        flex-scrink: 1;
       }
+
       &-title {
         h3 {
           font-size: $font-size-title-h3*.75;
@@ -110,15 +130,6 @@
           margin-right: $spacer;
           margin-bottom: $spacer;
           margin-left: $spacer;
-        }
-      }
-      &-image {
-        &:after {
-          content: "";
-          background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); ;
-          display: block;
-          width: 100%;
-          height: 100%;
         }
       }
       &-choice {

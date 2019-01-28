@@ -13,19 +13,12 @@ bundle: bricks_text
 mode: default
 content:
   field_bricks_text:
-    weight: 1
+    weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
-  title:
-    type: string
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
 hidden:
   langcode: true
+  title: true

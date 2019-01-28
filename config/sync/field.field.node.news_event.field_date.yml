@@ -11,7 +11,7 @@ id: node.news_event.field_date
 field_name: field_date
 entity_type: node
 bundle: news_event
-label: Dato
+label: Udgivet
 description: ''
 required: false
 translatable: false

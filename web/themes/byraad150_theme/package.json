@@ -9,6 +9,12 @@
         "build": "webpack --mode production",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
+    "browserslist": [
+      "last 2 versions",
+      "ios >= 8",
+      "IE 10-11",
+      "Android 4"
+    ],
     "devDependencies": {
         "autoprefixer": "^9.3.1",
         "babel-core": "^6.26.3",
@@ -22,6 +28,7 @@
         "mini-css-extract-plugin": "^0.4.4",
         "node-sass": "^4.9.4",
         "optimize-css-assets-webpack-plugin": "^5.0.1",
+        "popper.js": "^1.14.6",
         "postcss-loader": "^3.0.0",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.1",
