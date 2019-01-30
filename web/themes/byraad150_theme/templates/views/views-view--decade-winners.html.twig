@@ -46,6 +46,9 @@
         <div class="col-sm-12">
           <div class="row poll-winners-years">
             {% for i in range(1860, 2010, 10) %}
+              {% if i == 1860 %}
+                {% set i = 1869 %}
+              {% endif %}
               <div class="col-2 col-sm-auto poll-winners-years--decade" data-year-show="{{ i }}">
                 <span>{{ i }}</span>
               </div>
