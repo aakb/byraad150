@@ -17,11 +17,11 @@
     }
     .winner-splash {
       display: none;
-      background-color: $orange;
+      background-color: $secondary;
       color: $white;
     }
     &.is-winner {
-      border: 2px solid $orange;
+      border: 2px solid $secondary;
       padding-bottom: $spacer;
       .winner-splash {
         display: block;
@@ -133,7 +133,7 @@
         }
       }
       &-choice {
-        background-color: $orange;
+        background-color: $secondary;
         color: $white;
         text-align: center;
         margin-top: auto;
@@ -147,8 +147,8 @@
         @include boxShadow;
         cursor: pointer;
         .poll-content-choose {
-          background-color: darken($orange, 10%);
-          border-color: darken($orange, 10%);
+          background-color: darken($secondary, 10%);
+          border-color: darken($secondary, 10%);
         }
         .year-splash-year {
           transform: scale(1.15);
@@ -156,11 +156,11 @@
         }
       }
       &.is-active {
-        outline: solid $spacer/4 darken($orange, 10%);
+        outline: solid $spacer/4 darken($secondary, 10%);
         @include transition(outline, out);
         .poll-content-choose {
-          background-color: darken($orange, 10%);
-          border-color: darken($orange, 10%);
+          background-color: darken($secondary, 10%);
+          border-color: darken($secondary, 10%);
         }
       }
     }
@@ -175,7 +175,7 @@
       margin-bottom: $spacer*2;
     }
     &-years {
-      color: $orange;
+      color: $secondary;
       .is-active {
         font-size: $font-size-lead;
         font-weight: bold;
