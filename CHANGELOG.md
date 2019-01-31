@@ -1,5 +1,8 @@
 # Byraad150
 
+## 1.0.4
+* Various minor styling fixes.
+
 ## 1.0.3
 * Templates fixes.
 
