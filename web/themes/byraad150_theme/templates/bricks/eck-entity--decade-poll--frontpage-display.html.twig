@@ -25,14 +25,8 @@
     <div class="poll-teaser-item-image">
       {{ content.field_candidate_image }}
     </div>
-    <div class="poll-teaser-item-year year-splash">
-      <div class="year-splash-bg"></div>
-      <div class="year-splash-year">
-        {{ content.field_candidate_year[0] }}
-      </div>
-    </div>
     <div class="poll-teaser-item-title">
-      <h3>{{ content.title[0] }}</h3>
+      <h3>{{ content.field_candidate_year[0] }} - {{ content.title[0] }}</h3>
     </div>
     <div class="poll-teaser-item-choice">
       <button class="btn btn-lg btn-secondary btn-block poll-content-choose js-poll-content-choose is-hidden"><span class="select">{{ 'Select'|t }}</span><span class="selected"><i class="fas fa-check"></i></span></button>
