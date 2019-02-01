@@ -97,6 +97,15 @@ class AarhusHeroSettingsForm extends FormBase {
       '#open' => TRUE,
     );
 
+    $form['hero_video']['hero_video_fallback'] = array(
+      '#title' => $this->t('Hero video fallback'),
+      '#type' => 'textfield',
+      '#default_value' => $config->get('hero_video_fallback'),
+      '#weight' => '5',
+      '#maxlength' => 2048,
+      '#open' => TRUE,
+    );
+
     $form['hero_video']['hero_video_title'] = array(
       '#title' => $this->t('Hero video title'),
       '#type' => 'textfield',
@@ -146,6 +155,7 @@ class AarhusHeroSettingsForm extends FormBase {
       'hero_link' => $form_state->getValue('hero_link'),
       'hero_image'=> !empty($form_state->getValue('hero_image')[0]) ? $form_state->getValue('hero_image')[0] : NULL,
       'hero_video' => $form_state->getValue('hero_video'),
+      'hero_video_fallback' => $form_state->getValue('hero_video_fallback'),
       'hero_video_title' => $form_state->getValue('hero_video_title'),
       'hero_video_description' => $form_state->getValue('hero_video_description')
     ));
