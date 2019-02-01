@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "be442235c1901e12a73819bfb9073a70",
+    "content-hash": "d1df2633fb2917d64f1c2e154f4c0ddf",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2930,7 +2930,7 @@
             "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/itk-dev/siteimprove-d8.git",
+                "url": "git@github.com:itk-dev/siteimprove-d8.git",
                 "reference": "819bbfce0f71fa4d9577227276d2942947d4ae74"
             },
             "dist": {
@@ -3780,16 +3780,16 @@
         },
         {
             "name": "itk-dev/itk_azure_video",
-            "version": "1.0.5",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itk-dev/itk_azure_video.git",
-                "reference": "ffce420fb8271c8bddaf6dae9f34c33b7a584a26"
+                "reference": "54cee41873d956a575997d6da9a52d914bec1d8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itk-dev/itk_azure_video/zipball/ffce420fb8271c8bddaf6dae9f34c33b7a584a26",
-                "reference": "ffce420fb8271c8bddaf6dae9f34c33b7a584a26",
+                "url": "https://api.github.com/repos/itk-dev/itk_azure_video/zipball/54cee41873d956a575997d6da9a52d914bec1d8e",
+                "reference": "54cee41873d956a575997d6da9a52d914bec1d8e",
                 "shasum": ""
             },
             "type": "drupal-module",
@@ -3801,7 +3801,7 @@
             "keywords": [
                 "drupal"
             ],
-            "time": "2018-12-13T08:27:20+00:00"
+            "time": "2019-02-01T10:25:36+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
