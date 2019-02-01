@@ -38,7 +38,9 @@ class AarhusHeroVideo extends BlockBase {
 
       $classesString = implode(' ', $classes);
 
-      $fallback = $config['hero_video_fallback'];
+      if (isset($config['hero_video_fallback'])) {
+        $fallback = $config['hero_video_fallback'];
+      }
 
       $markup =
         '<div class="'.$classesString.'">' .
