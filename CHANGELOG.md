@@ -1,5 +1,9 @@
 # Byraad150
 
+## 1.1.1
+
+* Updated drupal core, better_exposed_filters, ctools.
+
 ## 1.1.0
 
 * Styling fixes.
