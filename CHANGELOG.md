@@ -1,5 +1,10 @@
 # Byraad150
 
+## 1.1.0
+
+* Styling fixes.
+* Added fallback video options.
+
 ## 1.0.4
 * Various minor styling fixes.
 
