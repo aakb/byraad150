@@ -38,9 +38,16 @@ class AarhusHeroVideo extends BlockBase {
 
       $classesString = implode(' ', $classes);
 
+      if (isset($config['hero_video_fallback'])) {
+        $fallback = $config['hero_video_fallback'];
+      }
+
       $markup =
         '<div class="'.$classesString.'">' .
-        '<video data-dashjs-player disablePictureInPicture controls src="'.$source.'"></video>' .
+        '<video data-dashjs-player disablePictureInPicture controls>' .
+          (isset($source) ? '<source src="'.$source.'" type="application/dash+xml">' : '') .
+          (isset($fallback) ? '<source src="'.$fallback.'" type="video/mp4">' : '') .
+        '</video>' .
         '</div>';
 
       $videoElement = [

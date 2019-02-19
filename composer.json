@@ -40,7 +40,7 @@
         "drupal/scheduler": "^1.0",
         "drupal/toolbar_visibility": "^1.2",
         "drush/drush": "^9.5",
-        "itk-dev/itk_azure_video": "^1.0.5",
+        "itk-dev/itk_azure_video": "~1.1",
         "vlucas/phpdotenv": "^2.4",
         "webmozart/path-util": "^2.3",
         "wikimedia/composer-merge-plugin": "^1.4"
