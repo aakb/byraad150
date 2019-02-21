@@ -1,5 +1,10 @@
 # Byraad150
 
+## 1.2.0
+
+* Updated modules.
+* Added system_status.
+
 ## 1.1.1
 
 * Updated drupal core, better_exposed_filters, ctools.
