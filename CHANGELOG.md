@@ -1,5 +1,9 @@
 # Byraad150
 
+## 1.2.1
+
+* Applied patch to allow multiple votes from same ip.
+
 ## 1.2.0
 
 * Updated modules.

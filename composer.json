@@ -87,7 +87,8 @@
         "enable-patching": true,
         "patches": {
             "drupal/poll": {
-                "Add information of vote cast in meter template": "https://www.drupal.org/files/issues/poll-2899927-2.patch"
+                "Add information of vote cast in meter template": "https://www.drupal.org/files/issues/poll-2899927-2.patch",
+                "Anonymous users - Multiple voting from one IP": "https://www.drupal.org/files/issues/poll_multiple-votes-same-ip-2909811-5.patch"
             },
             "drupal/bricks": {
                 "Fix deprecation warning": "https://www.drupal.org/files/issues/2018-10-30/3008553-deprecated-eck-entity-variable-%238.patch"
