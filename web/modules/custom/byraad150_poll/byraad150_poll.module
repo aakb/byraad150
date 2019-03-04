@@ -37,6 +37,13 @@ function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
         );
       }
 
+      // Make sure anonymous restrictions have been set for poll.
+      $poll = Poll::load($node->field_poll_ref->target_id);
+      if (isset($poll)) {
+        $poll->set('anonymous_vote_restrictions', 'cookie');
+        $poll->save();
+      }
+
       // Add candidates to poll.
       if (!empty($added_candidates)) {
         foreach ($added_candidates as $candidate) {
@@ -124,6 +131,7 @@ function byraad150_poll_node_presave(Drupal\Core\Entity\EntityInterface $node) {
         'question' => 'Poll:' . $node->label(),
         'anonymous_vote_allow' => '1',
         'result_vote_allow' => '0',
+        'anonymous_vote_restrictions' => 'cookie',
         'status' => '1',
         'choice' => [],
       ]);
