@@ -1,0 +1,39 @@
+diff --git a/src/Form/PollViewForm.php b/src/Form/PollViewForm.php
+index e4e10ba..e0af624 100644
+--- a/src/Form/PollViewForm.php
++++ b/src/Form/PollViewForm.php
+@@ -236,7 +236,6 @@ class PollViewForm extends FormBase implements BaseFormIdInterface {
+    * @return array $output
+    */
+   function showPollResults(PollInterface $poll, $view_mode = 'default', $block = FALSE) {
+-
+     // Ensure that a page that shows poll results can not be cached.
+     \Drupal::service('page_cache_kill_switch')->trigger();
+ 
+@@ -252,6 +251,8 @@ class PollViewForm extends FormBase implements BaseFormIdInterface {
+     $vote_storage = \Drupal::service('poll_vote.storage');
+     $user_vote = $vote_storage->getUserVote($poll);
+ 
++    $user_vote_chid = is_array($user_vote) ? $user_vote['chid'] : $user_vote;
++
+     foreach ($poll->getVotes() as $chid => $vote) {
+       $percentage = round($vote * 100 / max($total_votes, 1));
+       $display_votes = (!$block) ? ' (' . \Drupal::translation()
+@@ -265,7 +266,7 @@ class PollViewForm extends FormBase implements BaseFormIdInterface {
+         '#max' => $total_votes,
+         '#value' => $vote,
+         '#percentage' => $percentage,
+-        '#selected' => $user_vote !== FALSE && $user_vote['chid'] == $chid,
++        '#selected' => $user_vote !== FALSE && $user_vote_chid == $chid,
+         '#attributes' => array('class' => array('bar')),
+       );
+     }
+@@ -277,7 +278,7 @@ class PollViewForm extends FormBase implements BaseFormIdInterface {
+       '#votes' => $total_votes,
+       '#block' => $block,
+       '#pid' => $poll->id(),
+-      '#vote' => $user_vote !== FALSE ? $user_vote['chid'] : NULL,
++      '#vote' => $user_vote !== FALSE ? $user_vote_chid : NULL,
+     );
+ 
+     return $output;
