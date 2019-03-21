@@ -175,6 +175,7 @@
       margin-bottom: $spacer*2;
     }
     &-years {
+      cursor: pointer;
       color: $secondary;
       .is-active {
         font-size: $font-size-lead;
@@ -183,6 +184,7 @@
       }
       .is-inactive {
         color: $gray-700;
+        cursor: text;
       }
     }
   }
