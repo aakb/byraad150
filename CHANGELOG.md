@@ -1,5 +1,10 @@
 # Byraad150
 
+## 1.2.3
+
+* Updated drupal to 8.6.13.
+* Fixed pointer for decade winners.
+
 ## 1.2.2
 
 * Applied patch to patch from 1.2.1.
