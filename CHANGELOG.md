@@ -1,5 +1,8 @@
 # Byraad150
 
+## 1.2.4
+* SUPPORT-1988: Changed site mail
+
 ## 1.2.3
 
 * Updated drupal to 8.6.13.
