@@ -3,6 +3,15 @@
   Drupal.behaviors.pollSelection = {
     attach: function (context, settings) {
       $(document).ready(function () {
+
+        // Show/hide expanded description
+        $(".poll-content-expand").on('click', function(event) {
+          event.stopPropagation();
+          $(this).parent().toggleClass("expand");
+          console.log("Fisk");
+        });
+
+
         // Sort candidates if there is a winner, so winner ends up on top of list.
         if ($('.js-poll-select[data-winner="1"]').length > 0) {
           $(".poll-candidates .js-poll-select").sort(function sort_li(a, b) {
