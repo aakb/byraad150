@@ -8,7 +8,6 @@
         $(".poll-content-expand").on('click', function(event) {
           event.stopPropagation();
           $(this).parent().toggleClass("expand");
-          console.log("Fisk");
         });
 
 
