@@ -5,13 +5,6 @@ import 'bootstrap/js/dist/collapse';
 import '../assets/js/poll-selection';
 
 (function ($) {
-  $(function (context) {
-    $(".poll-content").each(function() {
-      $(".poll-content-expand").on('click', function() {
-        $(this).parent().toggleClass("expand");
-      });
-    });
-  });
   $(document).scroll(function() {
     if($(window).scrollTop() === 0) {
       $("body").addClass('scrolltop');
