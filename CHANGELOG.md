@@ -1,5 +1,11 @@
 # Byraad150
 
+## 1.2.6
+* SUPPORT-2031: Remove console.log
+
+## 1.2.5
+* SUPPORT-2031: Fix show/hide description
+
 ## 1.2.4
 * SUPPORT-1988: Changed site mail
 
