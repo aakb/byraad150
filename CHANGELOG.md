@@ -1,5 +1,9 @@
 # Byraad150
 
+## 1.2.7
+
+* SUPPORT-2035: Fixed max limit for field.
+
 ## 1.2.6
 * SUPPORT-2031: Remove console.log
 
