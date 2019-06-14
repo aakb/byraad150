@@ -17,7 +17,7 @@ default_value: {  }
 default_value_callback: ''
 settings:
   min: 1860
-  max: 2010
+  max: 2050
   prefix: ''
   suffix: ''
 field_type: integer
