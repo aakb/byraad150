@@ -2,6 +2,7 @@ module:
   aarhus_hero: 0
   better_exposed_filters: 0
   block: 0
+  block_content: 0
   breakpoint: 0
   bricks: 0
   byraad150_poll: 0

@@ -10,7 +10,7 @@ dependencies:
 id: aarhushero
 theme: byraad150_theme
 region: content
-weight: -3
+weight: -4
 provider: null
 plugin: aarhus_hero
 settings:

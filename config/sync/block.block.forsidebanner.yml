@@ -1,0 +1,31 @@
+uuid: 76624426-41a9-4877-bc09-b3635f0a66b4
+langcode: da
+status: true
+dependencies:
+  content:
+    - 'block_content:html_raw:9d9df05b-0218-45eb-8789-1f7d3cd33448'
+  module:
+    - block_content
+    - system
+  theme:
+    - byraad150_theme
+id: forsidebanner
+theme: byraad150_theme
+region: content
+weight: -3
+provider: null
+plugin: 'block_content:9d9df05b-0218-45eb-8789-1f7d3cd33448'
+settings:
+  id: 'block_content:9d9df05b-0218-45eb-8789-1f7d3cd33448'
+  label: 'Forside banner'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
