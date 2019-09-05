@@ -1,0 +1,23 @@
+uuid: 92301d87-c093-4120-b46c-a07fba7f88d0
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.html_raw
+    - field.field.block_content.html_raw.body
+  module:
+    - text
+id: block_content.html_raw.default
+targetEntityType: block_content
+bundle: html_raw
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

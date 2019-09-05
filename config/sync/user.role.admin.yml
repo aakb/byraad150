@@ -57,5 +57,6 @@ permissions:
   - 'schedule publishing of nodes'
   - 'translate interface'
   - 'use text format filtered_html'
+  - 'use text format html'
   - 'view any bricks_content_block entities'
   - 'view own unpublished content'
