@@ -1,9 +1,9 @@
-uuid: 76624426-41a9-4877-bc09-b3635f0a66b4
+uuid: 59111ed5-389c-4282-96ea-6a005422f3a5
 langcode: da
 status: true
 dependencies:
   content:
-    - 'block_content:html_raw:9d9df05b-0218-45eb-8789-1f7d3cd33448'
+    - 'block_content:html_raw:1ec1f289-1350-4dc2-a920-1705344554b7'
   module:
     - block_content
     - system
@@ -14,9 +14,9 @@ theme: byraad150_theme
 region: content
 weight: -3
 provider: null
-plugin: 'block_content:9d9df05b-0218-45eb-8789-1f7d3cd33448'
+plugin: 'block_content:1ec1f289-1350-4dc2-a920-1705344554b7'
 settings:
-  id: 'block_content:9d9df05b-0218-45eb-8789-1f7d3cd33448'
+  id: 'block_content:1ec1f289-1350-4dc2-a920-1705344554b7'
   label: 'Forside banner'
   provider: block_content
   label_display: '0'
